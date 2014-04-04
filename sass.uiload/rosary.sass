@@ -1,0 +1,45 @@
+@import basic
+
++keyframes(uil-rosary)
+  0%
+    opacity: 1
+    @include transform(translate(0,50px) rotate(0))
+  13%
+    opacity: 1
+    @include transform(translate(0,50px) rotate(45deg))
+  26%
+    opacity: 1
+    @include transform(translate(0,50px) rotate(90deg))
+  45%
+    opacity: 1
+    @include transform(translate(0,50px) rotate(135deg))
+  67%
+    opacity: 1
+    @include transform(translate(0,50px) rotate(180deg))
+  84%
+    opacity: 0.3
+    @include transform(translate(0,50px) rotate(270deg))
+  100%
+    opacity: 1
+    @include transform(translate(0,50px) rotate(360deg))
+
+.uil-rosary
+  position: absolute
+  & > div
+    @include animation(uil-rosary 1s linear infinite)
+    & > div
+      position: absolute
+      width: 16px
+      height: 16px
+      border-radius: 8px
+      background: #000
+
+@mixin uil-rosary-delay($i,$d)
+  .uil-rosary > div:nth-of-type(#{$i})
+    @include animation-delay($d)
+
+@include uil-rosary-delay(1,  0s)
+@include uil-rosary-delay(2,0.1s)
+@include uil-rosary-delay(3,0.2s)
+@include uil-rosary-delay(4,0.3s)
+@include uil-rosary-delay(5,0.4s)

@@ -23,6 +23,13 @@ angular.module \uiloading, <[]>
       '<div><div></div></div><div><div></div></div><div><div></div></div>' +
       '</div>'
     facebook: '<div class="uil-fb"><div></div><div></div><div></div></div>'
+    rosary: '<div class="uil-rosary">' + 
+      '<div><div></div></div>' +
+      '<div><div></div></div>' +
+      '<div><div></div></div>' +
+      '<div><div></div></div>' +
+      '<div><div></div></div>' +
+      '</div>'
 
   ..directive \uiload, (uiloadtype) -> do
     restrict: \E

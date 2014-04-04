@@ -8,7 +8,8 @@ x$.factory('uiloadtype', function(){
     reload: '<div class="uil-reload"></div>',
     pie: '<div class="uil-pie">' + '<div><div></div></div><div><div></div></div><div><div></div></div>' + '</div>',
     pacman: '<div class="uil-pacman">' + '<div><div></div></div><div><div></div></div><div><div></div></div>' + '</div>',
-    facebook: '<div class="uil-fb"><div></div><div></div><div></div></div>'
+    facebook: '<div class="uil-fb"><div></div><div></div><div></div></div>',
+    rosary: '<div class="uil-rosary">' + '<div><div></div></div>' + '<div><div></div></div>' + '<div><div></div></div>' + '<div><div></div></div>' + '<div><div></div></div>' + '</div>'
   };
 });
 x$.directive('uiload', function(uiloadtype){
