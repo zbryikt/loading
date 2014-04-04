@@ -1,15 +1,18 @@
 angular.module \uiloading, <[]>
   ..factory \uiloadtype, -> do
+    default:
+      '<div class="uil-def">' + 
+      '<div><div></div></div><div><div></div></div>' + 
+      '<div><div></div></div><div><div></div></div>' + 
+      '<div><div></div></div><div><div></div></div>' + 
+      '<div><div></div></div><div><div></div></div>' + 
+      '</div>'
     spin:
       '<div class="uil-spin">' + 
-      '<div><div></div></div>' + 
-      '<div><div></div></div>' + 
-      '<div><div></div></div>' + 
-      '<div><div></div></div>' + 
-      '<div><div></div></div>' + 
-      '<div><div></div></div>' + 
-      '<div><div></div></div>' + 
-      '<div><div></div></div>' + 
+      '<div><div></div></div><div><div></div></div>' + 
+      '<div><div></div></div><div><div></div></div>' + 
+      '<div><div></div></div><div><div></div></div>' + 
+      '<div><div></div></div><div><div></div></div>' + 
       '</div>'
     circle:
       '<div class="uil-circle">' + 
@@ -30,6 +33,7 @@ angular.module \uiloading, <[]>
       '<div><div></div></div>' +
       '<div><div></div></div>' +
       '</div>'
+    cube: '<div class="uil-cube"><div></div><div></div><div></div><div></div></div>'
 
   ..directive \uiload, (uiloadtype) -> do
     restrict: \E
