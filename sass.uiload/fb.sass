@@ -1,0 +1,29 @@
+@import basic
+
++keyframes(uil-fb)
+  0%
+    @include transform(scale(2))
+    opacity: 1.0
+  90%
+    @include transform(scale(1))
+    opacity: 0.5
+  100%
+    @include transform(scale(1))
+    opacity: 0.2
+.uil-fb > div
+  position: absolute
+  width: 20px
+  height: 60px
+  top: 20px
+  left: 10px
+  background: #999
+  @include animation(uil-fb 1.1s cubic-bezier(.01,.73,.28,.93) infinite)
+  &:nth-of-type(2)
+    left: 40px
+    background: #888
+    @include animation-delay(0.05s)
+  &:nth-of-type(3)
+    left: 70px
+    background: #777
+    @include animation-delay(0.1s)
+

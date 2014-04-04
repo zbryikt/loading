@@ -22,6 +22,7 @@ angular.module \uiloading, <[]>
     pacman: '<div class="uil-pacman">' +
       '<div><div></div></div><div><div></div></div><div><div></div></div>' +
       '</div>'
+    facebook: '<div class="uil-fb"><div></div><div></div><div></div></div>'
 
   ..directive \uiload, (uiloadtype) -> do
     restrict: \E
