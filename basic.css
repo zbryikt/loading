@@ -1,0 +1,10 @@
+uiload {
+  display: inline-block;
+  position: relative;
+  width: 100px;
+  height: 100px;
+  margin: 30px; }
+  uiload > div {
+    width: 100px;
+    height: 100px;
+    position: relative; }
