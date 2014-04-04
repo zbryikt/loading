@@ -11,7 +11,8 @@ x$.factory('uiloadtype', function(){
     pacman: '<div class="uil-pacman">' + '<div><div></div></div><div><div></div></div><div><div></div></div>' + '</div>',
     facebook: '<div class="uil-fb"><div></div><div></div><div></div></div>',
     rosary: '<div class="uil-rosary">' + '<div><div></div></div>' + '<div><div></div></div>' + '<div><div></div></div>' + '<div><div></div></div>' + '<div><div></div></div>' + '</div>',
-    cube: '<div class="uil-cube"><div></div><div></div><div></div><div></div></div>'
+    cube: '<div class="uil-cube"><div></div><div></div><div></div><div></div></div>',
+    stripe: '<div class="uil-stripe"></div>'
   };
 });
 x$.directive('uiload', function(uiloadtype){

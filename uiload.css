@@ -3690,3 +3690,48 @@ uiload {
   -webkit-animation-delay: 0.2s;
   -o-animation-delay: 0.2s;
   animation-delay: 0.2s; }
+
+@-webkit-keyframes uil-stripe {
+  0% {
+    background-position: 0 0; }
+
+  100% {
+    background-position: -40px 0; } }
+
+@-moz-keyframes uil-stripe {
+  0% {
+    background-position: 0 0; }
+
+  100% {
+    background-position: -40px 0; } }
+
+@-ms-keyframes uil-stripe {
+  0% {
+    background-position: 0 0; }
+
+  100% {
+    background-position: -40px 0; } }
+
+@keyframes uil-stripe {
+  0% {
+    background-position: 0 0; }
+
+  100% {
+    background-position: -40px 0; } }
+
+uiload[type="stripe"] {
+  overflow: hidden; }
+
+.uil-stripe {
+  width: 98px;
+  height: 30px;
+  top: 35px;
+  border: 1px solid black;
+  overflow: hidden;
+  -ms-animation: uil-stripe 1s linear infinite;
+  -moz-animation: uil-stripe 1s linear infinite;
+  -webkit-animation: uil-stripe 1s linear infinite;
+  -o-animation: uil-stripe 1s linear infinite;
+  animation: uil-stripe 1s linear infinite;
+  background-color: black;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAOdJREFUeNrM2FsKhDAMBdC4QnElzsxGxu3Oj04CFkTUvvK4gfubHlpaSGkrqx9n4pBiXpw1tzAh40qAobgcMBz3BLTAzbW4OyAM7goIhTsD4XBHICQuAWFxCQiLkz6DNFWsmfPlDAq9BPZB3bltf9QJ8lgTTgtohtMAmuJ6gea4HqDJhdACuuFagK64WqA7rgYYgisFhuFKgKG4HDAc9wSEwN0BYXBXQCjcGQiHOwIhcQkIi5PITLIqzRBSb86iOOOMhLpznFFGYkLGlX5ghuE0gKa4XqA5rgfogmsFuuFagK44qb8AAwCcpbeAujve6QAAAABJRU5ErkJggg==); }

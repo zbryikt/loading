@@ -34,6 +34,7 @@ angular.module \uiloading, <[]>
       '<div><div></div></div>' +
       '</div>'
     cube: '<div class="uil-cube"><div></div><div></div><div></div><div></div></div>'
+    stripe: '<div class="uil-stripe"></div>'
 
   ..directive \uiload, (uiloadtype) -> do
     restrict: \E
