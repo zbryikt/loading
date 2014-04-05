@@ -1,0 +1,16 @@
+@import basic
+
++keyframes(uil-inf)
+  0%
+    stroke-dashoffset: 0
+  100%
+    stroke-dashoffset: 10px
+
+svg.uil-inf
+  display: block
+  path
+    fill: none
+    stroke: #000
+    stroke-width: 1px
+    stroke-dasharray: 5px
+    @include animation(uil-dinf 2s linear infinite)

@@ -1,0 +1,18 @@
+@import basic
+
++keyframes(uil-wheel)
+  0%
+    stroke-dashoffset: 0
+  100%
+    stroke-dashoffset: 40px
+
+uiload[type="wheel"] > svg
+  display: block
+
+.uil-wheel
+  & > circle
+    fill: none
+    stroke: #444
+    stroke-width: 16px
+    stroke-dasharray: 5px
+    @include animation(uil-wheel 0.5s linear infinite)
