@@ -1,5 +1,6 @@
 angular.module \uiloading, <[]>
-  ..factory \uiloadtype, -> do
+  ..factory \uilSvg, -> 'width="100%" height="100%" viewBox="0 0 100 100"'
+  ..factory \uiloadtype, (uil-svg) -> do
     default:
       '<div class="uil-def">' + 
       '<div><div></div></div><div><div></div></div>' + 
@@ -35,8 +36,8 @@ angular.module \uiloading, <[]>
       '</div>'
     cube: '<div class="uil-cube"><div></div><div></div><div></div><div></div></div>'
     stripe: '<div class="uil-stripe"></div>'
-    wheel: '<svg class="uil-wheel"><circle cx="50px" cy="50px" r="35px"></svg>'
-    infinity: '<svg class="uil-inf">' +
+    wheel: "<svg class='uil-wheel' #{uil-svg}><circle cx='50px' cy='50px' r='35px'></svg>"
+    infinity: "<svg class='uil-inf' #{uil-svg}>" +
       '<path id="uil-inf-path" d="' +
       'M24.3,30C11.4,30,5,43.3,5,50s6.4,20,19.3,20c19.3,0,32.1-40,51.4-40' +
       'C88.6,30,95,43.3,95,50s-6.4,20-19.3,20C56.4,70,43.6,30,24.3,30z"/>' + 
@@ -61,7 +62,7 @@ angular.module \uiloading, <[]>
       '<mpath xlink:href="#uil-inf-path"/>' +
       '</animationMotion></circle>' +
       '</svg>'
-    dashinfinity: '<svg class="uil-dinf">' +
+    dashinfinity: "<svg class='uil-dinf' #{uil-svg}>" +
       '<path d="' +
        'M24.3,30C11.4,30,5,43.3,5,50s6.4,20,19.3,20c19.3,0,32.1-40,51.4-40' +
        'C88.6,30,95,43.3,95,50s-6.4,20-19.3,20C56.4,70,43.6,30,24.3,30z' +
