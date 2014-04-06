@@ -12,22 +12,13 @@
     <!-- custom files-->
     <link rel="stylesheet" type="text/css" href="uiload.css">
     <link rel="stylesheet" type="text/css" href="index.css">
-    <script type="text/javascript" src="uiload.js"></script>
+    <script type="text/javascript" src="require.js"></script>
+    <script type="text/javascript" src="html2canvas.js"></script>
+    <script type="text/javascript" src="gif.js"></script>
     <script type="text/javascript" src="index.js"></script>
   </head>
-  <body ng-app="main" ng-controller="main">hello world!
-    <uiload type="default"></uiload>
-    <uiload type="spin"></uiload>
-    <uiload type="circle"></uiload>
-    <uiload type="reload"></uiload>
-    <uiload type="pie"></uiload>
-    <uiload type="pacman"></uiload>
-    <uiload type="facebook"></uiload>
-    <uiload type="rosary"></uiload>
-    <uiload type="cube"></uiload>
-    <uiload type="stripe"></uiload>
-    <uiload type="wheel"></uiload>
-    <uiload type="dashinfinity"></uiload>
-    <uiload type="infinity"></uiload>
+  <body ng-controller="main">hello world!
+    <uiload type="default" js ng-model="a"></uiload>
+    <uiload type="default" ng-model="b"></uiload><img src="load.gif">
   </body>
 </html>

@@ -9,9 +9,6 @@ uiload {
     height: 100px;
     position: relative; }
 
-.uil-default {
-  background: yellow; }
-
 .uil-default > div {
   position: absolute;
   -ms-transform: translate(-6px, -12px);

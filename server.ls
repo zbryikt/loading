@@ -211,16 +211,34 @@ server = (req, res) ->
   res.end buf
 
 log = (error, stdout, stderr) -> if "#{stdout}\n#{stderr}".trim! => console.log that
-update-file = ->
-  [type,cmd] = [ftype(it), ""]
+timer = ls: null, sass: null
+build = (cmd) ->
+  console.log "[BUILD] #{cmd}"
+  child_process.exec cmd, log
+
+update-file = (fn) ->
+  [type,cmd] = [ftype(fn), ""]
   if type == \other => return
-  if type == \ls => cmd = "#{ls} -cb #{it}"
+  fn = path.resolve(fn.to-string!).replace cwd-re, ""
+  dir = path.dirname fn
+  if type == \ls => 
+    if fn.index-of(\src/)== 0 =>
+      name = dir.replace(/src\/?/, "")replace /\//,\.
+      cmd = "#{ls} -cbp #{fn} > static/js/#{name}.js"
+    else 
+      cmd = "#{ls} -cb #{fn}"
   if type == \sass =>
-    if it.index-of \sass.uiload == 0 => 
-      cmd = "#{sass} uiload.sass uiload.css"
+    if fn.index-of(\src/) == 0 => 
+      if timer.sass => clear-timeout timer.sass
+      timer.sass = set-timeout (-> build "#{sass} uiload.sass uiload.css"), 200
     else
-      cmd = "#{sass} #{it} #{it.replace /\.sass$/, \.css}"
-  if type == \jade => cmd = "#{jade} -P #{it}"
+      cmd = "#{sass} #{fn} #{fn.replace /\.sass$/, \.css}"
+  if type == \jade => 
+    if fn.index-of(\src/)==0 =>
+      name = dir.replace(/src\/?/, "")replace /\//,\.
+      cmd = "#{jade} -P < #{fn} > static/html/#{name}.html"
+    else
+      cmd = "#{jade} -P #{fn}"
   if cmd =>
     console.log "[BUILD] #{cmd}"
     child_process.exec cmd, log

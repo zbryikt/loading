@@ -1,0 +1,44 @@
+@import basic
+
+@mixin uil-default($id,$left,$top,$deg,$delay)
+  .uil-default > div:nth-of-type(#{$id})
+    top: #{$top}px
+    left: #{$left}px
+    & > div
+      @include transform(rotate(#{$deg}deg) translate(0,11px) scaleY(1))
+  .anim > .uil-default > div:nth-of-type(#{$id}) > div
+    @include animation(uil-default-#{$id} 1s linear 0s infinite)
+    @include animation-delay($delay)
+  +keyframes(uil-default-#{$id})
+    0%
+      opacity: 0.42
+    25%
+      opacity: 0.26
+    50%
+      opacity: 0.1
+    51%
+      opacity: 1.0
+    75%
+      opacity: 0.80
+    100%
+      opacity: 0.54
+
+.uil-default
+  background: #ff0
+.uil-default > div
+  position: absolute
+  @include transform(translate(-6px,-12px))
+  & > div
+    width: 12px
+    height: 24px
+    background: #0f0
+    border-radius: 10px 10px 5px 5px
+
+@include uil-default(1,50,0,0,0s)
+@include uil-default(2,85,15,45,0.125s)
+@include uil-default(3,100,50,90,0.25s)
+@include uil-default(4,85,85,135,0.375s)
+@include uil-default(5,50,100,180,0.5s)
+@include uil-default(6,15,85,225,0.625s)
+@include uil-default(7,0,50,270,0.75s)
+@include uil-default(8,15,15,315,0.875s)

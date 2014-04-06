@@ -4,29 +4,48 @@ x$ = angular.module('uiloading', []);
 x$.factory('uilSvg', function(){
   return 'width="100%" height="100%" viewBox="0 0 100 100"';
 });
-x$.factory('uiloadtype', function(uilSvg){
-  return {
-    'default': '<div class="uil-def">' + '<div><div></div></div><div><div></div></div>' + '<div><div></div></div><div><div></div></div>' + '<div><div></div></div><div><div></div></div>' + '<div><div></div></div><div><div></div></div>' + '</div>',
-    spin: '<div class="uil-spin">' + '<div><div></div></div><div><div></div></div>' + '<div><div></div></div><div><div></div></div>' + '<div><div></div></div><div><div></div></div>' + '<div><div></div></div><div><div></div></div>' + '</div>',
-    circle: '<div class="uil-circle">' + '<div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>' + '</div>',
-    reload: '<div class="uil-reload"></div>',
-    pie: '<div class="uil-pie">' + '<div><div></div></div><div><div></div></div><div><div></div></div>' + '</div>',
-    pacman: '<div class="uil-pacman">' + '<div><div></div></div><div><div></div></div><div><div></div></div>' + '</div>',
-    facebook: '<div class="uil-fb"><div></div><div></div><div></div></div>',
-    rosary: '<div class="uil-rosary">' + '<div><div></div></div>' + '<div><div></div></div>' + '<div><div></div></div>' + '<div><div></div></div>' + '<div><div></div></div>' + '</div>',
-    cube: '<div class="uil-cube"><div></div><div></div><div></div><div></div></div>',
-    stripe: '<div class="uil-stripe"></div>',
-    wheel: "<svg class='uil-wheel' " + uilSvg + "><circle cx='50px' cy='50px' r='35px'></svg>",
-    infinity: ("<svg class='uil-inf' " + uilSvg + ">") + '<path id="uil-inf-path" d="' + 'M24.3,30C11.4,30,5,43.3,5,50s6.4,20,19.3,20c19.3,0,32.1-40,51.4-40' + 'C88.6,30,95,43.3,95,50s-6.4,20-19.3,20C56.4,70,43.6,30,24.3,30z"/>' + '<circle x="-50" y="50" r="5">' + '<animateMotion begin="0s" dur="1s" repeatCount="indefinite">' + '<mpath xlink:href="#uil-inf-path"/>' + '</animationMotion></circle>' + '<circle x="-50" y="50" r="5">' + '<animateMotion begin="-0.1s" dur="1s" repeatCount="indefinite">' + '<mpath xlink:href="#uil-inf-path"/>' + '</animationMotion></circle>' + '<circle x="-50" y="50" r="5">' + '<animateMotion begin="-0.2s" dur="1s" repeatCount="indefinite">' + '<mpath xlink:href="#uil-inf-path"/>' + '</animationMotion></circle>' + '<circle x="-50" y="50" r="5">' + '<animateMotion begin="-0.3s" dur="1s" repeatCount="indefinite">' + '<mpath xlink:href="#uil-inf-path"/>' + '</animationMotion></circle>' + '<circle x="-50" y="50" r="5">' + '<animateMotion begin="-0.4s" dur="1s" repeatCount="indefinite">' + '<mpath xlink:href="#uil-inf-path"/>' + '</animationMotion></circle>' + '</svg>',
-    dashinfinity: ("<svg class='uil-dinf' " + uilSvg + ">") + '<path d="' + 'M24.3,30C11.4,30,5,43.3,5,50s6.4,20,19.3,20c19.3,0,32.1-40,51.4-40' + 'C88.6,30,95,43.3,95,50s-6.4,20-19.3,20C56.4,70,43.6,30,24.3,30z' + '"></svg>'
-  };
-});
-x$.directive('uiload', function(uiloadtype){
-  return {
-    restrict: 'E',
-    template: "",
-    link: function(scope, e, attrs, ctrl){
-      return e.html(uiloadtype[attrs['type']] || "");
-    }
-  };
+define(['default'], function(){
+  var x$;
+  x$ = angular.module('uiloading');
+  x$.directive('uiload', function($injector, $http, $templateCache, $timeout){
+    return {
+      restrict: 'E',
+      template: "",
+      scope: {
+        p: '=ngModel'
+      },
+      link: function(scope, e, attrs, ctrl){
+        var type, mod;
+        type = attrs['type'] || "default";
+        try {
+          mod = $injector.get("uilType-" + type);
+        } catch (e$) {
+          e = e$;
+          return console.log("module not found.");
+        }
+        scope.url = "static/html/" + type + ".html";
+        if (!('js' in attrs)) {
+          e.addClass('anim');
+        }
+        $http.get("static/html/" + type + ".html", {
+          cache: $templateCache
+        }).success(function(content){
+          return e.html(content);
+        });
+        return scope.p = {
+          node: e,
+          start: function(){
+            return mod.start(scope, e, attrs, ctrl);
+          },
+          stop: function(){
+            return mod.stop(scope, e, attrs, ctrl);
+          },
+          step: function(it){
+            return mod.step(scope, e, attrs, ctrl, it);
+          }
+        };
+      }
+    };
+  });
+  return x$;
 });
