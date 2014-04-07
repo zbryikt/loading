@@ -37,13 +37,22 @@ require(['uiloading'], function(){
               if ($scope.step === 1000) {
                 $interval.cancel(timer);
                 $scope.gif.on('finished', function(blob){
-                  return window.open(URL.createObjectURL(blob));
+                  var reader;
+                  reader = new window.FileReader();
+                  reader.readAsDataURL(blob);
+                  return reader.onloadend = function(){
+                    var img;
+                    img = document.createElement("img");
+                    console.log(reader.result);
+                    img.src = reader.result;
+                    return $(document.body).append($(img));
+                  };
                 });
                 return $scope.gif.render();
               }
             }
           });
-        }, 200);
+        }, 2000);
       }
     });
   }));

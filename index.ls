@@ -21,8 +21,15 @@ angular.module \main, <[uiloading]>
             if $scope.step == 1000 =>
               $interval.cancel timer
               $scope.gif.on \finished, (blob) ->
-                window.open URL.createObjectURL(blob)
+                reader = new window.FileReader!
+                reader.readAsDataURL blob
+                reader.onloadend = ->
+                  img = document.createElement("img")
+                  console.log reader.result
+                  img.src = reader.result
+                  $(document.body).append $(img)
+                #window.open URL.createObjectURL(blob)
               $scope.gif.render!
-      , 200
+      , 2000
 
 angular.bootstrap $("body"), <[main]>
