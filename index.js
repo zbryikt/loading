@@ -8,53 +8,108 @@ require.config({
 require(['uiloading'], function(){
   var x$;
   x$ = angular.module('main', ['uiloading']);
-  x$.controller('main', ['$scope', '$interval', '$timeout'].concat(function($scope, $interval, $timeout){
-    console.log('main');
-    $scope.xx = 1;
+  x$.factory('svg2canvas', function(){
+    return function(svg, cb){
+      var canvas;
+      canvas = document.createElement('canvas');
+      svg = svg.trim();
+      return canvg(canvas, svg, {
+        renderCallback: function(){
+          return cb(canvas);
+        }
+      });
+    };
+  });
+  x$.controller('main', ['$scope', '$interval', '$timeout', 'svg2canvas'].concat(function($scope, $interval, $timeout, svg2canvas){
     $scope.infinity = {
       circle: '#000',
       line: '#f00',
       speed: '1s'
     };
-    $scope.gif = new GIF({
-      workers: 2,
-      quality: 10,
-      transparent: 0xFFFF00
-    });
-    return $scope.$watch('a', function(){
-      var timer;
-      if ($scope.a) {
-        $scope.step = 0;
-        return timer = $interval(function(){
-          $scope.a.step($scope.step);
-          return html2canvas($scope.a.node, {
-            onrendered: function(it){
-              $scope.step += 100;
-              $scope.gif.addFrame(it, {
-                delay: 100,
-                copy: true
-              });
-              if ($scope.step === 1000) {
-                $interval.cancel(timer);
-                $scope.gif.on('finished', function(blob){
-                  var reader;
-                  reader = new window.FileReader();
-                  reader.readAsDataURL(blob);
-                  return reader.onloadend = function(){
-                    var img;
-                    img = document.createElement("img");
-                    console.log(reader.result);
-                    img.src = reader.result;
-                    return $(document.body).append($(img));
-                  };
-                });
-                return $scope.gif.render();
-              }
-            }
+    $scope.capture = function(model){
+      var ret;
+      ret = import$({}, {
+        delta: 25,
+        step: 0,
+        target: null,
+        gif: new GIF({
+          workers: 2,
+          quality: 10,
+          transparent: 0xFFFFFF
+        }),
+        addframe: function(canvas){
+          var this$ = this;
+          console.log(this.step);
+          this.gif.addFrame(canvas, {
+            delay: 20
           });
-        }, 2000);
+          if (this.step === 1000 + this.delta) {
+            this.gif.on('finished', function(blob){
+              var reader;
+              reader = new window.FileReader();
+              reader.readAsDataURL(blob);
+              return reader.onloadend = function(){
+                var img;
+                img = document.createElement("img");
+                img.style.border = '1px solid #000';
+                img.src = reader.result;
+                return $(document.body).append($(img));
+              };
+            });
+            return this.gif.render();
+          } else {
+            return $timeout(function(){
+              return this$.runner();
+            }, 10);
+          }
+        },
+        runner: function(){
+          var this$ = this;
+          this.step += this.delta;
+          this.target.step(this.step);
+          if (this.target.mode === 'css') {
+            return $timeout(function(){
+              return html2canvas(this$.target.node, {
+                onrendered: function(it){
+                  return this$.addframe(it);
+                }
+              });
+            }, 100);
+          } else {
+            return $timeout(function(){
+              return svg2canvas(this$.target.node.html(), function(it){
+                return this$.addframe(it);
+              });
+            }, 100);
+          }
+        },
+        start: function(model){
+          var this$ = this;
+          this.step = 0;
+          this.target = model;
+          $timeout(function(){
+            return this$.runner();
+          }, 100);
+          return this;
+        }
+      });
+      return ret.start(model);
+    };
+    $scope.$watch('a', function(){
+      if ($scope.a) {
+        return $scope.capture($scope.a);
+      }
+    });
+    return $scope.$watch('c', function(){
+      if ($scope.c) {
+        return $scope.capture($scope.c);
       }
     });
   }));
   return angular.bootstrap($("body"), ['main']);
 });
+function import$(obj, src){
+  var own = {}.hasOwnProperty;
+  for (var key in src) if (own.call(src, key)) obj[key] = src[key];
+  return obj;
+}

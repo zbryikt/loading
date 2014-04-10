@@ -8,17 +8,19 @@ define([], function(){
     intpValue = [0.42, 0.26, 0.1, 1.0, 0.8, 0.54];
     start = null;
     intpFunc = function(now){
-      var len, ep, sp, ev, sv;
+      var len, lenP, ep, sp, ev, sv;
       len = intpPercent.filter(function(it){
         return it < now;
       }).length;
+      lenP = (len + intpPercent.length - 1) % intpPercent.length;
       ep = intpPercent[len];
-      sp = intpPercent[len - 1];
+      sp = intpPercent[lenP];
       ev = intpValue[len];
-      sv = intpValue[len - 1];
+      sv = intpValue[lenP];
       return (ev - sv) * (now - sp) / (ep - sp) + sv;
     };
     return ret = {
+      mode: 'css',
       start: function(s, e, a, c){
         var this$ = this;
         return s.timer = $interval(function(){

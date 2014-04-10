@@ -15,10 +15,19 @@
     <script type="text/javascript" src="require.js"></script>
     <script type="text/javascript" src="html2canvas.js"></script>
     <script type="text/javascript" src="gif.js"></script>
+    <script type="text/javascript" src="rgbcolor.js"></script>
+    <script type="text/javascript" src="StackBlur.js"></script>
+    <script type="text/javascript" src="canvg.js"></script>
     <script type="text/javascript" src="index.js"></script>
   </head>
   <body ng-controller="main">hello world!
-    <uiload type="default" js ng-model="a"></uiload>
-    <uiload type="default" ng-model="b"></uiload><img src="load.gif">
+    <uiload type="infinity" js ng-model="a"></uiload>
+    <uiload type="infinity" ng-model="b"></uiload>
+    <uiload type="default" js ng-model="c"></uiload>
+    <div style="margin:0 auto;width:500px;text-align:center"><img src="idea/1.jpg" style="width:400px;display:block;margin:10px;"><img src="idea/2.png" style="width:400px;display:block;margin:10px;"><img src="idea/3.jpg" style="width:400px;display:block;margin:10px;"><img src="idea/4.png" style="width:400px;display:block;margin:10px;"><img src="idea/5.png" style="width:400px;display:block;margin:10px;"><img src="idea/6.png" style="width:400px;display:block;margin:10px;"></div>
+    <!--uiload(type="default",ng-model="d")-->
+    <!--img(src="test.svg")-->
+    <!--uiload(type="default",ng-model="b")-->
+    <!--img(src="load.gif")-->
   </body>
 </html>

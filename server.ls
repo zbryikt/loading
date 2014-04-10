@@ -236,7 +236,10 @@ update-file = (fn) ->
   if type == \jade => 
     if fn.index-of(\src/)==0 =>
       name = dir.replace(/src\/?/, "")replace /\//,\.
-      cmd = "#{jade} -P < #{fn} > static/html/#{name}.html"
+      subname = if fn.index-of(\svg.static.jade) >= 0 => \svg.static
+      else if fn.index-of(\svg.jade) > 0 => \svg
+      else \css
+      cmd = "#{jade} -P < #{fn} > static/html/#{name}.#{subname}.html"
     else
       cmd = "#{jade} -P #{fn}"
   if cmd =>

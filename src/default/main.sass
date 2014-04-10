@@ -5,7 +5,7 @@
     top: #{$top}px
     left: #{$left}px
     & > div
-      @include transform(rotate(#{$deg}deg) translate(0,11px) scaleY(1))
+      @include transform(translate(-5px,-12px) rotate(#{$deg}deg) translate(0,12px) scaleY(1))
   .anim > .uil-default > div:nth-of-type(#{$id}) > div
     @include animation(uil-default-#{$id} 1s linear 0s infinite)
     @include animation-delay($delay)
@@ -24,15 +24,14 @@
       opacity: 0.54
 
 .uil-default
-  background: #ff0
+  background: #fff
 .uil-default > div
   position: absolute
-  @include transform(translate(-6px,-12px))
   & > div
     width: 12px
     height: 24px
-    background: #0f0
-    border-radius: 10px 10px 5px 5px
+    background: #000
+    //border-radius: 10px 10px 5px 5px
 
 @include uil-default(1,50,0,0,0s)
 @include uil-default(2,85,15,45,0.125s)

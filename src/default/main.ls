@@ -7,13 +7,15 @@ angular.module \uiloading
     start = null
     intp-func = (now) ->
       len = intp-percent.filter(-> it < now)length
+      len-p = (len + intp-percent.length - 1) % intp-percent.length
       ep = intp-percent[len]
-      sp = intp-percent[len - 1]
+      sp = intp-percent[len-p]
       ev = intp-value[len]
-      sv = intp-value[len - 1]
+      sv = intp-value[len-p]
       ( ev - sv ) * ( now - sp ) / ( ep - sp ) + sv
 
     ret = do
+      mode: \css
       start: (s, e, a, c) ->
         s.timer = $interval ~>
           if start == null => start := new Date!getTime!
