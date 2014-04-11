@@ -6,7 +6,7 @@ define([], function(){
     offset = [0, 100, 200, 300, 400];
     return ret = {
       path: null,
-      type: 'svg',
+      mode: 'svg',
       custom: function(s, e, a, c){
         a.$observe('circleColor', function(v){
           if (v) {

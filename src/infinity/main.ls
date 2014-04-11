@@ -4,7 +4,7 @@ angular.module \uiloading
     offset = [0 100 200 300 400]
     ret = do
       path: null
-      type: \svg
+      mode: \svg
       custom: (s, e, a, c) ->
         a.$observe 'circleColor' (v) -> if v =>
           e.find \circle .css \fill, v

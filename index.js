@@ -47,7 +47,10 @@ require(['uiloading'], function(){
                 var img;
                 img = document.createElement("img");
                 img.src = reader.result;
+                $('#output-gif').html("");
                 $('#output-gif').append($(img));
+                $('#output-gif-link').attr('href', URL.createObjectURL(blob));
+                $('#output-gif-link').attr('download', model.type);
                 return cb();
               };
             });
