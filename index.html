@@ -7,8 +7,8 @@
     <script type="text/javascript" src="assets/jquery/1.10.2/jquery.min.js"></script>
     <script type="text/javascript" src="assets/d3js/3.3.11/d3.v3.min.js"></script>
     <script type="text/javascript" src="assets/angular/1.2.3/angular.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="assets/semantic-ui/0.9.5/css/semantic.min.css">
-    <script type="text/javascript" src="assets/semantic-ui/0.9.5/js/semantic.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="assets/bootstrap/3.0.2/css/bootstrap.min.css">
+    <script type="text/javascript" src="assets/bootstrap/3.0.2/js/bootstrap.min.js"></script>
     <!-- custom files-->
     <link rel="stylesheet" type="text/css" href="uiload.css">
     <link rel="stylesheet" type="text/css" href="index.css">
@@ -20,14 +20,90 @@
     <script type="text/javascript" src="canvg.js"></script>
     <script type="text/javascript" src="index.js"></script>
   </head>
-  <body ng-controller="main">hello world!
-    <uiload type="infinity" js ng-model="a"></uiload>
-    <uiload type="infinity" ng-model="b"></uiload>
-    <uiload type="default" js ng-model="c"></uiload>
-    <div style="margin:0 auto;width:500px;text-align:center"><img src="idea/1.jpg" style="width:400px;display:block;margin:10px;"><img src="idea/2.png" style="width:400px;display:block;margin:10px;"><img src="idea/3.jpg" style="width:400px;display:block;margin:10px;"><img src="idea/4.png" style="width:400px;display:block;margin:10px;"><img src="idea/5.png" style="width:400px;display:block;margin:10px;"><img src="idea/6.png" style="width:400px;display:block;margin:10px;"></div>
-    <!--uiload(type="default",ng-model="d")-->
-    <!--img(src="test.svg")-->
-    <!--uiload(type="default",ng-model="b")-->
-    <!--img(src="load.gif")-->
+  <body ng-controller="main">
+    <nav role="navigation" class="navbar navbar-default navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header"><a href="#" class="navbar-brand">LOADING.IO</a></div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="#">GIF</a></li>
+            <li><a href="#">CSS</a></li>
+            <li><a href="#">SVG</a></li>
+            <li><a href="#">MORE</a></li>
+          </ul>
+          <ul class="nav navbar-nav pull-right">
+            <li ng-class="{'invis':!username}" class="anim profile invis"><a href="#">
+                <div class="avatar"><img ng-src="http://graph.facebook.com/{{uid}}/picture?type=small" ng-show="uid"></div>
+                <div class="name">{{username}}</div></a></li>
+            <li ng-show="!accessToken" class="logon"><a href="#" ng-click="login()">Login</a></li>
+            <li ng-show="accessToken" class="logon ng-hide"><a href="#" ng-click="logout()">Logout</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div id="banner">
+      <div class="img"><img src="banner.png"></div>
+      <div class="title">Build Your Web App<br>with Loading Icons in
+        <big style="color:#ff9;display:inline-block;-webkit-transform:rotate(5deg);font-weight:900;">SVG</big>!
+      </div>
+    </div>
+    <div id="panel">
+      <div class="row">
+        <div class="col-md-5">
+          <uiload type="infinity" ng-model="demoLoader" js></uiload>
+        </div>
+        <div class="col-md-7">
+          <form>
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label>circle color</label>
+                  <input typ="text" placeholder="e.g., #f00" class="form-control">
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label>line color</label>
+                  <input typ="text" placeholder="e.g., #f00" class="form-control">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label>circle speed</label>
+                  <input typ="text" placeholder="e.g., 1.2s" class="form-control">
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label>background color</label>
+                  <input typ="text" placeholder="e.g., #f00" class="form-control">
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div id="play" class="btn-group">
+                <div class="btn btn-default active">Run
+                  <div class="glyphicon glyphicon-play"></div>
+                </div>
+                <div class="btn btn-default">Stop
+                  <div class="glyphicon glyphicon-pause"></div>
+                </div>
+              </div>
+              <div id="build" class="btn-group">
+                <div class="btn btn-default">Download SVG</div>
+                <div class="btn btn-default">Download CSS</div>
+                <div class="btn btn-default">Make GIF</div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div id="footer-top"></div>
+    <div id="footer">
+      <div class="ib"><a id="eula">Term of Use</a><a id="privacy">Privacy Policy</a><a id="attribution">Attribution</a><a id="about">About Us</a></div>
+    </div>
   </body>
 </html>

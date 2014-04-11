@@ -1,10 +1,102 @@
-html,body
+html, body
   margin: 0
   padding: 0
   width: 100%
   height: 100%
-  -webkit-transform: translate3d(0, 0, 0)
+  //-webkit-transform: translate3d(0, 0, 0)
 
-body
-  background: url(test.jpg)
+html, body
+  font-family: century gothic
+  background: url(bk.jpg) fixed top center no-repeat
 
+#banner
+  width: 100%
+  min-height: 300px
+  text-align: center
+  padding: 80px 0 110px
+  .img
+    margin: 50px auto
+    img
+      margin-left: -57px
+  .title
+    color: #fff
+    font-size: 40px
+    margin: 0 auto
+    width: 80%
+    text-shadow: 0 2px 4px rgba(0,0,0,0.4)
+
+nav.navbar-default
+  background: none
+  border: none
+  color: #fff
+  max-width: 1024px
+  margin: 20px auto
+  font-family: century gothic, arial
+  text-shadow: 0 1px 3px rgba(0,0,0,0.3)
+  .navbar-brand, .navbar-nav > li > a
+    color: #fff
+    font-family: century gothic, arial
+    letter-spacing: 1px
+
+#panel
+  width: 100%
+  padding: 20px 20% 20px 10%
+  background: rgba(0,0,0,0.2)
+  .col-md-5
+    uiload
+      width: 200px
+      height: 200px
+      box-shadow: 0 1px 3px rgba(0,0,0,0.3)
+      overflow: hidden
+      border-radius: 10px
+    text-align: center
+  form
+    margin-top: 32px
+  .btn-group
+    img
+      vertical-align: bottom
+      margin-left: 7px
+
+#play
+  .btn-default
+    background: #FFFFFF
+  .btn-default.active
+    background: #E0E0E0
+  .active .glyphicon
+    color: #f00
+    text-shadow: 0 0 6px rgba(255,255,192,1.0)
+
+#build.btn-group
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2)
+  .btn-default
+    color: #fff
+    text-shadow: 0 1px 1px rgba(0,0,0,0.1)
+    &:nth-of-type(1)
+      background: #F77A62
+      border: 1px solid #FF917C
+    &:nth-of-type(2)
+      background: #F89F5A
+      border: 1px solid #FFB174
+    &:nth-of-type(3)
+      background: #8CD14B
+      border: 1px solid #9ED36D
+
+#footer
+  position: fixed
+  bottom: 0
+  width: 100%
+  background: rgba(0,0,0,0.4)
+  margin-top: 20px
+  padding: 12px 20px
+  box-shadow: 0 -1px 4px rgba(0,0,0,0.3)
+  .ib
+    max-width: 1024px
+    margin: 0 auto
+  a
+    color: #fff
+    margin: 0 20px
+    cursor: pointer
+
+#footer-top
+  width: 100%
+  height: 50px
