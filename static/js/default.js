@@ -2,46 +2,34 @@ define([], function(){
   var x$;
   x$ = angular.module('uiloading');
   x$.factory('uilType-default', function($interval){
-    var offset, intpPercent, intpValue, start, intpFunc, ret;
-    offset = [0, 125, 250, 375, 500, 625, 750, 875];
-    intpPercent = [0, 250, 500, 510, 750, 1000];
-    intpValue = [0.42, 0.26, 0.1, 1.0, 0.8, 0.54];
+    var offset, start, ret;
+    offset = [0, 83, 166, 250, 333, 416, 500, 583, 666, 750, 833, 916, 1000];
     start = null;
-    intpFunc = function(now){
-      var len, lenP, ep, sp, ev, sv;
-      len = intpPercent.filter(function(it){
-        return it < now;
-      }).length;
-      lenP = (len + intpPercent.length - 1) % intpPercent.length;
-      ep = intpPercent[len];
-      sp = intpPercent[lenP];
-      ev = intpValue[len];
-      sv = intpValue[lenP];
-      return (ev - sv) * (now - sp) / (ep - sp) + sv;
-    };
     return ret = {
-      mode: 'css',
-      start: function(s, e, a, c){
-        var this$ = this;
-        return s.timer = $interval(function(){
-          var now;
-          if (start === null) {
-            start = new Date().getTime();
+      mode: 'both',
+      custom: function(s, e, a, c){
+        a.$observe('barColor', function(v){
+          if (v) {
+            return e.find('rect.bar').css('fill', v);
           }
-          now = new Date().getTime();
-          return this$.step(s, e, a, c, now);
-        }, 30);
+        });
+        return a.$observe('background', function(v){
+          if (v) {
+            return e.find('rect.bk').css('fill', v);
+          }
+        });
       },
+      start: function(s, e, a, c){},
       stop: function(s, e, a, c){
         if (s.timer) {
           return $interval.cancel(s.timer);
         }
       },
       step: function(s, e, a, c, delay){
-        return e.find(".uil-default > div > div").each(function(){
+        return e.find("rect.bar").each(function(){
           var delta;
-          delta = (delay + offset[7 - arguments[0]]) % 1000;
-          return $(arguments[1]).css('opacity', intpFunc(delta));
+          delta = (delay + offset[12 - arguments[0]]) % 1000;
+          return $(arguments[1]).css('opacity', delta / 1000);
         });
       }
     };

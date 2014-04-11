@@ -68,12 +68,16 @@ angular.module \main, <[uiloading]>
           ), 30
         , 1000
     $scope.build = do
+      size: 60
       running: true
       making: false
       done: false
       speed: 1
       start: -> @running = true
       stop: -> @running = false
+      resize: (e) -> 
+        total = 200 # $(e.target or e.srcElement)width!
+        @size = parse-int( 100 * ( e.offsetX >? 50 <? 200 ) / ( total ? 200 ) )
       makegif: -> 
         @ <<< {done: false, making: true}
         @stop!

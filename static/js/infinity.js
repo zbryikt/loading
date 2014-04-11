@@ -18,9 +18,6 @@ define([], function(){
             return e.find('path').css('stroke', v);
           }
         });
-        a.$observe('speed', function(v){
-          if (v) {}
-        });
         return a.$observe('background', function(v){
           if (v) {
             return e.find('rect').css('fill', v);

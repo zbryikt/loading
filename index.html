@@ -47,7 +47,7 @@
         <big style="color:#ff9;display:inline-block;-webkit-transform:rotate(5deg);font-weight:900;">SVG</big>!
       </div>
     </div>
-    <div id="gallery">
+    <div id="gallery"><img src="src/default/thumbnail.png">
       <div class="glyphicon glyphicon-cog"></div>
       <div class="glyphicon glyphicon-zoom-in"></div>
       <div class="glyphicon glyphicon-qrcode"></div>
@@ -64,7 +64,16 @@
       <div id="making" ng-class="{'invis':!build.making}" class="anim invis">Generating...</div>
       <div class="row">
         <div class="col-md-5">
-          <uiload type="infinity" ng-model="demoLoader" js circle-color="{{build.c1}}" line-color="{{build.c2}}" speed="{{build.c3}}" background="{{build.c4}}"></uiload>
+          <div id="demo-panel" ng-attr-style="background:{{build.c4 || '#fff'}}">
+            <uiload type="default" js ng-model="demoLoader" bar-color="{{build.c1}}" background="{{build.c4}}" ng-attr-style="width:{{build.size * 2}}px;height:{{build.size * 2}}px;margin:{{100 - build.size}}px"></uiload>
+          </div>
+          <div ng-mousemove="build.resize($event)" class="progress progress-striped">
+            <div role="progressbar" ng-attr-aria-valuenow="{{build.size}}" aria-valuemin="0" aria-valuemax="100" ng-attr-style="width:{{build.size}}%;" class="progress-bar">{{build.size}}%</div>
+          </div>
+          <div class="hide">
+            <div class="svg"></div>
+            <div class="css"></div>
+          </div>
         </div>
         <div class="col-md-7">
           <form>
@@ -107,7 +116,7 @@
               </div>
               <div id="build" class="btn-group">
                 <div class="btn btn-default">Download SVG</div>
-                <div class="btn btn-default">Download CSS</div>
+                <div ng-disabled="demoLoader.mode=='svg'" class="btn btn-default">Download CSS</div>
                 <div ng-click="build.makegif()" class="btn btn-default">Make GIF</div>
               </div>
             </div>

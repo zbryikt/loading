@@ -122,6 +122,7 @@ require(['uiloading'], function(){
       }
     });
     return $scope.build = {
+      size: 60,
       running: true,
       making: false,
       done: false,
@@ -131,6 +132,11 @@ require(['uiloading'], function(){
       },
       stop: function(){
         return this.running = false;
+      },
+      resize: function(e){
+        var total, ref$, ref1$;
+        total = 200;
+        return this.size = parseInt(100 * ((ref$ = (ref1$ = e.offsetX) > 50 ? ref1$ : 50) < 200 ? ref$ : 200) / (total != null ? total : 200));
       },
       makegif: function(){
         var this$ = this;

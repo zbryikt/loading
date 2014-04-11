@@ -61,17 +61,26 @@ nav.navbar-default {
   background: rgba(0, 0, 0, 0.2); }
   #panel .col-md-5 {
     text-align: center; }
-    #panel .col-md-5 uiload {
+    #panel .col-md-5 .progress {
       width: 200px;
-      height: 200px;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-      overflow: hidden;
-      border-radius: 10px; }
+      margin: 0 auto; }
+    #panel .col-md-5 uiload {
+      width: 100%;
+      height: 100%; }
   #panel form {
     margin-top: 32px; }
   #panel .btn-group img {
     vertical-align: bottom;
     margin-left: 7px; }
+  #panel #demo-panel {
+    margin: 0 auto 5px;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 200px;
+    height: 200px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); }
+  #panel .progress {
+    cursor: pointer; }
 
 #making {
   width: 100%;

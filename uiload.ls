@@ -18,7 +18,7 @@ angular.module \uiloading
       $http.get scope.url, cache: $templateCache .success (content) ->
         e.html content
         if not js => $timeout (-> mod.start scope, e, attrs, ctrl ), 0
-      scope.p = 
+      scope.p = do
         node: e
         mode: mod.mode
         type: type
@@ -28,5 +28,4 @@ angular.module \uiloading
         stop: -> mod.stop scope, e, attrs, ctrl
         step: -> mod.step scope, e, attrs, ctrl, it
       if mod.custom => mod.custom scope, e, attrs, ctrl
-      #uiloadcustom scope,e, attrs, type
 

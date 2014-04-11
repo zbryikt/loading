@@ -10,10 +10,6 @@ angular.module \uiloading
           e.find \circle .css \fill, v
         a.$observe 'lineColor' (v) -> if v =>
           e.find \path .css \stroke, v
-        a.$observe 'speed' (v) -> if v =>
-          #v = parse-float v - /s/
-          #if !v or isNaN v => return
-          #e.find "circle *" .attr \dur, "#{v}s"
         a.$observe 'background' (v) -> if v =>
           e.find \rect .css \fill, v
 

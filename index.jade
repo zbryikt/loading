@@ -55,6 +55,7 @@ html(lang="en")
         | !
 
     #gallery
+      img(src="src/default/thumbnail.png")
       .glyphicon.glyphicon-cog
       .glyphicon.glyphicon-zoom-in
       .glyphicon.glyphicon-qrcode
@@ -71,8 +72,18 @@ html(lang="en")
       #making.anim.invis(ng-class="{'invis':!build.making}") Generating...
       .row
         .col-md-5
-          uiload(type="infinity",ng-model="demoLoader",js,circle-color="{{build.c1}}",
-          line-color="{{build.c2}}",speed="{{build.c3}}",background="{{build.c4}}")
+          #demo-panel(ng-attr-style="background:{{build.c4 || '#fff'}}")
+            uiload(type="default",js,ng-model="demoLoader",bar-color="{{build.c1}}",background="{{build.c4}}",
+            ng-attr-style="width:{{build.size * 2}}px;height:{{build.size * 2}}px;margin:{{100 - build.size}}px")
+          .progress.progress-striped(ng-mousemove="build.resize($event)")
+            .progress-bar(role="progressbar",ng-attr-aria-valuenow="{{build.size}}",aria-valuemin="0",aria-valuemax="100",
+            ng-attr-style="width:{{build.size}}%;")
+              | {{build.size}}%
+          //-uiload(type="infinity",ng-model="demoLoader",js,circle-color="{{build.c1}}",
+          //-line-color="{{build.c2}}",speed="{{build.c3}}",background="{{build.c4}}")
+          .hide
+            .svg
+            .css
         .col-md-7
           form
             .row
@@ -104,7 +115,7 @@ html(lang="en")
               #build.btn-group
                 .btn.btn-default
                   | Download SVG
-                .btn.btn-default
+                .btn.btn-default(ng-disabled="demoLoader.mode=='svg'")
                   | Download CSS
                 .btn.btn-default(ng-click="build.makegif()")
                   | Make GIF

@@ -1,10 +1,5 @@
 uiload {
   display: inline-block;
-  position: relative;
-  width: 100px;
-  height: 100px;
-  margin: 30px; }
+  position: relative; }
   uiload > div {
-    width: 100px;
-    height: 100px;
     position: relative; }
