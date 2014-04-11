@@ -1,3 +1,4 @@
+var replace$ = ''.replace;
 define([], function(){
   var x$;
   x$ = angular.module('uiloading');
@@ -7,6 +8,28 @@ define([], function(){
     return ret = {
       path: null,
       type: 'svg',
+      custom: function(s, e, a, c){
+        a.$observe('circleColor', function(v){
+          console.log("ok: " + v);
+          if (v) {
+            return e.find('circle').css('fill', v);
+          }
+        });
+        a.$observe('lineColor', function(v){
+          if (v) {
+            return e.find('path').css('stroke', v);
+          }
+        });
+        return a.$observe('speed', function(v){
+          if (v) {
+            v = parseFloat(replace$.call(v, /s/, ''));
+            if (!v || isNaN(v)) {
+              return;
+            }
+            return e.find("circle *").attr('dur', v + "s");
+          }
+        });
+      },
       start: function(s, e, a, c){
         this.path = document.getElementById("uil-inf-path");
         return this.length = this.path.getTotalLength();

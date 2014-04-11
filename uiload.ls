@@ -27,6 +27,6 @@ angular.module \uiloading
           mod.start scope, e, attrs, ctrl
         stop: -> mod.stop scope, e, attrs, ctrl
         step: -> mod.step scope, e, attrs, ctrl, it
-
+      if mod.custom => mod.custom scope, e, attrs, ctrl
       #uiloadcustom scope,e, attrs, type
 

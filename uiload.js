@@ -39,7 +39,7 @@ define(['default', 'infinity'], function(){
             }, 0);
           }
         });
-        return scope.p = {
+        scope.p = {
           node: e,
           mode: mod.mode,
           type: type,
@@ -54,6 +54,9 @@ define(['default', 'infinity'], function(){
             return mod.step(scope, e, attrs, ctrl, it);
           }
         };
+        if (mod.custom) {
+          return mod.custom(scope, e, attrs, ctrl);
+        }
       }
     };
   });

@@ -47,10 +47,22 @@
         <big style="color:#ff9;display:inline-block;-webkit-transform:rotate(5deg);font-weight:900;">SVG</big>!
       </div>
     </div>
+    <div id="gallery">
+      <div class="glyphicon glyphicon-cog"></div>
+      <div class="glyphicon glyphicon-zoom-in"></div>
+      <div class="glyphicon glyphicon-qrcode"></div>
+      <div class="glyphicon glyphicon-ok-sign"></div>
+      <div class="glyphicon glyphicon-eye-open"></div>
+      <div class="glyphicon glyphicon-leaf"></div>
+      <div class="glyphicon glyphicon-certificate"></div>
+      <div class="glyphicon glyphicon-dashboard"></div>
+      <div class="glyphicon glyphicon-heart-empty"></div>
+      <div class="glyphicon glyphicon-globe"></div>
+    </div>
     <div id="panel">
       <div class="row">
         <div class="col-md-5">
-          <uiload type="infinity" ng-model="demoLoader" js></uiload>
+          <uiload type="infinity" ng-model="demoLoader" js circle-color="{{build.c1}}" line-color="{{build.c2}}" speed="{{build.c3}}"></uiload>
         </div>
         <div class="col-md-7">
           <form>
@@ -58,13 +70,13 @@
               <div class="col-sm-6">
                 <div class="form-group">
                   <label>circle color</label>
-                  <input typ="text" placeholder="e.g., #f00" class="form-control">
+                  <input typ="text" placeholder="e.g., #f00" ng-model="build.c1" class="form-control">
                 </div>
               </div>
               <div class="col-sm-6">
                 <div class="form-group">
                   <label>line color</label>
-                  <input typ="text" placeholder="e.g., #f00" class="form-control">
+                  <input typ="text" placeholder="e.g., #f00" ng-model="build.c2" class="form-control">
                 </div>
               </div>
             </div>
@@ -72,13 +84,13 @@
               <div class="col-sm-6">
                 <div class="form-group">
                   <label>circle speed</label>
-                  <input typ="text" placeholder="e.g., 1.2s" class="form-control">
+                  <input typ="text" placeholder="e.g., 1.2s" ng-model="build.c3" class="form-control">
                 </div>
               </div>
               <div class="col-sm-6">
                 <div class="form-group">
                   <label>background color</label>
-                  <input typ="text" placeholder="e.g., #f00" class="form-control">
+                  <input typ="text" placeholder="e.g., #f00" ng-model="build.c4" class="form-control">
                 </div>
               </div>
             </div>

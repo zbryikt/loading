@@ -44,6 +44,7 @@ html(lang="en")
               .name {{username}}
             li.logon(ng-show="!accessToken"): a(href="#",ng-click="login()") Login
             li.logon.ng-hide(ng-show="accessToken"): a(href="#",ng-click="logout()") Logout
+
     #banner
       .img: img(src="banner.png")
       .title
@@ -52,30 +53,44 @@ html(lang="en")
         | with Loading Icons in
         big(style="color:#ff9;display:inline-block;-webkit-transform:rotate(5deg);font-weight:900;") SVG
         | !
+
+    #gallery
+      .glyphicon.glyphicon-cog
+      .glyphicon.glyphicon-zoom-in
+      .glyphicon.glyphicon-qrcode
+      .glyphicon.glyphicon-ok-sign
+      .glyphicon.glyphicon-eye-open
+      .glyphicon.glyphicon-leaf
+      .glyphicon.glyphicon-certificate
+      .glyphicon.glyphicon-dashboard
+      .glyphicon.glyphicon-heart-empty
+      .glyphicon.glyphicon-globe
+
     #panel
       .row
         .col-md-5
-          uiload(type="infinity",ng-model="demoLoader",js)
+          uiload(type="infinity",ng-model="demoLoader",js,circle-color="{{build.c1}}",
+          line-color="{{build.c2}}",speed="{{build.c3}}")
         .col-md-7
           form
             .row
               .col-sm-6
                 .form-group
                   label circle color
-                  input.form-control(typ="text",placeholder="e.g., #f00")
+                  input.form-control(typ="text",placeholder="e.g., #f00",ng-model="build.c1")
               .col-sm-6
                 .form-group
                   label line color
-                  input.form-control(typ="text",placeholder="e.g., #f00")
+                  input.form-control(typ="text",placeholder="e.g., #f00",ng-model="build.c2")
             .row
               .col-sm-6
                 .form-group
                   label circle speed
-                  input.form-control(typ="text",placeholder="e.g., 1.2s")
+                  input.form-control(typ="text",placeholder="e.g., 1.2s",ng-model="build.c3")
               .col-sm-6
                 .form-group
                   label background color
-                  input.form-control(typ="text",placeholder="e.g., #f00")
+                  input.form-control(typ="text",placeholder="e.g., #f00",ng-model="build.c4")
             .form-group
               #play.btn-group
                 .btn.btn-default.active
