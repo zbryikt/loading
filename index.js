@@ -46,9 +46,8 @@ require(['uiloading'], function(){
               return reader.onloadend = function(){
                 var img;
                 img = document.createElement("img");
-                img.style.border = '1px solid #000';
                 img.src = reader.result;
-                $('#output').append($(img));
+                $('#output-gif').append($(img));
                 return cb();
               };
             });
@@ -136,6 +135,7 @@ require(['uiloading'], function(){
         this.making = true;
         this.stop();
         return capture($scope.demoLoader, $scope.delta, function(){
+          $('#output-modal').modal('show');
           return this$.done = true, this$.making = false, this$;
         });
       }

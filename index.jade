@@ -108,8 +108,21 @@ html(lang="en")
                   | Download CSS
                 .btn.btn-default(ng-click="build.makegif()")
                   | Make GIF
-    #output(ng-show="build.done")
+    //-#output
       h2 Generated GIF 
+    #output-modal.modal.fade
+      .modal-dialog
+        .modal-content
+          .modal-header
+            button.close(type="button",data-dismiss="modal",aria-hidden="true") &times;
+            h2.modal-title Build Complete!
+          .modal-body
+            #output-gif
+            | Here is the requested GIF
+            .glyphicon.glyphicon-circle-arrow-up
+          .modal-footer
+            a#output-gif-link.btn.btn-success(href="#") Download GIF
+            .btn.btn-default(data-dismiss="modal") Dismiss
 
     #footer-top
     #footer

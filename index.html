@@ -115,8 +115,22 @@
         </div>
       </div>
     </div>
-    <div id="output" ng-show="build.done">
-      <h2>Generated GIF </h2>
+    <div id="output-modal" class="modal fade">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" data-dismiss="modal" aria-hidden="true" class="close">&times;</button>
+            <h2 class="modal-title">Build Complete!</h2>
+          </div>
+          <div class="modal-body">
+            <div id="output-gif"></div>Here is the requested GIF
+            <div class="glyphicon glyphicon-circle-arrow-up"></div>
+          </div>
+          <div class="modal-footer"><a id="output-gif-link" href="#" class="btn btn-success">Download GIF</a>
+            <div data-dismiss="modal" class="btn btn-default">Dismiss</div>
+          </div>
+        </div>
+      </div>
     </div>
     <div id="footer-top"></div>
     <div id="footer">

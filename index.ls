@@ -25,9 +25,8 @@ angular.module \main, <[uiloading]>
               reader.readAsDataURL blob
               reader.onloadend = ->
                 img = document.createElement("img")
-                img.style.border='1px solid #000'
                 img.src = reader.result
-                $(\#output).append $(img)
+                $(\#output-gif).append $(img)
                 cb!
             @gif.render!
           else 
@@ -75,7 +74,9 @@ angular.module \main, <[uiloading]>
       makegif: -> 
         @ <<< {done: false, making: true}
         @stop!
-        capture $scope.demoLoader, $scope.delta, ~> @ <<< {done: true, making: false}
+        capture $scope.demoLoader, $scope.delta, ~>
+          $(\#output-modal).modal \show
+          @ <<< {done: true, making: false}
 
 
 angular.bootstrap $("body"), <[main]>
