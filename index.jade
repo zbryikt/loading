@@ -78,7 +78,7 @@ html(lang="en")
           .progress.progress-striped(ng-mousemove="build.resize($event)")
             .progress-bar(role="progressbar",ng-attr-aria-valuenow="{{build.size}}",aria-valuemin="0",aria-valuemax="100",
             ng-attr-style="width:{{build.size}}%;")
-              | {{build.size}}%
+              | {{2 * build.size}}px
           //-uiload(type="infinity",ng-model="demoLoader",js,circle-color="{{build.c1}}",
           //-line-color="{{build.c2}}",speed="{{build.c3}}",background="{{build.c4}}")
           .hide
