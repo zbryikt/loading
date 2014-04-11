@@ -61,9 +61,10 @@
     </div>
     <div id="panel">
       <div id="tryit"></div>
+      <div id="making" ng-class="{'invis':!build.making}" class="anim invis">Generating...</div>
       <div class="row">
         <div class="col-md-5">
-          <uiload type="infinity" ng-model="demoLoader" js circle-color="{{build.c1}}" line-color="{{build.c2}}" speed="{{build.c3}}"></uiload>
+          <uiload type="infinity" ng-model="demoLoader" js circle-color="{{build.c1}}" line-color="{{build.c2}}" speed="{{build.c3}}" background="{{build.c4}}"></uiload>
         </div>
         <div class="col-md-7">
           <form>
@@ -84,8 +85,8 @@
             <div class="row">
               <div class="col-sm-6">
                 <div class="form-group">
-                  <label>circle speed</label>
-                  <input typ="text" placeholder="e.g., 1.2s" ng-model="build.c3" class="form-control">
+                  <label>circle speed (second)</label>
+                  <input typ="text" placeholder="e.g., 1.2" ng-model="build.speed" class="form-control">
                 </div>
               </div>
               <div class="col-sm-6">
@@ -97,22 +98,25 @@
             </div>
             <div class="form-group">
               <div id="play" class="btn-group">
-                <div class="btn btn-default active">Run
+                <div ng-class="{'active':build.running}" ng-click="build.start()" class="btn btn-default">Run
                   <div class="glyphicon glyphicon-play"></div>
                 </div>
-                <div class="btn btn-default">Stop
+                <div ng-class="{'active':!build.running}" ng-click="build.stop()" class="btn btn-default">Stop
                   <div class="glyphicon glyphicon-pause"></div>
                 </div>
               </div>
               <div id="build" class="btn-group">
                 <div class="btn btn-default">Download SVG</div>
                 <div class="btn btn-default">Download CSS</div>
-                <div class="btn btn-default">Make GIF</div>
+                <div ng-click="build.makegif()" class="btn btn-default">Make GIF</div>
               </div>
             </div>
           </form>
         </div>
       </div>
+    </div>
+    <div id="output" ng-show="build.done">
+      <h2>Generated GIF </h2>
     </div>
     <div id="footer-top"></div>
     <div id="footer">

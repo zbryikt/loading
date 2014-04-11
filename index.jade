@@ -68,10 +68,11 @@ html(lang="en")
 
     #panel
       #tryit
+      #making.anim.invis(ng-class="{'invis':!build.making}") Generating...
       .row
         .col-md-5
           uiload(type="infinity",ng-model="demoLoader",js,circle-color="{{build.c1}}",
-          line-color="{{build.c2}}",speed="{{build.c3}}")
+          line-color="{{build.c2}}",speed="{{build.c3}}",background="{{build.c4}}")
         .col-md-7
           form
             .row
@@ -86,18 +87,18 @@ html(lang="en")
             .row
               .col-sm-6
                 .form-group
-                  label circle speed
-                  input.form-control(typ="text",placeholder="e.g., 1.2s",ng-model="build.c3")
+                  label circle speed (second)
+                  input.form-control(typ="text",placeholder="e.g., 1.2",ng-model="build.speed")
               .col-sm-6
                 .form-group
                   label background color
                   input.form-control(typ="text",placeholder="e.g., #f00",ng-model="build.c4")
             .form-group
               #play.btn-group
-                .btn.btn-default.active
+                .btn.btn-default(ng-class="{'active':build.running}",ng-click="build.start()")
                   | Run
                   .glyphicon.glyphicon-play
-                .btn.btn-default
+                .btn.btn-default(ng-class="{'active':!build.running}",ng-click="build.stop()")
                   | Stop
                   .glyphicon.glyphicon-pause
               #build.btn-group
@@ -105,8 +106,10 @@ html(lang="en")
                   | Download SVG
                 .btn.btn-default
                   | Download CSS
-                .btn.btn-default
+                .btn.btn-default(ng-click="build.makegif()")
                   | Make GIF
+    #output(ng-show="build.done")
+      h2 Generated GIF 
 
     #footer-top
     #footer

@@ -6,15 +6,17 @@ angular.module \uiloading
       path: null
       type: \svg
       custom: (s, e, a, c) ->
-        a.$observe 'circleColor' (v) ->
-          console.log "ok: #v"
-          if v => e.find \circle .css \fill, v
-        a.$observe 'lineColor' (v) ->
-          if v => e.find \path .css \stroke, v
+        a.$observe 'circleColor' (v) -> if v =>
+          e.find \circle .css \fill, v
+        a.$observe 'lineColor' (v) -> if v =>
+          e.find \path .css \stroke, v
         a.$observe 'speed' (v) -> if v =>
-          v = parse-float v - /s/
-          if !v or isNaN v => return
-          e.find "circle *" .attr \dur, "#{v}s"
+          #v = parse-float v - /s/
+          #if !v or isNaN v => return
+          #e.find "circle *" .attr \dur, "#{v}s"
+        a.$observe 'background' (v) -> if v =>
+          e.find \rect .css \fill, v
+
       start: (s, e, a, c) ->
         @path = document.getElementById("uil-inf-path")
         @length = @path.get-total-length!

@@ -1,4 +1,3 @@
-var replace$ = ''.replace;
 define([], function(){
   var x$;
   x$ = angular.module('uiloading');
@@ -10,7 +9,6 @@ define([], function(){
       type: 'svg',
       custom: function(s, e, a, c){
         a.$observe('circleColor', function(v){
-          console.log("ok: " + v);
           if (v) {
             return e.find('circle').css('fill', v);
           }
@@ -20,13 +18,12 @@ define([], function(){
             return e.find('path').css('stroke', v);
           }
         });
-        return a.$observe('speed', function(v){
+        a.$observe('speed', function(v){
+          if (v) {}
+        });
+        return a.$observe('background', function(v){
           if (v) {
-            v = parseFloat(replace$.call(v, /s/, ''));
-            if (!v || isNaN(v)) {
-              return;
-            }
-            return e.find("circle *").attr('dur', v + "s");
+            return e.find('rect').css('fill', v);
           }
         });
       },

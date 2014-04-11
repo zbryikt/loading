@@ -8,19 +8,143 @@ require.config({
 require(['uiloading'], function(){
   var x$;
   x$ = angular.module('main', ['uiloading']);
-  x$.controller('main', ['$scope', '$timeout', '$interval'].concat(function($scope, $timeout, $interval){
+  x$.factory('svg2canvas', function(){
+    return function(svg, cb){
+      var canvas;
+      canvas = document.createElement('canvas');
+      svg = svg.trim();
+      return canvg(canvas, svg, {
+        renderCallback: function(){
+          return cb(canvas);
+        }
+      });
+    };
+  });
+  x$.factory('capture', function($timeout, svg2canvas){
+    return function(model, delta, cb){
+      var ret;
+      ret = import$({}, {
+        delta: delta,
+        step: 0,
+        target: null,
+        gif: new GIF({
+          workers: 2,
+          quality: 10,
+          transparent: 0xFFFFFF
+        }),
+        addframe: function(canvas){
+          var this$ = this;
+          console.log(this.step);
+          this.gif.addFrame(canvas, {
+            delay: 20
+          });
+          if (this.step >= 1000 + this.delta) {
+            this.gif.on('finished', function(blob){
+              var reader;
+              reader = new window.FileReader();
+              reader.readAsDataURL(blob);
+              return reader.onloadend = function(){
+                var img;
+                img = document.createElement("img");
+                img.style.border = '1px solid #000';
+                img.src = reader.result;
+                $('#output').append($(img));
+                return cb();
+              };
+            });
+            return this.gif.render();
+          } else {
+            return $timeout(function(){
+              return this$.runner();
+            }, 10);
+          }
+        },
+        runner: function(){
+          var this$ = this;
+          this.step += this.delta;
+          this.target.step(this.step);
+          if (this.target.mode === 'css') {
+            return $timeout(function(){
+              return html2canvas(this$.target.node, {
+                onrendered: function(it){
+                  return this$.addframe(it);
+                }
+              });
+            }, 100);
+          } else {
+            return $timeout(function(){
+              var n, ref$, w, h, html;
+              n = this$.target.node;
+              ref$ = [n.width(), n.height()], w = ref$[0], h = ref$[1];
+              html = this$.target.node.html().replace(/svg width="100%" height="100%"/, "svg width='" + w + "' height='" + h + "'");
+              return svg2canvas(html, function(it){
+                return this$.addframe(it);
+              });
+            }, 100);
+          }
+        },
+        start: function(model){
+          var this$ = this;
+          this.step = 0;
+          this.target = model;
+          $timeout(function(){
+            return this$.runner();
+          }, 100);
+          return this;
+        }
+      });
+      return ret.start(model);
+    };
+  });
+  x$.controller('main', ['$scope', '$timeout', '$interval', 'capture'].concat(function($scope, $timeout, $interval, capture){
     $scope.delay = 0;
-    return $scope.$watch('demoLoader', function(){
+    $scope.delta = 30;
+    $scope.$watch('build.speed', function(v){
+      if (v > 0) {
+        return $scope.delta = 30 / v;
+      }
+    });
+    $scope.$watch('demoLoader', function(){
       if ($scope.demoLoader) {
         return $timeout(function(){
           $scope.demoLoader.start();
           return $interval(function(){
-            $scope.demoLoader.step($scope.delay);
-            return $scope.delay = ($scope.delay + 30) % 1000;
+            if (!$scope.build.making) {
+              $scope.demoLoader.step($scope.delay);
+              if ($scope.build.running) {
+                return $scope.delay = ($scope.delay + $scope.delta) % 1000;
+              }
+            }
           }, 30);
         }, 1000);
       }
     });
+    return $scope.build = {
+      running: true,
+      making: false,
+      done: false,
+      speed: 1,
+      start: function(){
+        return this.running = true;
+      },
+      stop: function(){
+        return this.running = false;
+      },
+      makegif: function(){
+        var this$ = this;
+        this.done = false;
+        this.making = true;
+        this.stop();
+        return capture($scope.demoLoader, $scope.delta, function(){
+          return this$.done = true, this$.making = false, this$;
+        });
+      }
+    };
   }));
   return angular.bootstrap($("body"), ['main']);
 });
+function import$(obj, src){
+  var own = {}.hasOwnProperty;
+  for (var key in src) if (own.call(src, key)) obj[key] = src[key];
+  return obj;
+}
