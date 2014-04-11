@@ -43,9 +43,19 @@ nav.navbar-default
   padding: 60px
   text-align: center
   font-size: 42px
-  .glyphicon
+  .glyphicon, img
     margin: 10px
     text-shadow: 0 2px 3px rgba(0,0,0,0.3)
+  img
+    width: 42px
+    height: 42px
+  .ib
+    display: inline-block
+    .glyphicon
+      display: block
+    .desc
+      font-size: 8px
+
 
 #tryit
   position: absolute
@@ -54,6 +64,7 @@ nav.navbar-default
   width: 170px
   height: 180px
   background: url(tryit.png) no-repeat center center
+  z-index: 10
 
 #panel
   position: relative
