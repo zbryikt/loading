@@ -10,11 +10,13 @@
     <link rel="stylesheet" type="text/css" href="assets/bootstrap/3.0.2/css/bootstrap.min.css">
     <script type="text/javascript" src="assets/bootstrap/3.0.2/js/bootstrap.min.js"></script>
     <!-- custom files-->
+    <link rel="stylesheet" type="text/css" href="assets/colorpicker/css/colorpicker.css">
     <link rel="stylesheet" type="text/css" href="uiload.css">
     <link rel="stylesheet" type="text/css" href="index.css">
     <script type="text/javascript" src="require.js"></script>
     <script type="text/javascript" src="html2canvas.js"></script>
     <script type="text/javascript" src="gif.js"></script>
+    <script type-"text/javascript src="assets/colorpicker/js/bootstrap-colorpicker-module.js"></script>
     <script type="text/javascript" src="rgbcolor.js"></script>
     <script type="text/javascript" src="StackBlur.js"></script>
     <script type="text/javascript" src="canvg.js"></script>
@@ -94,8 +96,8 @@
       <div id="making" ng-class="{'invis':!build.making}" class="anim invis">Generating...</div>
       <div class="row">
         <div class="col-md-5">
-          <div id="demo-panel" ng-attr-style="background:{{build.c4 || '#fff'}}">
-            <uiload type="default" js ng-model="demoLoader" bar-color="{{build.c1}}" background="{{build.c4}}" ng-attr-style="width:{{build.size * 2}}px;height:{{build.size * 2}}px;margin:{{100 - build.size}}px"></uiload>
+          <div id="demo-panel" ng-attr-style="background:{{build.cbk || '#fff'}}">
+            <uiload type="default" js ng-model="demoLoader" bar-color="{{build.c1}}" background="{{build.cbk}}" ng-attr-style="width:{{build.size * 2}}px;height:{{build.size * 2}}px;margin:{{100 - build.size}}px"></uiload>
           </div>
           <div ng-mousemove="build.resize($event)" class="progress progress-striped">
             <div role="progressbar" ng-attr-aria-valuenow="{{build.size}}" aria-valuemin="0" aria-valuemax="100" ng-attr-style="width:{{build.size}}%;" class="progress-bar">{{2 * build.size}}px</div>
@@ -108,30 +110,25 @@
         <div class="col-md-7">
           <form>
             <div class="row">
-              <div class="col-sm-6">
+              <div ng-attr-class="col-sm-{{12 / demoLoader.vars.length}}" ng-repeat="v in demoLoader.vars">
                 <div class="form-group">
-                  <label>circle color</label>
-                  <input typ="text" placeholder="e.g., #f00" ng-model="build.c1" class="form-control">
-                </div>
-              </div>
-              <div class="col-sm-6">
-                <div class="form-group">
-                  <label>line color</label>
-                  <input typ="text" placeholder="e.g., #f00" ng-model="build.c2" class="form-control">
+                  <label>{{v.name}}</label>
+                  <input ng-if="v.type=='color'" type="text" colorpicker colorpicker-with-input="true" placeholder="e.g., {{v.placeholder}}" ng-model="build['c'+($index+1)]" class="form-control">
+                  <input ng-if="v.type=='px'" type="text" placeholder="e.g., {{v.placeholder}}" ng-model="build['c'+($index+1)]" class="form-control">
                 </div>
               </div>
             </div>
             <div class="row">
               <div class="col-sm-6">
                 <div class="form-group">
-                  <label>circle speed (second)</label>
+                  <label>speed (second)</label>
                   <input typ="text" placeholder="e.g., 1.2" ng-model="build.speed" class="form-control">
                 </div>
               </div>
               <div class="col-sm-6">
                 <div class="form-group">
                   <label>background color</label>
-                  <input typ="text" placeholder="e.g., #f00" ng-model="build.c4" class="form-control">
+                  <input typ="text" colorpicker colorpicker-with-input="true" placeholder="e.g., #f00" ng-model="build.cbk" class="form-control">
                 </div>
               </div>
             </div>
@@ -145,8 +142,10 @@
                 </div>
               </div>
               <div id="build" class="btn-group">
-                <div class="btn btn-default">Download SVG</div>
-                <div ng-disabled="demoLoader.mode=='svg'" class="btn btn-default">Download CSS</div>
+                <div ng-click="build.makesvg()" class="btn btn-default">Download SVG</div>
+                <div class="btn btn-default">
+                  <div data-toggle="tooltip" data-placement="bottom" title="coming soon" class="ttn">Download CSS</div>
+                </div>
                 <div ng-click="build.makegif()" class="btn btn-default">Make GIF</div>
               </div>
             </div>
@@ -154,7 +153,7 @@
         </div>
       </div>
     </div>
-    <div id="output-modal" class="modal fade">
+    <div id="output-modal" ng-controller="output" class="modal fade">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
@@ -162,10 +161,10 @@
             <h2 class="modal-title">Build Complete!</h2>
           </div>
           <div class="modal-body">
-            <div id="output-gif"></div>Here is the requested GIF
+            <div id="output-box"></div>Here is the requested {{mode}}
             <div class="glyphicon glyphicon-circle-arrow-up"></div>
           </div>
-          <div class="modal-footer"><a id="output-gif-link" href="#" class="btn btn-success">Download GIF</a>
+          <div class="modal-footer"><a id="output-box-link" href="#" class="btn btn-success">Download {{mode}}</a>
             <div data-dismiss="modal" class="btn btn-default">Dismiss</div>
           </div>
         </div>

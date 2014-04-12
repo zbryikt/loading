@@ -42,6 +42,7 @@ define(['default', 'infinity'], function(){
         scope.p = {
           node: e,
           mode: mod.mode,
+          vars: mod.vars,
           type: type,
           start: function(){
             console.log('ok');
@@ -52,9 +53,13 @@ define(['default', 'infinity'], function(){
           },
           step: function(it){
             return mod.step(scope, e, attrs, ctrl, it);
+          },
+          patch: function(svg, opt){
+            return mod.patch(svg, opt);
           }
         };
         if (mod.custom) {
+          console.log("xx");
           return mod.custom(scope, e, attrs, ctrl);
         }
       }

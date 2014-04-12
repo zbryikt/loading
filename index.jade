@@ -12,6 +12,7 @@ html(lang="en")
     // libraries
     include library.jade
     // custom files
+    link(rel="stylesheet",type="text/css",href="assets/colorpicker/css/colorpicker.css")
     link(rel="stylesheet",type="text/css",href="uiload.css")
     link(rel="stylesheet",type="text/css",href="index.css")
   
@@ -19,6 +20,7 @@ html(lang="en")
     script(type="text/javascript",src="html2canvas.js")
     script(type="text/javascript",src="gif.js")
 
+    script(type-"text/javascript",src="assets/colorpicker/js/bootstrap-colorpicker-module.js")
     script(type="text/javascript",src="rgbcolor.js")
     script(type="text/javascript",src="StackBlur.js")
     script(type="text/javascript",src="canvg.js")
@@ -55,16 +57,6 @@ html(lang="en")
         | !
 
     #gallery
-      //-
-        img(src="res/default.svg")
-        img(src="res/infinity.svg")
-        img(src="res/default.svg")
-        img(src="res/default.svg")
-        img(src="res/default.svg")
-        img(src="res/default.svg")
-        img(src="res/default.svg")
-        img(src="res/default.svg")
-        img(src="res/default.svg")
       .ib
         .glyphicon.glyphicon-cog
         .desc custom
@@ -101,38 +93,35 @@ html(lang="en")
       #making.anim.invis(ng-class="{'invis':!build.making}") Generating...
       .row
         .col-md-5
-          #demo-panel(ng-attr-style="background:{{build.c4 || '#fff'}}")
-            uiload(type="default",js,ng-model="demoLoader",bar-color="{{build.c1}}",background="{{build.c4}}",
+          #demo-panel(ng-attr-style="background:{{build.cbk || '#fff'}}")
+            uiload(type="default",js,ng-model="demoLoader",bar-color="{{build.c1}}",background="{{build.cbk}}",
             ng-attr-style="width:{{build.size * 2}}px;height:{{build.size * 2}}px;margin:{{100 - build.size}}px")
           .progress.progress-striped(ng-mousemove="build.resize($event)")
             .progress-bar(role="progressbar",ng-attr-aria-valuenow="{{build.size}}",aria-valuemin="0",aria-valuemax="100",
             ng-attr-style="width:{{build.size}}%;")
               | {{2 * build.size}}px
           //-uiload(type="infinity",ng-model="demoLoader",js,circle-color="{{build.c1}}",
-          //-line-color="{{build.c2}}",speed="{{build.c3}}",background="{{build.c4}}")
+          //-line-color="{{build.c2}}",speed="{{build.c3}}",background="{{build.cbk}}")
           .hide
             .svg
             .css
         .col-md-7
           form
             .row
-              .col-sm-6
+              div(ng-attr-class="col-sm-{{12 / demoLoader.vars.length}}",ng-repeat="v in demoLoader.vars")
                 .form-group
-                  label circle color
-                  input.form-control(typ="text",placeholder="e.g., #f00",ng-model="build.c1")
-              .col-sm-6
-                .form-group
-                  label line color
-                  input.form-control(typ="text",placeholder="e.g., #f00",ng-model="build.c2")
+                  label {{v.name}}
+                  input.form-control(ng-if="v.type=='color'",type="text",colorpicker,colorpicker-with-input="true",placeholder="e.g., {{v.placeholder}}",ng-model="build['c'+($index+1)]")
+                  input.form-control(ng-if="v.type=='px'",type="text",placeholder="e.g., {{v.placeholder}}",ng-model="build['c'+($index+1)]")
             .row
               .col-sm-6
                 .form-group
-                  label circle speed (second)
+                  label speed (second)
                   input.form-control(typ="text",placeholder="e.g., 1.2",ng-model="build.speed")
               .col-sm-6
                 .form-group
                   label background color
-                  input.form-control(typ="text",placeholder="e.g., #f00",ng-model="build.c4")
+                  input.form-control(typ="text",colorpicker,colorpicker-with-input="true",placeholder="e.g., #f00",ng-model="build.cbk")
             .form-group
               #play.btn-group
                 .btn.btn-default(ng-class="{'active':build.running}",ng-click="build.start()")
@@ -142,26 +131,25 @@ html(lang="en")
                   | Stop
                   .glyphicon.glyphicon-pause
               #build.btn-group
-                .btn.btn-default
+                .btn.btn-default(ng-click="build.makesvg()")
                   | Download SVG
-                .btn.btn-default(ng-disabled="demoLoader.mode=='svg'")
-                  | Download CSS
+                .btn.btn-default
+                  .ttn(data-toggle="tooltip",data-placement="bottom",title="coming soon")
+                    | Download CSS
                 .btn.btn-default(ng-click="build.makegif()")
                   | Make GIF
-    //-#output
-      h2 Generated GIF 
-    #output-modal.modal.fade
+    #output-modal.modal.fade(ng-controller="output")
       .modal-dialog
         .modal-content
           .modal-header
             button.close(type="button",data-dismiss="modal",aria-hidden="true") &times;
             h2.modal-title Build Complete!
           .modal-body
-            #output-gif
-            | Here is the requested GIF
+            #output-box
+            | Here is the requested {{mode}}
             .glyphicon.glyphicon-circle-arrow-up
           .modal-footer
-            a#output-gif-link.btn.btn-success(href="#") Download GIF
+            a#output-box-link.btn.btn-success(href="#") Download {{mode}}
             .btn.btn-default(data-dismiss="modal") Dismiss
 
     #footer-top

@@ -228,9 +228,13 @@ update-file = (fn) ->
     else 
       cmd = "#{ls} -cb #{fn}"
   if type == \sass =>
-    if fn.index-of(\src/) == 0 => 
+    console.log fn
+    if fn.index-of(\src/sass/) == 0 => 
       if timer.sass => clear-timeout timer.sass
       timer.sass = set-timeout (-> build "#{sass} uiload.sass uiload.css"), 200
+    else if fn.index-of(\src/)==0 =>
+      name = dir.replace(/src\/?/, "")replace /\//,\.
+      cmd = "#{sass} #{fn} static/css/#{name}.css"
     else
       cmd = "#{sass} #{fn} #{fn.replace /\.sass$/, \.css}"
   if type == \jade => 

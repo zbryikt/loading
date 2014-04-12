@@ -1,48 +1,38 @@
 uiload {
   display: inline-block;
-  position: relative;
-  width: 100px;
-  height: 100px;
-  margin: 30px; }
+  position: relative; }
   uiload > div {
-    width: 100px;
-    height: 100px;
     position: relative; }
 
+.uil-default {
+  background: white; }
+
 .uil-default > div {
-  position: absolute;
-  -ms-transform: translate(-6px, -12px);
-  -moz-transform: translate(-6px, -12px);
-  -webkit-transform: translate(-6px, -12px);
-  -o-transform: translate(-6px, -12px);
-  transform: translate(-6px, -12px); }
+  position: absolute; }
   .uil-default > div > div {
     width: 12px;
     height: 24px;
-    background: lime;
-    border-radius: 10px 10px 5px 5px; }
+    background: black; }
 
 .uil-default > div:nth-of-type(1) {
   top: 0px;
   left: 50px; }
   .uil-default > div:nth-of-type(1) > div {
-    -ms-transform: rotate(0deg) translate(0, 11px) scaleY(1);
-    -moz-transform: rotate(0deg) translate(0, 11px) scaleY(1);
-    -webkit-transform: rotate(0deg) translate(0, 11px) scaleY(1);
-    -o-transform: rotate(0deg) translate(0, 11px) scaleY(1);
-    transform: rotate(0deg) translate(0, 11px) scaleY(1); }
-
-.anim > .uil-default > div:nth-of-type(1) > div {
-  -ms-animation: uil-default-1 1s linear 0s infinite;
-  -moz-animation: uil-default-1 1s linear 0s infinite;
-  -webkit-animation: uil-default-1 1s linear 0s infinite;
-  -o-animation: uil-default-1 1s linear 0s infinite;
-  animation: uil-default-1 1s linear 0s infinite;
-  -ms-animation-delay: 0s;
-  -moz-animation-delay: 0s;
-  -webkit-animation-delay: 0s;
-  -o-animation-delay: 0s;
-  animation-delay: 0s; }
+    -ms-transform: translate(-5px, -12px) rotate(0deg) translate(0, 12px) scaleY(1);
+    -moz-transform: translate(-5px, -12px) rotate(0deg) translate(0, 12px) scaleY(1);
+    -webkit-transform: translate(-5px, -12px) rotate(0deg) translate(0, 12px) scaleY(1);
+    -o-transform: translate(-5px, -12px) rotate(0deg) translate(0, 12px) scaleY(1);
+    transform: translate(-5px, -12px) rotate(0deg) translate(0, 12px) scaleY(1);
+    -ms-animation: uil-default-1 1s linear 0s infinite;
+    -moz-animation: uil-default-1 1s linear 0s infinite;
+    -webkit-animation: uil-default-1 1s linear 0s infinite;
+    -o-animation: uil-default-1 1s linear 0s infinite;
+    animation: uil-default-1 1s linear 0s infinite;
+    -ms-animation-delay: 0s;
+    -moz-animation-delay: 0s;
+    -webkit-animation-delay: 0s;
+    -o-animation-delay: 0s;
+    animation-delay: 0s; }
 
 @-webkit-keyframes uil-default-1 {
   0% {
@@ -124,23 +114,21 @@ uiload {
   top: 15px;
   left: 85px; }
   .uil-default > div:nth-of-type(2) > div {
-    -ms-transform: rotate(45deg) translate(0, 11px) scaleY(1);
-    -moz-transform: rotate(45deg) translate(0, 11px) scaleY(1);
-    -webkit-transform: rotate(45deg) translate(0, 11px) scaleY(1);
-    -o-transform: rotate(45deg) translate(0, 11px) scaleY(1);
-    transform: rotate(45deg) translate(0, 11px) scaleY(1); }
-
-.anim > .uil-default > div:nth-of-type(2) > div {
-  -ms-animation: uil-default-2 1s linear 0s infinite;
-  -moz-animation: uil-default-2 1s linear 0s infinite;
-  -webkit-animation: uil-default-2 1s linear 0s infinite;
-  -o-animation: uil-default-2 1s linear 0s infinite;
-  animation: uil-default-2 1s linear 0s infinite;
-  -ms-animation-delay: 0.125s;
-  -moz-animation-delay: 0.125s;
-  -webkit-animation-delay: 0.125s;
-  -o-animation-delay: 0.125s;
-  animation-delay: 0.125s; }
+    -ms-transform: translate(-5px, -12px) rotate(45deg) translate(0, 12px) scaleY(1);
+    -moz-transform: translate(-5px, -12px) rotate(45deg) translate(0, 12px) scaleY(1);
+    -webkit-transform: translate(-5px, -12px) rotate(45deg) translate(0, 12px) scaleY(1);
+    -o-transform: translate(-5px, -12px) rotate(45deg) translate(0, 12px) scaleY(1);
+    transform: translate(-5px, -12px) rotate(45deg) translate(0, 12px) scaleY(1);
+    -ms-animation: uil-default-2 1s linear 0s infinite;
+    -moz-animation: uil-default-2 1s linear 0s infinite;
+    -webkit-animation: uil-default-2 1s linear 0s infinite;
+    -o-animation: uil-default-2 1s linear 0s infinite;
+    animation: uil-default-2 1s linear 0s infinite;
+    -ms-animation-delay: 0.125s;
+    -moz-animation-delay: 0.125s;
+    -webkit-animation-delay: 0.125s;
+    -o-animation-delay: 0.125s;
+    animation-delay: 0.125s; }
 
 @-webkit-keyframes uil-default-2 {
   0% {
@@ -222,23 +210,21 @@ uiload {
   top: 50px;
   left: 100px; }
   .uil-default > div:nth-of-type(3) > div {
-    -ms-transform: rotate(90deg) translate(0, 11px) scaleY(1);
-    -moz-transform: rotate(90deg) translate(0, 11px) scaleY(1);
-    -webkit-transform: rotate(90deg) translate(0, 11px) scaleY(1);
-    -o-transform: rotate(90deg) translate(0, 11px) scaleY(1);
-    transform: rotate(90deg) translate(0, 11px) scaleY(1); }
-
-.anim > .uil-default > div:nth-of-type(3) > div {
-  -ms-animation: uil-default-3 1s linear 0s infinite;
-  -moz-animation: uil-default-3 1s linear 0s infinite;
-  -webkit-animation: uil-default-3 1s linear 0s infinite;
-  -o-animation: uil-default-3 1s linear 0s infinite;
-  animation: uil-default-3 1s linear 0s infinite;
-  -ms-animation-delay: 0.25s;
-  -moz-animation-delay: 0.25s;
-  -webkit-animation-delay: 0.25s;
-  -o-animation-delay: 0.25s;
-  animation-delay: 0.25s; }
+    -ms-transform: translate(-5px, -12px) rotate(90deg) translate(0, 12px) scaleY(1);
+    -moz-transform: translate(-5px, -12px) rotate(90deg) translate(0, 12px) scaleY(1);
+    -webkit-transform: translate(-5px, -12px) rotate(90deg) translate(0, 12px) scaleY(1);
+    -o-transform: translate(-5px, -12px) rotate(90deg) translate(0, 12px) scaleY(1);
+    transform: translate(-5px, -12px) rotate(90deg) translate(0, 12px) scaleY(1);
+    -ms-animation: uil-default-3 1s linear 0s infinite;
+    -moz-animation: uil-default-3 1s linear 0s infinite;
+    -webkit-animation: uil-default-3 1s linear 0s infinite;
+    -o-animation: uil-default-3 1s linear 0s infinite;
+    animation: uil-default-3 1s linear 0s infinite;
+    -ms-animation-delay: 0.25s;
+    -moz-animation-delay: 0.25s;
+    -webkit-animation-delay: 0.25s;
+    -o-animation-delay: 0.25s;
+    animation-delay: 0.25s; }
 
 @-webkit-keyframes uil-default-3 {
   0% {
@@ -320,23 +306,21 @@ uiload {
   top: 85px;
   left: 85px; }
   .uil-default > div:nth-of-type(4) > div {
-    -ms-transform: rotate(135deg) translate(0, 11px) scaleY(1);
-    -moz-transform: rotate(135deg) translate(0, 11px) scaleY(1);
-    -webkit-transform: rotate(135deg) translate(0, 11px) scaleY(1);
-    -o-transform: rotate(135deg) translate(0, 11px) scaleY(1);
-    transform: rotate(135deg) translate(0, 11px) scaleY(1); }
-
-.anim > .uil-default > div:nth-of-type(4) > div {
-  -ms-animation: uil-default-4 1s linear 0s infinite;
-  -moz-animation: uil-default-4 1s linear 0s infinite;
-  -webkit-animation: uil-default-4 1s linear 0s infinite;
-  -o-animation: uil-default-4 1s linear 0s infinite;
-  animation: uil-default-4 1s linear 0s infinite;
-  -ms-animation-delay: 0.375s;
-  -moz-animation-delay: 0.375s;
-  -webkit-animation-delay: 0.375s;
-  -o-animation-delay: 0.375s;
-  animation-delay: 0.375s; }
+    -ms-transform: translate(-5px, -12px) rotate(135deg) translate(0, 12px) scaleY(1);
+    -moz-transform: translate(-5px, -12px) rotate(135deg) translate(0, 12px) scaleY(1);
+    -webkit-transform: translate(-5px, -12px) rotate(135deg) translate(0, 12px) scaleY(1);
+    -o-transform: translate(-5px, -12px) rotate(135deg) translate(0, 12px) scaleY(1);
+    transform: translate(-5px, -12px) rotate(135deg) translate(0, 12px) scaleY(1);
+    -ms-animation: uil-default-4 1s linear 0s infinite;
+    -moz-animation: uil-default-4 1s linear 0s infinite;
+    -webkit-animation: uil-default-4 1s linear 0s infinite;
+    -o-animation: uil-default-4 1s linear 0s infinite;
+    animation: uil-default-4 1s linear 0s infinite;
+    -ms-animation-delay: 0.375s;
+    -moz-animation-delay: 0.375s;
+    -webkit-animation-delay: 0.375s;
+    -o-animation-delay: 0.375s;
+    animation-delay: 0.375s; }
 
 @-webkit-keyframes uil-default-4 {
   0% {
@@ -418,23 +402,21 @@ uiload {
   top: 100px;
   left: 50px; }
   .uil-default > div:nth-of-type(5) > div {
-    -ms-transform: rotate(180deg) translate(0, 11px) scaleY(1);
-    -moz-transform: rotate(180deg) translate(0, 11px) scaleY(1);
-    -webkit-transform: rotate(180deg) translate(0, 11px) scaleY(1);
-    -o-transform: rotate(180deg) translate(0, 11px) scaleY(1);
-    transform: rotate(180deg) translate(0, 11px) scaleY(1); }
-
-.anim > .uil-default > div:nth-of-type(5) > div {
-  -ms-animation: uil-default-5 1s linear 0s infinite;
-  -moz-animation: uil-default-5 1s linear 0s infinite;
-  -webkit-animation: uil-default-5 1s linear 0s infinite;
-  -o-animation: uil-default-5 1s linear 0s infinite;
-  animation: uil-default-5 1s linear 0s infinite;
-  -ms-animation-delay: 0.5s;
-  -moz-animation-delay: 0.5s;
-  -webkit-animation-delay: 0.5s;
-  -o-animation-delay: 0.5s;
-  animation-delay: 0.5s; }
+    -ms-transform: translate(-5px, -12px) rotate(180deg) translate(0, 12px) scaleY(1);
+    -moz-transform: translate(-5px, -12px) rotate(180deg) translate(0, 12px) scaleY(1);
+    -webkit-transform: translate(-5px, -12px) rotate(180deg) translate(0, 12px) scaleY(1);
+    -o-transform: translate(-5px, -12px) rotate(180deg) translate(0, 12px) scaleY(1);
+    transform: translate(-5px, -12px) rotate(180deg) translate(0, 12px) scaleY(1);
+    -ms-animation: uil-default-5 1s linear 0s infinite;
+    -moz-animation: uil-default-5 1s linear 0s infinite;
+    -webkit-animation: uil-default-5 1s linear 0s infinite;
+    -o-animation: uil-default-5 1s linear 0s infinite;
+    animation: uil-default-5 1s linear 0s infinite;
+    -ms-animation-delay: 0.5s;
+    -moz-animation-delay: 0.5s;
+    -webkit-animation-delay: 0.5s;
+    -o-animation-delay: 0.5s;
+    animation-delay: 0.5s; }
 
 @-webkit-keyframes uil-default-5 {
   0% {
@@ -516,23 +498,21 @@ uiload {
   top: 85px;
   left: 15px; }
   .uil-default > div:nth-of-type(6) > div {
-    -ms-transform: rotate(225deg) translate(0, 11px) scaleY(1);
-    -moz-transform: rotate(225deg) translate(0, 11px) scaleY(1);
-    -webkit-transform: rotate(225deg) translate(0, 11px) scaleY(1);
-    -o-transform: rotate(225deg) translate(0, 11px) scaleY(1);
-    transform: rotate(225deg) translate(0, 11px) scaleY(1); }
-
-.anim > .uil-default > div:nth-of-type(6) > div {
-  -ms-animation: uil-default-6 1s linear 0s infinite;
-  -moz-animation: uil-default-6 1s linear 0s infinite;
-  -webkit-animation: uil-default-6 1s linear 0s infinite;
-  -o-animation: uil-default-6 1s linear 0s infinite;
-  animation: uil-default-6 1s linear 0s infinite;
-  -ms-animation-delay: 0.625s;
-  -moz-animation-delay: 0.625s;
-  -webkit-animation-delay: 0.625s;
-  -o-animation-delay: 0.625s;
-  animation-delay: 0.625s; }
+    -ms-transform: translate(-5px, -12px) rotate(225deg) translate(0, 12px) scaleY(1);
+    -moz-transform: translate(-5px, -12px) rotate(225deg) translate(0, 12px) scaleY(1);
+    -webkit-transform: translate(-5px, -12px) rotate(225deg) translate(0, 12px) scaleY(1);
+    -o-transform: translate(-5px, -12px) rotate(225deg) translate(0, 12px) scaleY(1);
+    transform: translate(-5px, -12px) rotate(225deg) translate(0, 12px) scaleY(1);
+    -ms-animation: uil-default-6 1s linear 0s infinite;
+    -moz-animation: uil-default-6 1s linear 0s infinite;
+    -webkit-animation: uil-default-6 1s linear 0s infinite;
+    -o-animation: uil-default-6 1s linear 0s infinite;
+    animation: uil-default-6 1s linear 0s infinite;
+    -ms-animation-delay: 0.625s;
+    -moz-animation-delay: 0.625s;
+    -webkit-animation-delay: 0.625s;
+    -o-animation-delay: 0.625s;
+    animation-delay: 0.625s; }
 
 @-webkit-keyframes uil-default-6 {
   0% {
@@ -614,23 +594,21 @@ uiload {
   top: 50px;
   left: 0px; }
   .uil-default > div:nth-of-type(7) > div {
-    -ms-transform: rotate(270deg) translate(0, 11px) scaleY(1);
-    -moz-transform: rotate(270deg) translate(0, 11px) scaleY(1);
-    -webkit-transform: rotate(270deg) translate(0, 11px) scaleY(1);
-    -o-transform: rotate(270deg) translate(0, 11px) scaleY(1);
-    transform: rotate(270deg) translate(0, 11px) scaleY(1); }
-
-.anim > .uil-default > div:nth-of-type(7) > div {
-  -ms-animation: uil-default-7 1s linear 0s infinite;
-  -moz-animation: uil-default-7 1s linear 0s infinite;
-  -webkit-animation: uil-default-7 1s linear 0s infinite;
-  -o-animation: uil-default-7 1s linear 0s infinite;
-  animation: uil-default-7 1s linear 0s infinite;
-  -ms-animation-delay: 0.75s;
-  -moz-animation-delay: 0.75s;
-  -webkit-animation-delay: 0.75s;
-  -o-animation-delay: 0.75s;
-  animation-delay: 0.75s; }
+    -ms-transform: translate(-5px, -12px) rotate(270deg) translate(0, 12px) scaleY(1);
+    -moz-transform: translate(-5px, -12px) rotate(270deg) translate(0, 12px) scaleY(1);
+    -webkit-transform: translate(-5px, -12px) rotate(270deg) translate(0, 12px) scaleY(1);
+    -o-transform: translate(-5px, -12px) rotate(270deg) translate(0, 12px) scaleY(1);
+    transform: translate(-5px, -12px) rotate(270deg) translate(0, 12px) scaleY(1);
+    -ms-animation: uil-default-7 1s linear 0s infinite;
+    -moz-animation: uil-default-7 1s linear 0s infinite;
+    -webkit-animation: uil-default-7 1s linear 0s infinite;
+    -o-animation: uil-default-7 1s linear 0s infinite;
+    animation: uil-default-7 1s linear 0s infinite;
+    -ms-animation-delay: 0.75s;
+    -moz-animation-delay: 0.75s;
+    -webkit-animation-delay: 0.75s;
+    -o-animation-delay: 0.75s;
+    animation-delay: 0.75s; }
 
 @-webkit-keyframes uil-default-7 {
   0% {
@@ -712,23 +690,21 @@ uiload {
   top: 15px;
   left: 15px; }
   .uil-default > div:nth-of-type(8) > div {
-    -ms-transform: rotate(315deg) translate(0, 11px) scaleY(1);
-    -moz-transform: rotate(315deg) translate(0, 11px) scaleY(1);
-    -webkit-transform: rotate(315deg) translate(0, 11px) scaleY(1);
-    -o-transform: rotate(315deg) translate(0, 11px) scaleY(1);
-    transform: rotate(315deg) translate(0, 11px) scaleY(1); }
-
-.anim > .uil-default > div:nth-of-type(8) > div {
-  -ms-animation: uil-default-8 1s linear 0s infinite;
-  -moz-animation: uil-default-8 1s linear 0s infinite;
-  -webkit-animation: uil-default-8 1s linear 0s infinite;
-  -o-animation: uil-default-8 1s linear 0s infinite;
-  animation: uil-default-8 1s linear 0s infinite;
-  -ms-animation-delay: 0.875s;
-  -moz-animation-delay: 0.875s;
-  -webkit-animation-delay: 0.875s;
-  -o-animation-delay: 0.875s;
-  animation-delay: 0.875s; }
+    -ms-transform: translate(-5px, -12px) rotate(315deg) translate(0, 12px) scaleY(1);
+    -moz-transform: translate(-5px, -12px) rotate(315deg) translate(0, 12px) scaleY(1);
+    -webkit-transform: translate(-5px, -12px) rotate(315deg) translate(0, 12px) scaleY(1);
+    -o-transform: translate(-5px, -12px) rotate(315deg) translate(0, 12px) scaleY(1);
+    transform: translate(-5px, -12px) rotate(315deg) translate(0, 12px) scaleY(1);
+    -ms-animation: uil-default-8 1s linear 0s infinite;
+    -moz-animation: uil-default-8 1s linear 0s infinite;
+    -webkit-animation: uil-default-8 1s linear 0s infinite;
+    -o-animation: uil-default-8 1s linear 0s infinite;
+    animation: uil-default-8 1s linear 0s infinite;
+    -ms-animation-delay: 0.875s;
+    -moz-animation-delay: 0.875s;
+    -webkit-animation-delay: 0.875s;
+    -o-animation-delay: 0.875s;
+    animation-delay: 0.875s; }
 
 @-webkit-keyframes uil-default-8 {
   0% {

@@ -7,7 +7,7 @@ require.config({
 });
 require(['uiloading'], function(){
   var x$;
-  x$ = angular.module('main', ['uiloading']);
+  x$ = angular.module('main', ['uiloading', 'colorpicker.module']);
   x$.factory('svg2canvas', function(){
     return function(svg, cb){
       var canvas;
@@ -20,7 +20,34 @@ require(['uiloading'], function(){
       });
     };
   });
-  x$.factory('capture', function($timeout, svg2canvas){
+  x$.factory('outputmodal', function(){
+    return {
+      node: null,
+      url: null,
+      blob: null,
+      type: null,
+      mode: null,
+      create: function(node, blob, type, mode){
+        this.node = node;
+        this.blob = blob;
+        this.type = type;
+        this.mode = mode;
+        this.url = URL.createObjectURL(blob);
+        $('#output-box').html("");
+        $('#output-box').append($(this.node));
+        $('#output-box-link').attr('href', this.url);
+        $('#output-box-link').attr('download', this.type + "." + mode.toLowerCase());
+        return $('#output-modal').modal('show');
+      }
+    };
+  });
+  x$.controller('output', ['$scope', 'outputmodal'].concat(function($scope, outputmodal){
+    $scope.outputmodal = outputmodal;
+    return $scope.$watch('outputmodal.mode', function(){
+      return $scope.mode = outputmodal.mode;
+    });
+  }));
+  x$.factory('capture', function($timeout, svg2canvas, outputmodal){
     return function(model, delta, cb){
       var ret;
       ret = import$({}, {
@@ -47,11 +74,7 @@ require(['uiloading'], function(){
                 var img;
                 img = document.createElement("img");
                 img.src = reader.result;
-                $('#output-gif').html("");
-                $('#output-gif').append($(img));
-                $('#output-gif-link').attr('href', URL.createObjectURL(blob));
-                $('#output-gif-link').attr('download', model.type);
-                return cb();
+                return cb($(img), blob, model.type);
               };
             });
             return this.gif.render();
@@ -98,7 +121,7 @@ require(['uiloading'], function(){
       return ret.start(model);
     };
   });
-  x$.controller('main', ['$scope', '$timeout', '$interval', 'capture'].concat(function($scope, $timeout, $interval, capture){
+  x$.controller('main', ['$scope', '$timeout', '$interval', '$http', 'capture', 'outputmodal'].concat(function($scope, $timeout, $interval, $http, capture, outputmodal){
     $scope.delay = 0;
     $scope.delta = 30;
     $scope.$watch('build.speed', function(v){
@@ -138,18 +161,45 @@ require(['uiloading'], function(){
         total = 200;
         return this.size = parseInt(100 * ((ref$ = (ref1$ = e.offsetX) > 50 ? ref1$ : 50) < 200 ? ref$ : 200) / (total != null ? total : 200));
       },
+      makesvg: function(){
+        var type;
+        type = $scope.demoLoader.type;
+        return $http.get("/static/html/" + type + ".svg.html").success(function(rawSvg){
+          var svg;
+          rawSvg = '<?xml version="1.0" encoding="utf-8"?>' + rawSvg;
+          svg = $scope.demoLoader.patch(rawSvg, $scope.build);
+          return outputmodal.create($(svg), new Blob([svg], {
+            type: 'text/html'
+          }), type, 'SVG');
+        });
+      },
+      makecss: function(){
+        return $http.get("/static/html/" + $scope.demoLoader.type + ".css.html").success(function(rawHtml){
+          return $http.get("/static/css/" + $scope.demoLoader.type + ".css").success(function(rawCss){
+            var data, node, blob, type;
+            data = "<style type='text/css'> " + rawCss + " </style> " + rawHtml;
+            node = $(data);
+            blob = new Blob([data], {
+              type: 'text/html'
+            });
+            type = $scope.demoLoader.type;
+            return outputmodal.create(node, blob, type, 'CSS');
+          });
+        });
+      },
       makegif: function(){
         var this$ = this;
         this.done = false;
         this.making = true;
         this.stop();
-        return capture($scope.demoLoader, $scope.delta, function(){
-          $('#output-modal').modal('show');
+        return capture($scope.demoLoader, $scope.delta, function(img, blob, type){
+          outputmodal.create(img, blob, type, 'GIF');
           return this$.done = true, this$.making = false, this$;
         });
       }
     };
   }));
+  $('.ttn').tooltip();
   return angular.bootstrap($("body"), ['main']);
 });
 function import$(obj, src){

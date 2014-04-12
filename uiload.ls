@@ -21,11 +21,15 @@ angular.module \uiloading
       scope.p = do
         node: e
         mode: mod.mode
+        vars: mod.vars
         type: type
         start: ->
           console.log \ok
           mod.start scope, e, attrs, ctrl
         stop: -> mod.stop scope, e, attrs, ctrl
         step: -> mod.step scope, e, attrs, ctrl, it
-      if mod.custom => mod.custom scope, e, attrs, ctrl
+        patch: (svg, opt)-> mod.patch svg, opt
+      if mod.custom => 
+        console.log "xx"
+        mod.custom scope, e, attrs, ctrl
 

@@ -6,9 +6,8 @@
     left: #{$left}px
     & > div
       @include transform(translate(-5px,-12px) rotate(#{$deg}deg) translate(0,12px) scaleY(1))
-  .anim > .uil-default > div:nth-of-type(#{$id}) > div
-    @include animation(uil-default-#{$id} 1s linear 0s infinite)
-    @include animation-delay($delay)
+      @include animation(uil-default-#{$id} 1s linear 0s infinite)
+      @include animation-delay($delay)
   +keyframes(uil-default-#{$id})
     0%
       opacity: 0.42

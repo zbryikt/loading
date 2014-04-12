@@ -113,18 +113,18 @@ nav.navbar-default {
 #play .active .glyphicon {
   text-shadow: 0 0 6px #ffffc0; }
 
-#build.btn-group {
+#build {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2); }
-  #build.btn-group .btn-default {
+  #build .btn-default {
     color: white;
     text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1); }
-    #build.btn-group .btn-default:nth-of-type(1) {
+    #build .btn-default:nth-of-type(1) {
       background: #f77a62;
       border: 1px solid #ff917c; }
-    #build.btn-group .btn-default:nth-of-type(2) {
+    #build .btn-default:nth-of-type(2) {
       background: #f89f5a;
       border: 1px solid #ffb174; }
-    #build.btn-group .btn-default:nth-of-type(3) {
+    #build .btn-default:nth-of-type(3) {
       background: #8cd14b;
       border: 1px solid #9ed36d; }
 
@@ -138,13 +138,14 @@ nav.navbar-default {
   #output-modal .modal-body .btn-success {
     margin-left: -13px; }
 
-#output-gif {
+#output-box {
   width: 100%;
-  text-align: center; }
-  #output-gif img {
+  text-align: center;
+  padding: 20px; }
+  #output-box img, #output-box svg {
     border-radius: 5px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-    margin: 15px;
+    margin: 5px;
     background: url(grid-bk.png); }
 
 #footer {
