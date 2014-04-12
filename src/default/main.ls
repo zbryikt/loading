@@ -6,9 +6,9 @@ angular.module \uiloading
     ret = do
       mode: \both
       vars: 
-        * name: 'bar color', placeholder: '#f00', type: 'color'
-        * name: 'radius', placeholder: '5', type: 'px'
-        * name: 'line color', placeholder: '#f00', type: 'color'
+        [ { name: 'bar color', placeholder: '#f00', type: 'color' } ]
+        #* name: 'radius', placeholder: '5', type: 'px'
+        #* name: 'line color', placeholder: '#f00', type: 'color'
       patch: (svg, opt) ->
         console.log "patching default"
         svg = svg.replace /{{barColor}}/g, opt.c1

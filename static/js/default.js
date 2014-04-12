@@ -7,21 +7,11 @@ define([], function(){
     start = null;
     return ret = {
       mode: 'both',
-      vars: [
-        {
-          name: 'bar color',
-          placeholder: '#f00',
-          type: 'color'
-        }, {
-          name: 'radius',
-          placeholder: '5',
-          type: 'px'
-        }, {
-          name: 'line color',
-          placeholder: '#f00',
-          type: 'color'
-        }
-      ],
+      vars: [{
+        name: 'bar color',
+        placeholder: '#f00',
+        type: 'color'
+      }],
       patch: function(svg, opt){
         var i$, i, begin;
         console.log("patching default");
