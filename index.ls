@@ -65,16 +65,17 @@ angular.module \main, <[uiloading colorpicker.module]>
         @
     ret.start model
 
-  ..controller \main, <[$scope $timeout $interval $http capture outputmodal]> ++ ($scope, $timeout, $interval, $http, capture, outputmodal) ->
+  ..controller \main, <[$scope $injector $timeout $interval $http $compile capture outputmodal]> ++ ($scope, $injector, $timeout, $interval, $http, $compile, capture, outputmodal) ->
     $scope.delay = 0
     $scope.delta = 30
+    $scope.ani-timer = null
     $scope.$watch 'build.speed' (v) ->
       if v > 0 => $scope.delta = 30 / v
     $scope.$watch 'demoLoader' -> 
       if $scope.demo-loader =>
         for item,i in $scope.demo-loader.vars
           $scope.build["c#{i + 1}"] = item.default
-        $timeout ->
+        if !$scope.ani-timer => $scope.ani-timer = $timeout ->
           $scope.demo-loader.start!
           $interval (-> if !$scope.build.making =>
             $scope.demo-loader.step $scope.delay
@@ -111,7 +112,25 @@ angular.module \main, <[uiloading colorpicker.module]>
         capture $scope.demoLoader, $scope.delta, (img, blob, type) ~>
           outputmodal.create img, blob, type, \GIF
           @ <<< {done: true, making: false}
-  $(\.ttn)tooltip!
+    $(\.ttn)tooltip!
+    $timeout ->
+      type = <[default infinity ellipsis]>[parse-int(Math.random!*3)]
+      console.log type
+      try mod = $injector.get "uilType-#type"
+      catch => return console.log("module not found.")
+      custom-vars = ["#{v.attr}='{{build.c#{i + 1}}}'" for v,i in mod.vars]
+      default-vars = ["type='#type'", "background='build.cbk'", "js", "ng-model='demoLoader'"]
+      custom-style = [
+        'style="'
+        "width:{{build.size * 2}}px",
+        "height:{{build.size * 2}}px",
+        "margin:{{100 - build.size}}px"
+        '"'
+      ]join ";"
+      html = $("<uiload #{(custom-vars ++ default-vars ++ [custom-style])join ' '}>")
+      $(\#demo-panel)html ""
+      $(\#demo-panel)append $compile(html)($scope)
+    , 0
 
 
 angular.bootstrap $("body"), <[main]>

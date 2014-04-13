@@ -87,15 +87,14 @@ html(lang="en")
       .ib
         .glyphicon.glyphicon-qrcode
         .desc mobile
-
     #panel
       #tryit
       #making.anim.invis(ng-class="{'invis':!build.making}") Generating...
       .row
         .col-md-5
           #demo-panel(ng-attr-style="background:{{build.cbk || '#fff'}}")
-            uiload(type="ellipsis",js,ng-model="demoLoader",circle-color="{{build.c1}}",background="{{build.cbk}}",
-            -ng-attr-style="width:{{build.size * 2}}px;height:{{build.size * 2}}px;margin:{{100 - build.size}}px")
+            //-uiload(type="ellipsis",js,ng-model="demoLoader",circle-color="{{build.c1}}",background="{{build.cbk}}",
+            //-ng-attr-style="width:{{build.size * 2}}px;height:{{build.size * 2}}px;margin:{{100 - build.size}}px")
             //-uiload(type="default",js,ng-model="demoLoader",bar-color="{{build.c1}}",background="{{build.cbk}}",
             //-ng-attr-style="width:{{build.size * 2}}px;height:{{build.size * 2}}px;margin:{{100 - build.size}}px")
             //uiload(type="infinity",js,ng-model="demoLoader",circle-color="{{build.c1}}",

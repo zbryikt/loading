@@ -121,9 +121,10 @@ require(['uiloading'], function(){
       return ret.start(model);
     };
   });
-  x$.controller('main', ['$scope', '$timeout', '$interval', '$http', 'capture', 'outputmodal'].concat(function($scope, $timeout, $interval, $http, capture, outputmodal){
+  x$.controller('main', ['$scope', '$injector', '$timeout', '$interval', '$http', '$compile', 'capture', 'outputmodal'].concat(function($scope, $injector, $timeout, $interval, $http, $compile, capture, outputmodal){
     $scope.delay = 0;
     $scope.delta = 30;
+    $scope.aniTimer = null;
     $scope.$watch('build.speed', function(v){
       if (v > 0) {
         return $scope.delta = 30 / v;
@@ -137,20 +138,22 @@ require(['uiloading'], function(){
           item = ref$[i$];
           $scope.build["c" + (i + 1)] = item['default'];
         }
-        return $timeout(function(){
-          $scope.demoLoader.start();
-          return $interval(function(){
-            if (!$scope.build.making) {
-              $scope.demoLoader.step($scope.delay);
-              if ($scope.build.running) {
-                return $scope.delay = ($scope.delay + $scope.delta) % 1000;
+        if (!$scope.aniTimer) {
+          return $scope.aniTimer = $timeout(function(){
+            $scope.demoLoader.start();
+            return $interval(function(){
+              if (!$scope.build.making) {
+                $scope.demoLoader.step($scope.delay);
+                if ($scope.build.running) {
+                  return $scope.delay = ($scope.delay + $scope.delta) % 1000;
+                }
               }
-            }
-          }, 30);
-        }, 1000);
+            }, 30);
+          }, 1000);
+        }
       }
     });
-    return $scope.build = {
+    $scope.build = {
       size: 60,
       running: true,
       making: false,
@@ -204,8 +207,31 @@ require(['uiloading'], function(){
         });
       }
     };
+    $('.ttn').tooltip();
+    return $timeout(function(){
+      var type, mod, e, customVars, res$, i$, ref$, len$, i, v, defaultVars, customStyle, html;
+      type = ['default', 'infinity', 'ellipsis'][parseInt(Math.random() * 3)];
+      console.log(type);
+      try {
+        mod = $injector.get("uilType-" + type);
+      } catch (e$) {
+        e = e$;
+        return console.log("module not found.");
+      }
+      res$ = [];
+      for (i$ = 0, len$ = (ref$ = mod.vars).length; i$ < len$; ++i$) {
+        i = i$;
+        v = ref$[i$];
+        res$.push(v.attr + "='{{build.c" + (i + 1) + "}}'");
+      }
+      customVars = res$;
+      defaultVars = ["type='" + type + "'", "background='build.cbk'", "js", "ng-model='demoLoader'"];
+      customStyle = ['style="', "width:{{build.size * 2}}px", "height:{{build.size * 2}}px", "margin:{{100 - build.size}}px", '"'].join(";");
+      html = $("<uiload " + (customVars.concat(defaultVars, [customStyle])).join(' ') + ">");
+      $('#demo-panel').html("");
+      return $('#demo-panel').append($compile(html)($scope));
+    }, 0);
   }));
-  $('.ttn').tooltip();
   return angular.bootstrap($("body"), ['main']);
 });
 function import$(obj, src){

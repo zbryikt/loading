@@ -11,12 +11,14 @@ define([], function(){
           name: 'circle color',
           placeholder: '#f00',
           type: 'color',
-          'default': '#000'
+          'default': '#000',
+          attr: 'circle-color'
         }, {
           name: 'line color',
           placeholder: '#f00',
           type: 'color',
-          'default': '#000'
+          'default': '#000',
+          attr: 'line-color'
         }
       ],
       patchSvg: function(data, opt){

@@ -11,7 +11,8 @@ define([], function(){
         name: 'bar color',
         placeholder: '#f00',
         type: 'color',
-        'default': '#000'
+        'default': '#000',
+        attr: 'bar-color'
       }],
       patchCss: function(data, opt){
         return this.patch(data, opt);

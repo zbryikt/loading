@@ -9,7 +9,7 @@ angular.module \uiloading
     ret = do
       mode: \both
       vars: 
-        [{name: 'circle color', placeholder: '#f00', type: 'color', default: '#000'}]
+        [{name: 'circle color', placeholder: '#f00', type: 'color', default: '#000', attr: 'circle-color'}]
       patch-css: (data, opt) -> @patch data, opt
       patch-svg: (data, opt) -> @patch data, opt
       patch: (data, opt) ->

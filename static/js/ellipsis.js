@@ -15,7 +15,8 @@ define([], function(){
         name: 'circle color',
         placeholder: '#f00',
         type: 'color',
-        'default': '#000'
+        'default': '#000',
+        attr: 'circle-color'
       }],
       patchCss: function(data, opt){
         return this.patch(data, opt);

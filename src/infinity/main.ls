@@ -5,8 +5,8 @@ angular.module \uiloading
     ret = do
       mode: \svg
       vars:
-        * name: 'circle color', placeholder: '#f00', type: 'color', default: '#000'
-        * name: 'line color', placeholder: '#f00', type: 'color', default: '#000'
+        * name: 'circle color', placeholder: '#f00', type: 'color', default: '#000', attr: 'circle-color'
+        * name: 'line color', placeholder: '#f00', type: 'color', default: '#000', attr: 'line-color'
       patch-svg: (data, opt) -> @patch data, opt
       patch-css: (data, opt) -> @patch data, opt
       patch: (data, opt) ->
