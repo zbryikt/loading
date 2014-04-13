@@ -1,0 +1,51 @@
+@import basic
+
++keyframes(uil-ellipsis)
+  0%
+    @include transform(scale(0))
+    left: 0px
+    opacity: 1
+  12.5%
+    @include transform(scale(1))
+  25%
+    left: 0px
+  37.5%
+    left: 70px
+  50%
+    left: 70px
+  62.5%
+    left: 140px
+  75%
+    left: 140px
+    @include transform(scale(1))
+  87.5%
+    left: 140px
+    @include transform(scale(0))
+    opacity: 1
+  100%
+    left: 140px
+    opacity: 0
+
+@mixin uil-ellipsis($id,$delay)
+  .circle:nth-of-type(#{$id})
+    @include animation-delay($delay)
+
+.uil-ellipsis-css
+  background: none
+  position: relative
+  width: 200px
+  height: 200px
+  .circle
+    width: 60px
+    height: 60px
+    border-radius: 30px
+    background: circleColor
+    position: absolute
+    top: 70px
+    opacity: 0
+    @include animation(uil-ellipsis duration linear infinite)
+
+@include uil-ellipsis(1,0s)
+@include uil-ellipsis(2,s2-8s)
+@include uil-ellipsis(3,s4-8s)
+@include uil-ellipsis(4,s6-8s)

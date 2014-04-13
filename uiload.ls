@@ -1,8 +1,11 @@
 angular.module \uiloading, <[]>
   ..factory \uilSvg, -> 'width="100%" height="100%" viewBox="0 0 100 100"'
 
-<- define <[default infinity]>
+<- define <[default infinity ellipsis]>
 angular.module \uiloading
+  ..factory \uilresize, -> (data, type, opt) ->
+    data = data.replace /svg width="100%" height="100%"/, "svg width='#{opt.size * 2}px' height='#{opt.size * 2}px'"
+    data = data.replace new RegExp("\"uil-#{type}-css\""), "'uil-#{type}-css' style='-webkit-transform:scale(#{opt.size * 2 / 200})'"
   ..directive \uiload, ($injector, $http, $templateCache, $timeout) -> do
     restrict: \E
     template: ""

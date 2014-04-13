@@ -95,7 +95,6 @@ angular.module \main, <[uiloading colorpicker.module]>
       makesvg: ->
         type = $scope.demoLoader.type
         (raw-svg) <- $http.get "/static/html/#{type}.svg.html" .success
-        console.log raw-svg, type
         raw-svg = '<?xml version="1.0" encoding="utf-8"?>' + raw-svg
         svg = $scope.demo-loader.patch-svg raw-svg, $scope.build
         outputmodal.create $(svg), new Blob([svg],type:'text/html'), type, \SVG
