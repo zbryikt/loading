@@ -8,6 +8,13 @@
   @keyframes #{$name}
     @content
 
+=transition($arg1, $arg2)
+  -ms-transition: $arg1, $arg2
+  -moz-transition: $arg1, $arg2
+  -webkit-transition: $arg1, $arg2
+  -o-transition: $arg1, $arg2
+  transition: $arg1, $arg2
+
 =transform($arg)
   -ms-transform: $arg
   -moz-transform: $arg

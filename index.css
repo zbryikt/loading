@@ -1,3 +1,9 @@
+uiload {
+  display: inline-block;
+  position: relative; }
+  uiload > div {
+    position: relative; }
+
 html, body {
   margin: 0;
   padding: 0;
@@ -148,6 +154,51 @@ nav.navbar-default {
     margin: 5px auto;
     background: url(grid-bk.png); }
 
+#chooser {
+  position: relative;
+  width: 100%;
+  height: 100px;
+  padding: 3px 20% 3px 10%;
+  margin: 10px 0;
+  background: rgba(0, 0, 0, 0.2); }
+  #chooser:before {
+    content: " ";
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-bottom: 20px solid rgba(0, 0, 0, 0.2);
+    position: absolute;
+    top: -20px;
+    margin-left: 100px; }
+  #chooser .item {
+    display: inline-block;
+    margin: 7px;
+    padding: 8px;
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0);
+    box-shadow: 0 0 0 yellow;
+    -ms-transition: box-shadow 0.2s, background 0.4s;
+    -moz-transition: box-shadow 0.2s, background 0.4s;
+    -webkit-transition: box-shadow 0.2s, background 0.4s;
+    -o-transition: box-shadow 0.2s, background 0.4s;
+    transition: box-shadow 0.2s, background 0.4s; }
+    #chooser .item .delay {
+      background: white;
+      width: 64px;
+      height: 64px;
+      border-radius: 3px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); }
+  #chooser .item.active {
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 13px yellow;
+    -ms-transition: box-shadow 0.2s, background 0.4s;
+    -moz-transition: box-shadow 0.2s, background 0.4s;
+    -webkit-transition: box-shadow 0.2s, background 0.4s;
+    -o-transition: box-shadow 0.2s, background 0.4s;
+    transition: box-shadow 0.2s, background 0.4s; }
+
 #footer {
   position: fixed;
   bottom: 0;
@@ -179,3 +230,11 @@ nav.navbar-default {
   z-index: 0;
   visibility: hidden;
   transition: opacity 0.5s linear, visibility 0s linear 0.5s, z-index 0.5s linear; }
+
+.delay {
+  opacity: 0;
+  -webkit-transition: opacity 0.8s;
+  transition: opacity 0.8s; }
+
+.delay.visible {
+  opacity: 1; }

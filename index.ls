@@ -6,6 +6,14 @@ require.config do
 
 <- require <[uiloading]>
 angular.module \main, <[uiloading colorpicker.module]>
+  ..directive \delayBk, -> do
+    restrict: \A
+    link: (scope, e, attrs, ctrl) ->
+      url = attrs["delayBk"]
+      $ \<img/> .attr \src url .load ->
+        $(@)remove!
+        e.css "background-image": "url(#url)"
+        e.toggle-class \visible
   ..factory \svg2canvas, -> (svg, cb) ->
     canvas = document.createElement \canvas
     svg = svg.trim!
@@ -76,13 +84,14 @@ angular.module \main, <[uiloading colorpicker.module]>
         for item,i in $scope.demo-loader.vars
           $scope.build["c#{i + 1}"] = item.default
         if !$scope.ani-timer => $scope.ani-timer = $timeout ->
-          $scope.demo-loader.start!
+          #$scope.demo-loader.start!
           $interval (-> if !$scope.build.making =>
             $scope.demo-loader.step $scope.delay
             if $scope.build.running => $scope.delay = ( $scope.delay + $scope.delta ) % 1000
           ), 30
         , 1000
     $scope.build = do
+      choices: <[default infinity ellipsis]>
       size: 60
       running: true
       making: false
@@ -90,6 +99,24 @@ angular.module \main, <[uiloading colorpicker.module]>
       speed: 1
       start: -> @running = true
       stop: -> @running = false
+      type: \default
+      settype: (type) -> set-timeout (~>
+        @type = type
+        try mod = $injector.get "uilType-#type"
+        catch => return console.log("module not found.")
+        custom-vars = ["#{v.attr}='{{build.c#{i + 1}}}'" for v,i in mod.vars]
+        default-vars = ["type='#type'", "background='build.cbk'", "js", "ng-model='demoLoader'"]
+        custom-style = [
+          'style="'
+          "width:{{build.size * 2}}px",
+          "height:{{build.size * 2}}px",
+          "margin:{{100 - build.size}}px"
+          '"'
+        ]join ";"
+        html = $("<uiload #{(custom-vars ++ default-vars ++ [custom-style])join ' '}>")
+        $(\#demo-panel)html ""
+        $(\#demo-panel)append $compile(html)($scope)
+        ), 0
       resize: (e) -> 
         total = 200 # $(e.target or e.srcElement)width!
         @size = parse-int( 100 * ( e.offsetX >? 50 <? 200 ) / ( total ? 200 ) )
@@ -113,24 +140,7 @@ angular.module \main, <[uiloading colorpicker.module]>
           outputmodal.create img, blob, type, \GIF
           @ <<< {done: true, making: false}
     $(\.ttn)tooltip!
-    $timeout ->
-      type = <[default infinity ellipsis]>[parse-int(Math.random!*3)]
-      console.log type
-      try mod = $injector.get "uilType-#type"
-      catch => return console.log("module not found.")
-      custom-vars = ["#{v.attr}='{{build.c#{i + 1}}}'" for v,i in mod.vars]
-      default-vars = ["type='#type'", "background='build.cbk'", "js", "ng-model='demoLoader'"]
-      custom-style = [
-        'style="'
-        "width:{{build.size * 2}}px",
-        "height:{{build.size * 2}}px",
-        "margin:{{100 - build.size}}px"
-        '"'
-      ]join ";"
-      html = $("<uiload #{(custom-vars ++ default-vars ++ [custom-style])join ' '}>")
-      $(\#demo-panel)html ""
-      $(\#demo-panel)append $compile(html)($scope)
-    , 0
+    $timeout (-> $scope.build.settype \default), 0
 
 
 angular.bootstrap $("body"), <[main]>

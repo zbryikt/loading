@@ -29,9 +29,10 @@ angular.module \uiloading
 
       start: (s, e, a, c) ->
         @path = document.getElementById("uil-inf-path")
-        @length = @path.get-total-length!
+        if @path => @length = @path.get-total-length!
       stop:  (s, e, a, c) ->
       step:  (s, e, a, c, delay) ->
+        if !@path => @start s,e,a,c
         e.find \circle .each ~>
           ptr = @path.get-point-at-length @length * parse-float(( (delay + offset[&0]) % 1000 ) / 1000.0)
           $(&1).attr \cx, ptr.x

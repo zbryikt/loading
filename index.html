@@ -145,6 +145,11 @@
         </div>
       </div>
     </div>
+    <div id="chooser">
+      <div ng-repeat="t in build.choices" ng-class="{'active':build.type==t}" class="item">
+        <div delay-bk="res/{{t}}.png" ng-click="build.settype(t)" class="delay"></div>
+      </div>
+    </div>
     <div id="output-modal" ng-controller="output" class="modal fade">
       <div class="modal-dialog">
         <div class="modal-content">

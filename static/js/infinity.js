@@ -59,11 +59,16 @@ define([], function(){
       },
       start: function(s, e, a, c){
         this.path = document.getElementById("uil-inf-path");
-        return this.length = this.path.getTotalLength();
+        if (this.path) {
+          return this.length = this.path.getTotalLength();
+        }
       },
       stop: function(s, e, a, c){},
       step: function(s, e, a, c, delay){
         var this$ = this;
+        if (!this.path) {
+          this.start(s, e, a, c);
+        }
         return e.find('circle').each(function(){
           var ptr;
           ptr = this$.path.getPointAtLength(this$.length * parseFloat(((delay + offset[arguments[0]]) % 1000) / 1000.0));

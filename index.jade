@@ -131,6 +131,9 @@ html(lang="en")
                   span(ng-if="demoLoader.mode=='svg'") CSS N/A
                 .btn.btn-default(ng-click="build.makegif()")
                   | Make GIF
+    #chooser
+      .item(ng-repeat="t in build.choices",ng-class="{'active':build.type==t}") 
+        .delay(delay-bk="res/{{t}}.png",ng-click="build.settype(t)")
     #output-modal.modal.fade(ng-controller="output")
       .modal-dialog
         .modal-content

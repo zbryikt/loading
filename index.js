@@ -8,6 +8,22 @@ require.config({
 require(['uiloading'], function(){
   var x$;
   x$ = angular.module('main', ['uiloading', 'colorpicker.module']);
+  x$.directive('delayBk', function(){
+    return {
+      restrict: 'A',
+      link: function(scope, e, attrs, ctrl){
+        var url;
+        url = attrs["delayBk"];
+        return $('<img/>').attr('src', url).load(function(){
+          $(this).remove();
+          e.css({
+            "background-image": "url(" + url + ")"
+          });
+          return e.toggleClass('visible');
+        });
+      }
+    };
+  });
   x$.factory('svg2canvas', function(){
     return function(svg, cb){
       var canvas;
@@ -140,7 +156,6 @@ require(['uiloading'], function(){
         }
         if (!$scope.aniTimer) {
           return $scope.aniTimer = $timeout(function(){
-            $scope.demoLoader.start();
             return $interval(function(){
               if (!$scope.build.making) {
                 $scope.demoLoader.step($scope.delay);
@@ -154,6 +169,7 @@ require(['uiloading'], function(){
       }
     });
     $scope.build = {
+      choices: ['default', 'infinity', 'ellipsis'],
       size: 60,
       running: true,
       making: false,
@@ -164,6 +180,32 @@ require(['uiloading'], function(){
       },
       stop: function(){
         return this.running = false;
+      },
+      type: 'default',
+      settype: function(type){
+        var this$ = this;
+        return setTimeout(function(){
+          var mod, e, customVars, res$, i$, ref$, len$, i, v, defaultVars, customStyle, html;
+          this$.type = type;
+          try {
+            mod = $injector.get("uilType-" + type);
+          } catch (e$) {
+            e = e$;
+            return console.log("module not found.");
+          }
+          res$ = [];
+          for (i$ = 0, len$ = (ref$ = mod.vars).length; i$ < len$; ++i$) {
+            i = i$;
+            v = ref$[i$];
+            res$.push(v.attr + "='{{build.c" + (i + 1) + "}}'");
+          }
+          customVars = res$;
+          defaultVars = ["type='" + type + "'", "background='build.cbk'", "js", "ng-model='demoLoader'"];
+          customStyle = ['style="', "width:{{build.size * 2}}px", "height:{{build.size * 2}}px", "margin:{{100 - build.size}}px", '"'].join(";");
+          html = $("<uiload " + (customVars.concat(defaultVars, [customStyle])).join(' ') + ">");
+          $('#demo-panel').html("");
+          return $('#demo-panel').append($compile(html)($scope));
+        }, 0);
       },
       resize: function(e){
         var total, ref$, ref1$;
@@ -209,27 +251,7 @@ require(['uiloading'], function(){
     };
     $('.ttn').tooltip();
     return $timeout(function(){
-      var type, mod, e, customVars, res$, i$, ref$, len$, i, v, defaultVars, customStyle, html;
-      type = ['default', 'infinity', 'ellipsis'][parseInt(Math.random() * 3)];
-      console.log(type);
-      try {
-        mod = $injector.get("uilType-" + type);
-      } catch (e$) {
-        e = e$;
-        return console.log("module not found.");
-      }
-      res$ = [];
-      for (i$ = 0, len$ = (ref$ = mod.vars).length; i$ < len$; ++i$) {
-        i = i$;
-        v = ref$[i$];
-        res$.push(v.attr + "='{{build.c" + (i + 1) + "}}'");
-      }
-      customVars = res$;
-      defaultVars = ["type='" + type + "'", "background='build.cbk'", "js", "ng-model='demoLoader'"];
-      customStyle = ['style="', "width:{{build.size * 2}}px", "height:{{build.size * 2}}px", "margin:{{100 - build.size}}px", '"'].join(";");
-      html = $("<uiload " + (customVars.concat(defaultVars, [customStyle])).join(' ') + ">");
-      $('#demo-panel').html("");
-      return $('#demo-panel').append($compile(html)($scope));
+      return $scope.build.settype('default');
     }, 0);
   }));
   return angular.bootstrap($("body"), ['main']);
