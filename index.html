@@ -96,16 +96,9 @@
       <div id="making" ng-class="{'invis':!build.making}" class="anim invis">Generating...</div>
       <div class="row">
         <div class="col-md-5">
-          <div id="demo-panel" ng-attr-style="background:{{build.cbk || '#fff'}}">
-            <!--uiload(type="infinity",js,ng-model="demoLoader",circle-color="{{build.c1}}",-->
-            <!--line-color="{{build.c2}}",speed="{{build.c3}}",background="{{build.cbk}}",-->
-          </div>
+          <div id="demo-panel" ng-attr-style="background:{{build.cbk || '#fff'}}"></div>
           <div ng-mousemove="build.resize($event)" class="progress progress-striped">
             <div role="progressbar" ng-attr-aria-valuenow="{{build.size}}" aria-valuemin="0" aria-valuemax="100" ng-attr-style="width:{{build.size}}%;" class="progress-bar">{{2 * build.size}}px</div>
-          </div>
-          <div class="hide">
-            <div class="svg"></div>
-            <div class="css"></div>
           </div>
         </div>
         <div class="col-md-7">
