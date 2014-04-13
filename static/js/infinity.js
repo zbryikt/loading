@@ -5,8 +5,39 @@ define([], function(){
     var offset, ret;
     offset = [0, 100, 200, 300, 400];
     return ret = {
-      path: null,
       mode: 'svg',
+      vars: [
+        {
+          name: 'circle color',
+          placeholder: '#f00',
+          type: 'color',
+          'default': '#000'
+        }, {
+          name: 'line color',
+          placeholder: '#f00',
+          type: 'color',
+          'default': '#000'
+        }
+      ],
+      patchSvg: function(data, opt){
+        return this.patch(data, opt);
+      },
+      patchCss: function(data, opt){
+        return this.patch(data, opt);
+      },
+      patch: function(data, opt){
+        var i$, i, begin;
+        data = data.replace(/circleColor/g, opt.c1);
+        data = data.replace(/lineColor/g, opt.c2);
+        data = data.replace(/duration/g, opt.speed + "s");
+        data = data.replace(/svg width="100%" height="100%"/, "svg width='" + opt.size * 2 + "px' height='" + opt.size * 2 + "px'");
+        for (i$ = 5; i$ >= 1; --i$) {
+          i = i$;
+          begin = parseInt(((i - 1) * opt.speed / 12) * 100) / 100 + "s";
+          data = data.replace(new RegExp("begin" + i, "g"), begin);
+        }
+        return data;
+      },
       custom: function(s, e, a, c){
         a.$observe('circleColor', function(v){
           if (v) {

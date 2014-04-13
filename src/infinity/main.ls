@@ -3,8 +3,22 @@ angular.module \uiloading
   ..factory \uilType-infinity, ($interval) ->
     offset = [0 100 200 300 400]
     ret = do
-      path: null
       mode: \svg
+      vars:
+        * name: 'circle color', placeholder: '#f00', type: 'color', default: '#000'
+        * name: 'line color', placeholder: '#f00', type: 'color', default: '#000'
+      patch-svg: (data, opt) -> @patch data, opt
+      patch-css: (data, opt) -> @patch data, opt
+      patch: (data, opt) ->
+        data = data.replace /circleColor/g, opt.c1
+        data = data.replace /lineColor/g, opt.c2
+        data = data.replace /duration/g, "#{opt.speed}s"
+        data = data.replace /svg width="100%" height="100%"/, "svg width='#{opt.size * 2}px' height='#{opt.size * 2}px'"
+        # always do this reversely so begin1 won't override begin12
+        for i from 5 to 1 by -1 =>
+          begin = "#{parse-int(((i - 1) * opt.speed / 12) * 100) / 100 }s"
+          data = data.replace(new RegExp("begin#i", "g"), begin)
+        data
       custom: (s, e, a, c) ->
         a.$observe 'circleColor' (v) -> if v =>
           e.find \circle .css \fill, v

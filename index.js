@@ -172,6 +172,7 @@ require(['uiloading'], function(){
         type = $scope.demoLoader.type;
         return $http.get("/static/html/" + type + ".svg.html").success(function(rawSvg){
           var svg;
+          console.log(rawSvg, type);
           rawSvg = '<?xml version="1.0" encoding="utf-8"?>' + rawSvg;
           svg = $scope.demoLoader.patchSvg(rawSvg, $scope.build);
           return outputmodal.create($(svg), new Blob([svg], {

@@ -94,14 +94,15 @@ html(lang="en")
       .row
         .col-md-5
           #demo-panel(ng-attr-style="background:{{build.cbk || '#fff'}}")
-            uiload(type="default",js,ng-model="demoLoader",bar-color="{{build.c1}}",background="{{build.cbk}}",
-            ng-attr-style="width:{{build.size * 2}}px;height:{{build.size * 2}}px;margin:{{100 - build.size}}px")
+            //-uiload(type="default",js,ng-model="demoLoader",bar-color="{{build.c1}}",background="{{build.cbk}}",
+            //-ng-attr-style="width:{{build.size * 2}}px;height:{{build.size * 2}}px;margin:{{100 - build.size}}px")
+            uiload(type="infinity",js,ng-model="demoLoader",circle-color="{{build.c1}}",
+            line-color="{{build.c2}}",speed="{{build.c3}}",background="{{build.cbk}}",
+            -ng-attr-style="width:{{build.size * 2}}px;height:{{build.size * 2}}px;margin:{{100 - build.size}}px")
           .progress.progress-striped(ng-mousemove="build.resize($event)")
             .progress-bar(role="progressbar",ng-attr-aria-valuenow="{{build.size}}",aria-valuemin="0",aria-valuemax="100",
             ng-attr-style="width:{{build.size}}%;")
               | {{2 * build.size}}px
-          //-uiload(type="infinity",ng-model="demoLoader",js,circle-color="{{build.c1}}",
-          //-line-color="{{build.c2}}",speed="{{build.c3}}",background="{{build.cbk}}")
           .hide
             .svg
             .css
@@ -133,8 +134,10 @@ html(lang="en")
               #build.btn-group
                 .btn.btn-default(ng-click="build.makesvg()")
                   | Download SVG
-                .btn.btn-default(ng-click="build.makecss()")
-                  | Download CSS
+                .btn.btn-default(ng-disabled="demoLoader.mode=='svg'",ng-click="build.makecss()")
+                  span(ng-if="demoLoader.mode!='svg'") Download CSS
+                  span(ng-if="demoLoader.mode=='svg'") CSS N/A
+
                 //-.btn.btn-default
                   .ttn(data-toggle="tooltip",data-placement="bottom",title="coming soon")
                     | Download CSS
