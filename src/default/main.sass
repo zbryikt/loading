@@ -1,42 +1,40 @@
 @import basic
 
-@mixin uil-default($id,$left,$top,$deg,$delay)
-  .uil-default > div:nth-of-type(#{$id})
-    top: #{$top}px
-    left: #{$left}px
-    & > div
-      @include transform(translate(-5px,-12px) rotate(#{$deg}deg) translate(0,12px) scaleY(1))
-      @include animation(uil-default-#{$id} 1s linear 0s infinite)
-      @include animation-delay($delay)
-  +keyframes(uil-default-#{$id})
-    0%
-      opacity: 0.42
-    25%
-      opacity: 0.26
-    50%
-      opacity: 0.1
-    51%
-      opacity: 1.0
-    75%
-      opacity: 0.80
-    100%
-      opacity: 0.54
+@mixin uil-default($id,$deg,$delay)
+  .uil-default-css > div:nth-of-type(#{$id})
+    top: 0
+    left: 0
+    @include transform(translate(90px,70px) rotate(#{$deg}deg) translate(0,70px) scaleY(1))
+    @include animation(uil-default-css duration linear infinite)
+    @include animation-delay($delay)
 
-.uil-default
-  background: #fff
-.uil-default > div
+
++keyframes(uil-default-css)
+  0%
+    opacity: 1.0
+  100%
+    opacity: 0.0
+
+.uil-default-css
+  background: none
+  position: relative
+  width: 200px
+  height: 200px
+.uil-default-css > div
   position: absolute
-  & > div
-    width: 12px
-    height: 24px
-    background: #000
-    //border-radius: 10px 10px 5px 5px
+  width: 20px
+  height: 60px
+  background: barColor
 
-@include uil-default(1,50,0,0,0s)
-@include uil-default(2,85,15,45,0.125s)
-@include uil-default(3,100,50,90,0.25s)
-@include uil-default(4,85,85,135,0.375s)
-@include uil-default(5,50,100,180,0.5s)
-@include uil-default(6,15,85,225,0.625s)
-@include uil-default(7,0,50,270,0.75s)
-@include uil-default(8,15,15,315,0.875s)
+@include uil-default(1,1,begin1)
+@include uil-default(2,31,begin2)
+@include uil-default(3,61,begin3)
+@include uil-default(4,91,begin4)
+@include uil-default(5,121,begin5)
+@include uil-default(6,151,begin6)
+@include uil-default(7,181,begin7)
+@include uil-default(8,211,begin8)
+@include uil-default(9,241,begin9)
+@include uil-default(10,271,begin10)
+@include uil-default(11,301,begin11)
+@include uil-default(12,331,begin12)

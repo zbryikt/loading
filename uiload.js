@@ -45,7 +45,6 @@ define(['default', 'infinity'], function(){
           vars: mod.vars,
           type: type,
           start: function(){
-            console.log('ok');
             return mod.start(scope, e, attrs, ctrl);
           },
           stop: function(){
@@ -54,12 +53,14 @@ define(['default', 'infinity'], function(){
           step: function(it){
             return mod.step(scope, e, attrs, ctrl, it);
           },
-          patch: function(svg, opt){
-            return mod.patch(svg, opt);
+          patchSvg: function(svg, opt){
+            return mod.patchSvg(svg, opt);
+          },
+          patchCss: function(css, opt){
+            return mod.patchCss(css, opt);
           }
         };
         if (mod.custom) {
-          console.log("xx");
           return mod.custom(scope, e, attrs, ctrl);
         }
       }

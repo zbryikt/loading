@@ -6,19 +6,24 @@ angular.module \uiloading
     ret = do
       mode: \both
       vars: 
-        [ { name: 'bar color', placeholder: '#f00', type: 'color' } ]
-        #* name: 'radius', placeholder: '5', type: 'px'
-        #* name: 'line color', placeholder: '#f00', type: 'color'
-      patch: (svg, opt) ->
-        console.log "patching default"
-        svg = svg.replace /{{barColor}}/g, opt.c1
-        svg = svg.replace /{{bkColor}}/g, opt.cbk
-        svg = svg.replace /{{dur}}/g, "#{opt.speed}s"
-        svg = svg.replace /svg width="100%" height="100%"/, "svg width='#{opt.size * 2}px' height='#{opt.size * 2}px'"
-        for i from 1 to 12 =>
-          begin = "#{i * opt.speed / 12 }s"
-          svg = svg.replace(new RegExp("{{begin#i}}", "g"), begin)
-        svg
+        [ { name: 'bar color', placeholder: '#f00', type: 'color', default: '#000' } ]
+        #* name: 'radius', placeholder: '5', type: 'px', default: '5'
+        #* name: 'line color', placeholder: '#f00', type: 'color', default: '#f00'
+      patch-css: (data, opt) -> @patch data, opt
+      patch-svg: (svg, opt) -> @patch svg, opt
+      patch: (src, opt) ->
+        src = src.replace /barColor/g, opt.c1
+        src = src.replace /bkColor/g, opt.cbk
+        opt.speed = 1
+        src = src.replace /duration/g, "#{opt.speed}s"
+        src = src.replace /svg width="100%" height="100%"/, "svg width='#{opt.size * 2}px' height='#{opt.size * 2}px'"
+        src = src.replace /"uil-default-css"/, "'uil-default-css' style='-webkit-transform:scale(#{opt.size * 2 / 200})'"
+        opt.speed = 1
+        # so begin1 won't override begin12
+        for i from 12 to 1 by -1 =>
+          begin = "#{parse-int(((i - 1) * opt.speed / 12) * 100) / 100 }s"
+          src = src.replace(new RegExp("begin#i", "g"), begin)
+        src
       custom: (s, e, a, c) ->
         a.$observe 'barColor' (v) -> if v => e.find \rect.bar .css \fill, v
         a.$observe 'background' (v) -> if v => e.find \rect.bk .css \fill, v

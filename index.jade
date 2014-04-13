@@ -133,7 +133,9 @@ html(lang="en")
               #build.btn-group
                 .btn.btn-default(ng-click="build.makesvg()")
                   | Download SVG
-                .btn.btn-default
+                .btn.btn-default(ng-click="build.makecss()")
+                  | Download CSS
+                //-.btn.btn-default
                   .ttn(data-toggle="tooltip",data-placement="bottom",title="coming soon")
                     | Download CSS
                 .btn.btn-default(ng-click="build.makegif()")

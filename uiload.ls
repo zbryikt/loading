@@ -24,12 +24,11 @@ angular.module \uiloading
         vars: mod.vars
         type: type
         start: ->
-          console.log \ok
           mod.start scope, e, attrs, ctrl
         stop: -> mod.stop scope, e, attrs, ctrl
         step: -> mod.step scope, e, attrs, ctrl, it
-        patch: (svg, opt)-> mod.patch svg, opt
+        patch-svg: (svg, opt) -> mod.patch-svg svg, opt
+        patch-css: (css, opt) -> mod.patch-css css, opt
       if mod.custom => 
-        console.log "xx"
         mod.custom scope, e, attrs, ctrl
 

@@ -72,6 +72,8 @@ angular.module \main, <[uiloading colorpicker.module]>
       if v > 0 => $scope.delta = 30 / v
     $scope.$watch 'demoLoader' -> 
       if $scope.demo-loader =>
+        for item,i in $scope.demo-loader.vars
+          $scope.build["c#{i + 1}"] = item.default
         $timeout ->
           $scope.demo-loader.start!
           $interval (-> if !$scope.build.making =>
@@ -94,16 +96,15 @@ angular.module \main, <[uiloading colorpicker.module]>
         type = $scope.demoLoader.type
         (raw-svg) <- $http.get "/static/html/#{type}.svg.html" .success
         raw-svg = '<?xml version="1.0" encoding="utf-8"?>' + raw-svg
-        svg = $scope.demo-loader.patch raw-svg, $scope.build
+        svg = $scope.demo-loader.patch-svg raw-svg, $scope.build
         outputmodal.create $(svg), new Blob([svg],type:'text/html'), type, \SVG
       makecss: ->
-        (raw-html) <- $http.get "/static/html/#{$scope.demoLoader.type}.css.html" .success
-        (raw-css) <- $http.get "/static/css/#{$scope.demoLoader.type}.css" .success
-        data = "<style type='text/css'> #{raw-css} </style> #{raw-html}"
-        node = $(data)
-        blob = new Blob [data], type: 'text/html'
         type = $scope.demoLoader.type
-        outputmodal.create node, blob, type, \CSS
+        (raw-html) <- $http.get "/static/html/#{type}.css.html" .success
+        (raw-css) <- $http.get "/static/css/#{type}.css" .success
+        data = "<style type='text/css'> #{raw-css} </style> #{raw-html}"
+        data = $scope.demo-loader.patch-css data, $scope.build
+        outputmodal.create $(data), new Blob([data],type:'text/html'), type, \CSS
       makegif: -> 
         @ <<< {done: false, making: true}
         @stop!

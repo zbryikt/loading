@@ -130,7 +130,13 @@ require(['uiloading'], function(){
       }
     });
     $scope.$watch('demoLoader', function(){
+      var i$, ref$, len$, i, item;
       if ($scope.demoLoader) {
+        for (i$ = 0, len$ = (ref$ = $scope.demoLoader.vars).length; i$ < len$; ++i$) {
+          i = i$;
+          item = ref$[i$];
+          $scope.build["c" + (i + 1)] = item['default'];
+        }
         return $timeout(function(){
           $scope.demoLoader.start();
           return $interval(function(){
@@ -167,23 +173,23 @@ require(['uiloading'], function(){
         return $http.get("/static/html/" + type + ".svg.html").success(function(rawSvg){
           var svg;
           rawSvg = '<?xml version="1.0" encoding="utf-8"?>' + rawSvg;
-          svg = $scope.demoLoader.patch(rawSvg, $scope.build);
+          svg = $scope.demoLoader.patchSvg(rawSvg, $scope.build);
           return outputmodal.create($(svg), new Blob([svg], {
             type: 'text/html'
           }), type, 'SVG');
         });
       },
       makecss: function(){
-        return $http.get("/static/html/" + $scope.demoLoader.type + ".css.html").success(function(rawHtml){
-          return $http.get("/static/css/" + $scope.demoLoader.type + ".css").success(function(rawCss){
-            var data, node, blob, type;
+        var type;
+        type = $scope.demoLoader.type;
+        return $http.get("/static/html/" + type + ".css.html").success(function(rawHtml){
+          return $http.get("/static/css/" + type + ".css").success(function(rawCss){
+            var data;
             data = "<style type='text/css'> " + rawCss + " </style> " + rawHtml;
-            node = $(data);
-            blob = new Blob([data], {
+            data = $scope.demoLoader.patchCss(data, $scope.build);
+            return outputmodal.create($(data), new Blob([data], {
               type: 'text/html'
-            });
-            type = $scope.demoLoader.type;
-            return outputmodal.create(node, blob, type, 'CSS');
+            }), type, 'CSS');
           });
         });
       },
