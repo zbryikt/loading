@@ -64,8 +64,9 @@ require(['uiloading'], function(){
     });
   }));
   x$.factory('capture', function($timeout, svg2canvas, outputmodal){
-    return function(model, delta, cb){
+    return function(model, delta, transparent, cb){
       var ret;
+      transparent = transparent.replace("#", "0x");
       ret = import$({}, {
         delta: delta,
         step: 0,
@@ -73,8 +74,8 @@ require(['uiloading'], function(){
         gif: new GIF({
           workers: 2,
           quality: 10,
-          transparent: 0xFFFFFF
-        }),
+          transparent: transparent
+        }) || 0xFFFFFF,
         addframe: function(canvas){
           var this$ = this;
           console.log(this.step);
@@ -169,7 +170,7 @@ require(['uiloading'], function(){
       }
     });
     $scope.build = {
-      choices: ['default', 'infinity', 'ellipsis', 'dashinfinity', 'reload'],
+      choices: ['default', 'infinity', 'ellipsis', 'dashinfinity', 'reload', 'wheel'],
       size: 60,
       running: true,
       making: false,
@@ -243,7 +244,7 @@ require(['uiloading'], function(){
         this.done = false;
         this.making = true;
         this.stop();
-        return capture($scope.demoLoader, $scope.delta, function(img, blob, type){
+        return capture($scope.demoLoader, $scope.delta, this.cbk, function(img, blob, type){
           outputmodal.create(img, blob, type, 'GIF');
           return this$.done = true, this$.making = false, this$;
         });

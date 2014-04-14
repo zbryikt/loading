@@ -4,7 +4,7 @@ x$ = angular.module('uiloading', []);
 x$.factory('uilSvg', function(){
   return 'width="100%" height="100%" viewBox="0 0 100 100"';
 });
-define(['default', 'infinity', 'ellipsis', 'dashinfinity', 'reload'], function(){
+define(['default', 'infinity', 'ellipsis', 'dashinfinity', 'reload', 'wheel'], function(){
   var x$;
   x$ = angular.module('uiloading');
   x$.factory('uilresize', function(){

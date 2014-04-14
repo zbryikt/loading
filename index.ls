@@ -34,12 +34,13 @@ angular.module \main, <[uiloading colorpicker.module]>
   ..controller \output, <[$scope outputmodal]> ++ ($scope, outputmodal) ->
     $scope.outputmodal = outputmodal
     $scope.$watch 'outputmodal.mode' -> $scope.mode = outputmodal.mode
-  ..factory \capture, ($timeout, svg2canvas, outputmodal) -> (model, delta, cb) ->
+  ..factory \capture, ($timeout, svg2canvas, outputmodal) -> (model, delta, transparent, cb) ->
+    transparent = transparent.replace "#", "0x"
     ret = {} <<< do
       delta: delta
       step: 0
       target: null
-      gif: new GIF workers: 2, quality: 10, transparent: 0xFFFFFF
+      gif: new GIF workers: 2, quality: 10, transparent: transparent or 0xFFFFFF
       addframe: (canvas) ->
         console.log @step
         @gif.add-frame canvas,  delay: 20
@@ -91,7 +92,7 @@ angular.module \main, <[uiloading colorpicker.module]>
           ), 30
         , 1000
     $scope.build = do
-      choices: <[default infinity ellipsis dashinfinity reload]>
+      choices: <[default infinity ellipsis dashinfinity reload wheel]>
       size: 60
       running: true
       making: false
@@ -136,7 +137,7 @@ angular.module \main, <[uiloading colorpicker.module]>
       makegif: -> 
         @ <<< {done: false, making: true}
         @stop!
-        capture $scope.demoLoader, $scope.delta, (img, blob, type) ~>
+        capture $scope.demoLoader, $scope.delta, @cbk, (img, blob, type) ~>
           outputmodal.create img, blob, type, \GIF
           @ <<< {done: true, making: false}
     $(\.ttn)tooltip!

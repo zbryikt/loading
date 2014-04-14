@@ -1,7 +1,7 @@
 angular.module \uiloading, <[]>
   ..factory \uilSvg, -> 'width="100%" height="100%" viewBox="0 0 100 100"'
 
-<- define <[default infinity ellipsis dashinfinity reload]>
+<- define <[default infinity ellipsis dashinfinity reload wheel]>
 angular.module \uiloading
   ..factory \uilresize, -> (data, type, opt) ->
     data = data.replace /svg width="100%" height="100%"/, "svg width='#{opt.size * 2}px' height='#{opt.size * 2}px'"

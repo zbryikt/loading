@@ -11,13 +11,22 @@ define([], function(){
     start = null;
     return ret = {
       mode: 'both',
-      vars: [{
-        name: 'circle color',
-        placeholder: '#f00',
-        type: 'color',
-        'default': '#000',
-        attr: 'circle-color'
-      }],
+      circleRadius: 15,
+      vars: [
+        {
+          name: 'circle color',
+          placeholder: '#f00',
+          type: 'color',
+          'default': '#000',
+          attr: 'circle-color'
+        }, {
+          name: 'circle radius',
+          placeholder: '15',
+          type: 'px',
+          'default': '15',
+          attr: 'circle-radius'
+        }
+      ],
       patchCss: function(data, opt){
         return this.patch(data, opt);
       },
@@ -27,6 +36,10 @@ define([], function(){
       patch: function(data, opt){
         data = uilresize(data, 'ellipsis', opt);
         data = data.replace(/circleColor/g, opt.c1);
+        data = data.replace(/15/g, opt.c2);
+        data = data.replace(/circleRadius2/g, opt.c2 * 4 + "px");
+        data = data.replace(/circleRadius/g, opt.c2 * 2 + "px");
+        data = data.replace(/circleMargin/g, (30 - opt.c2 * 2) + "px");
         data = data.replace(/duration/g, opt.speed + "s");
         data = data.replace(/s?1-8s/g, 1 * opt.speed / 8 + "s");
         data = data.replace(/s?2-8s/g, 2 * opt.speed / 8 + "s");
@@ -37,9 +50,16 @@ define([], function(){
         return data;
       },
       custom: function(s, e, a, c){
+        var this$ = this;
         a.$observe('circleColor', function(v){
           if (v) {
             return e.find('circle').css('fill', v);
+          }
+        });
+        a.$observe('circleRadius', function(v){
+          if (v) {
+            e.find('circle').attr('r', v);
+            return this$.circleRadius = parseInt(v);
           }
         });
         return a.$observe('background', function(v){
@@ -51,6 +71,7 @@ define([], function(){
       start: function(s, e, a, c){},
       stop: function(s, e, a, c){},
       step: function(s, e, a, c, delay){
+        var this$ = this;
         return e.find('circle').each(function(){
           var p, q, d, r, x;
           p = parseInt((delay % 1000) / 125);
@@ -59,7 +80,7 @@ define([], function(){
           d = delay % 125;
           r = (d / 125) * (ani.r[q] - ani.r[p]) + ani.r[p];
           x = (d / 125) * (ani.x[q] - ani.x[p]) + ani.x[p];
-          $(arguments[1]).attr('r', r * 15);
+          $(arguments[1]).attr('r', r * this$.circleRadius);
           return $(arguments[1]).attr('cx', x);
         });
       }

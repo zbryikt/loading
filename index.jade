@@ -89,7 +89,9 @@ html(lang="en")
         .desc mobile
     #panel
       #tryit
-      #making.anim.invis(ng-class="{'invis':!build.making}") Generating...
+      #making.anim.invis(ng-class="{'invis':!build.making}")
+        | Generating
+        img(src="res/ellipsis.gif")
       .row
         .col-md-5
           #demo-panel(ng-attr-style="background:{{build.cbk || '#fff'}}")

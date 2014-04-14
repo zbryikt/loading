@@ -212,16 +212,21 @@ uiload {
   .uil-ellipsis-css .circle {
     width: 60px;
     height: 60px;
-    border-radius: 30px;
-    background: circleColor;
     position: absolute;
     top: 70px;
     opacity: 0;
+    text-align: center;
     -ms-animation: uil-ellipsis duration linear infinite;
     -moz-animation: uil-ellipsis duration linear infinite;
     -webkit-animation: uil-ellipsis duration linear infinite;
     -o-animation: uil-ellipsis duration linear infinite;
     animation: uil-ellipsis duration linear infinite; }
+    .uil-ellipsis-css .circle > div {
+      width: circleRadius2;
+      height: circleRadius2;
+      border-radius: circleRadius;
+      margin: circleMargin;
+      background: circleColor; }
 
 .circle:nth-of-type(1) {
   -ms-animation-delay: 0s;

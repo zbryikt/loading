@@ -38,12 +38,17 @@
   .circle
     width: 60px
     height: 60px
-    border-radius: 30px
-    background: circleColor
     position: absolute
     top: 70px
     opacity: 0
+    text-align: center
     @include animation(uil-ellipsis duration linear infinite)
+    & > div
+      width: circleRadius2
+      height: circleRadius2
+      border-radius: circleRadius
+      margin: circleMargin
+      background: circleColor
 
 @include uil-ellipsis(1,0s)
 @include uil-ellipsis(2,s2-8s)
