@@ -35,7 +35,7 @@ angular.module \main, <[uiloading colorpicker.module]>
     $scope.outputmodal = outputmodal
     $scope.$watch 'outputmodal.mode' -> $scope.mode = outputmodal.mode
   ..factory \capture, ($timeout, svg2canvas, outputmodal) -> (model, delta, transparent, cb) ->
-    transparent = transparent.replace "#", "0x"
+    transparent = if transparent => transparent.replace "#", "0x" else "0xFFFFFF"
     ret = {} <<< do
       delta: delta
       step: 0

@@ -66,7 +66,7 @@ require(['uiloading'], function(){
   x$.factory('capture', function($timeout, svg2canvas, outputmodal){
     return function(model, delta, transparent, cb){
       var ret;
-      transparent = transparent.replace("#", "0x");
+      transparent = transparent ? transparent.replace("#", "0x") : "0xFFFFFF";
       ret = import$({}, {
         delta: delta,
         step: 0,
