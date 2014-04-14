@@ -200,7 +200,7 @@ require(['uiloading'], function(){
             res$.push(v.attr + "='{{build.c" + (i + 1) + "}}'");
           }
           customVars = res$;
-          defaultVars = ["type='" + type + "'", "background='build.cbk'", "js", "ng-model='demoLoader'"];
+          defaultVars = ["type='" + type + "'", "background='{{build.cbk}}'", "js", "ng-model='demoLoader'"];
           customStyle = ['style="', "width:{{build.size * 2}}px", "height:{{build.size * 2}}px", "margin:{{100 - build.size}}px", '"'].join(";");
           html = $("<uiload " + (customVars.concat(defaultVars, [customStyle])).join(' ') + ">");
           $('#demo-panel').html("");

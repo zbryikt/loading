@@ -105,7 +105,7 @@ angular.module \main, <[uiloading colorpicker.module]>
         try mod = $injector.get "uilType-#type"
         catch => return console.log("module not found.")
         custom-vars = ["#{v.attr}='{{build.c#{i + 1}}}'" for v,i in mod.vars]
-        default-vars = ["type='#type'", "background='build.cbk'", "js", "ng-model='demoLoader'"]
+        default-vars = ["type='#type'", "background='{{build.cbk}}'", "js", "ng-model='demoLoader'"]
         custom-style = [
           'style="'
           "width:{{build.size * 2}}px",
