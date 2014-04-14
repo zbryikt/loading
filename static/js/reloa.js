@@ -11,20 +11,17 @@ define([], function(){
           name: 'name1',
           placeholder: '#f00',
           type: 'color',
-          'default': '#000',
-          attr: 'name1'
+          'default': '#000'
         }, {
           name: 'name2',
           placeholder: '5',
-          type: 'px',
-          'default': '5',
-          attr: 'name2'
+          type: 'number',
+          'default': '5'
         }, {
           name: 'name3',
           placeholder: '#f00',
           type: 'color',
-          'default': '#000',
-          attr: 'name3'
+          'default': '#000'
         }
       ],
       patchCss: function(data, opt){
