@@ -39,7 +39,8 @@ define([], function(){
         var v, t, r;
         switch (this.variant) {
         case 'rotate':
-          return e.find(".uil-g0v > g").attr('transform', "rotate(" + 360 * (delay % 1000) / 1000 + " 50 50)");
+          e.find(".uil-g0v > g").attr('transform', "translate(0 0) rotate(" + 360 * (delay % 1000) / 1000 + " 50 50)");
+          return e.find("g > g").attr('transform', "scale(1.0 1.0)");
         case 'jump':
           v = (500 - delay % 1000) / 500;
           t = v * v * 85;
