@@ -169,7 +169,7 @@ require(['uiloading'], function(){
       }
     });
     $scope.build = {
-      choices: ['default', 'infinity', 'ellipsis'],
+      choices: ['default', 'infinity', 'ellipsis', 'dashinfinity'],
       size: 60,
       running: true,
       making: false,
