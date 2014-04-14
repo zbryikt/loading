@@ -108,6 +108,8 @@ html(lang="en")
                   colorpicker-with-input="true",placeholder="e.g., {{v.placeholder}}",ng-model="build['c'+($index+1)]")
                   input.form-control(ng-if="v.type=='px'",type="text",
                   placeholder="e.g., {{v.placeholder}}",ng-model="build['c'+($index+1)]")
+                  select.form-control(ng-if="v.type=='choice'",ng-model="build['c'+($index+1)]")
+                    option(ng-repeat="u in v.values" ng-attr-value="{{u}}") {{u}}
             .row
               .col-sm-6
                 .form-group

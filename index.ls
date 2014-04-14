@@ -92,7 +92,7 @@ angular.module \main, <[uiloading colorpicker.module]>
           ), 30
         , 1000
     $scope.build = do
-      choices: <[default infinity ellipsis dashinfinity reload wheel]>
+      choices: <[default infinity ellipsis dashinfinity reload wheel g0v]>
       size: 60
       running: true
       making: false
