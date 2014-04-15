@@ -1,0 +1,48 @@
+@import basic
++keyframes(uil-pacman-css-1)
+  0%
+    @include transform(rotate(0deg))
+  50%
+    @include transform(rotate(-30deg))
+  100%
+    @include transform(rotate(0deg))
+
++keyframes(uil-pacman-css-2)
+  0%
+    @include transform(rotate(0deg))
+  50%
+    @include transform(rotate(30deg))
+  100%
+    @include transform(rotate(0deg))
+
+.uil-pacman-css
+  background: none
+  position: relative
+  width: 200px
+  height: 200px
+  & > div
+    position: absolute
+    width: 200px
+    height: 200px
+  & > div > div
+    background: #000
+    width: 200px
+    height: 100px
+    position: absolute
+    z-index: 1
+  & > div:nth-of-type(1)
+    top: 0
+    @include animation(uil-pacman-css-1 1s linear infinite)
+    & > div
+      border-radius: 100px 100px 0 0
+  & > div:nth-of-type(2)
+    top: 0px
+    @include animation(uil-pacman-css-2 1s linear infinite)
+    & > div
+      top: 100px
+      border-radius: 0 0 100px 100px
+  & > div:nth-of-type(3) > div
+    width: 100px
+    height: 200px
+    border-radius: 100px 0 0 100px
+    background: #000
