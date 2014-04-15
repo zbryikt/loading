@@ -10,7 +10,7 @@ define([], function(){
         name: 'variant',
         placeholder: '',
         type: 'choice',
-        values: ['rotate', 'jump'],
+        values: ['rotate', 'jump', 'dash'],
         attr: 'variant'
       }],
       patchCss: function(data, opt){
@@ -23,13 +23,36 @@ define([], function(){
         data = data.replace(/1s/g, opt.speed + "s");
         data = data.replace(/svg width="100%" height="100%"/, "svg width='" + opt.size * 2 + "px' height='" + opt.size * 2 + "px'");
         data = data.replace(/type1/g, this.variant === 'rotate' ? "transform" : "none");
-        return data = data.replace(/type2/g, this.variant === 'jump' ? "transform" : "none");
+        data = data.replace(/type2/g, this.variant === 'jump' ? "transform" : "none");
+        return data = data.replace(/type3/g, this.variant === 'dash' ? "stroke-dashoffset" : "none");
       },
       custom: function(s, e, a, c){
         var this$ = this;
         return a.$observe('variant', function(v){
           if (v) {
-            return this$.variant = v;
+            this$.variant = v;
+            switch (this$.variant) {
+            case 'dash':
+              e.find('path:nth-of-type(1)').attr({
+                fill: '#fff',
+                "stroke-width": '1px'
+              });
+              e.find('path:nth-of-type(2)').attr({
+                fill: '#fff',
+                "stroke-width": '1px'
+              });
+              e.find('.uil-g0v > g').attr('transform', "rotate(0) translate(0 0) scale(1 1)");
+              return e.find('g > g').attr('transform', "rotate(0) translate(0 0) scale(1 1)");
+            default:
+              e.find('path:nth-of-type(1)').attr({
+                fill: '#c60000',
+                "stroke-width": '0px'
+              });
+              return e.find('path:nth-of-type(2)').attr({
+                fill: '#000',
+                "stroke-width": '0px'
+              });
+            }
           }
         });
       },
@@ -38,6 +61,12 @@ define([], function(){
       step: function(s, e, a, c, delay){
         var v, t, r;
         switch (this.variant) {
+        case 'dash':
+          return e.find('path').each(function(){
+            var v;
+            v = 10 * (delay % 1000) / 1000;
+            return $(arguments[1]).attr('stroke-dashoffset', v);
+          });
         case 'rotate':
           e.find(".uil-g0v > g").attr('transform', "translate(0 0) rotate(" + 360 * (delay % 1000) / 1000 + " 50 50)");
           return e.find("g > g").attr('transform', "scale(1.0 1.0)");
