@@ -1,0 +1,34 @@
+@import basic
+
++keyframes(uil-facebook)
+  0%
+    @include transform(scale(2))
+  90%
+    @include transform(scale(1))
+  100%
+    @include transform(scale(1))
+
+.uil-facebook-css
+  background: none
+  position: relative
+  width: 200px
+  height: 200px
+
+.uil-facebook-css > div
+  position: absolute
+  width: 40px
+  height: 120px
+  top: 40px
+  left: 20px
+  background: #000
+  opacity: 0.6
+  @include animation(uil-facebook 1.0s cubic-bezier(.01,.73,.28,.93) infinite)
+  &:nth-of-type(2)
+    left: 80px
+    opacity: 0.8
+    @include animation-delay(begin2)
+  &:nth-of-type(3)
+    left: 140px
+    opacity: 0.9
+    @include animation-delay(begin3)
+
