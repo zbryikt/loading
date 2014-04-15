@@ -157,7 +157,6 @@ nav.navbar-default {
 #chooser {
   position: relative;
   width: 100%;
-  height: 100px;
   padding: 3px 20% 3px 10%;
   margin: 10px 0;
   background: rgba(0, 0, 0, 0.2); }
