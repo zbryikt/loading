@@ -1,0 +1,139 @@
+uiload {
+  display: inline-block;
+  position: relative; }
+  uiload > div {
+    position: relative; }
+
+.uil-ball-css {
+  background: none;
+  position: relative;
+  width: 200px;
+  height: 200px; }
+
+@-webkit-keyframes uil-ball-anim {
+  0% {
+    top: 160px; }
+
+  12% {
+    top: 92px; }
+
+  25% {
+    top: 70px; }
+
+  37% {
+    top: 43px; }
+
+  50% {
+    top: 30px; }
+
+  62% {
+    top: 43px; }
+
+  75% {
+    top: 70px; }
+
+  87% {
+    top: 92px; }
+
+  100% {
+    top: 160px; } }
+
+@-moz-keyframes uil-ball-anim {
+  0% {
+    top: 160px; }
+
+  12% {
+    top: 92px; }
+
+  25% {
+    top: 70px; }
+
+  37% {
+    top: 43px; }
+
+  50% {
+    top: 30px; }
+
+  62% {
+    top: 43px; }
+
+  75% {
+    top: 70px; }
+
+  87% {
+    top: 92px; }
+
+  100% {
+    top: 160px; } }
+
+@-ms-keyframes uil-ball-anim {
+  0% {
+    top: 160px; }
+
+  12% {
+    top: 92px; }
+
+  25% {
+    top: 70px; }
+
+  37% {
+    top: 43px; }
+
+  50% {
+    top: 30px; }
+
+  62% {
+    top: 43px; }
+
+  75% {
+    top: 70px; }
+
+  87% {
+    top: 92px; }
+
+  100% {
+    top: 160px; } }
+
+@keyframes uil-ball-anim {
+  0% {
+    top: 160px; }
+
+  12% {
+    top: 92px; }
+
+  25% {
+    top: 70px; }
+
+  37% {
+    top: 43px; }
+
+  50% {
+    top: 30px; }
+
+  62% {
+    top: 43px; }
+
+  75% {
+    top: 70px; }
+
+  87% {
+    top: 92px; }
+
+  100% {
+    top: 160px; } }
+
+.uil-ball-css > div {
+  position: absolute;
+  top: 160px;
+  left: 100px;
+  width: ballRadius2;
+  height: ballRadius2;
+  margin-top: -ballRadius;
+  margin-left: -ballRadius;
+  border-radius: ballRadius;
+  background: black;
+  -ms-animation: uil-ball-anim 1s linear infinite;
+  -moz-animation: uil-ball-anim 1s linear infinite;
+  -webkit-animation: uil-ball-anim 1s linear infinite;
+  -o-animation: uil-ball-anim 1s linear infinite;
+  animation: uil-ball-anim 1s linear infinite; }

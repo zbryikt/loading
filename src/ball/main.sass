@@ -1,0 +1,39 @@
+@import basic
+
+.uil-ball-css
+  background: none
+  position: relative
+  width: 200px
+  height: 200px
+
++keyframes(uil-ball-anim)
+  0%
+    top: 160px
+  12%
+    top: 92px
+  25%
+    top: 70px
+  37%
+    top: 43px
+  50%
+    top: 30px
+  62%
+    top: 43px
+  75%
+    top: 70px
+  87%
+    top: 92px
+  100%
+    top: 160px
+
+.uil-ball-css > div
+  position: absolute
+  top: 160px
+  left: 100px
+  width: ballRadius2
+  height: ballRadius2
+  margin-top: -ballRadius
+  margin-left: -ballRadius
+  border-radius: ballRadius
+  background: #000
+  @include animation(uil-ball-anim 1s linear infinite)
