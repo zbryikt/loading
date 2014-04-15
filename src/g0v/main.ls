@@ -6,7 +6,6 @@ angular.module \uiloading
       mode: \svg
       vars:
         [{ name: 'variant', placeholder: '', type: 'choice', values: <[rotate jump]>, attr: 'variant' }]
-        #[{ name: 'cat', placeholder: '', type: 'px', default: '5', values: <[rotate jump]>, attr: 'cat' }]
       patch-css: (data, opt) -> @patch data, opt
       patch-svg: (data, opt) -> @patch data, opt
       patch: (data, opt) ->
