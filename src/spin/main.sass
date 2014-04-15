@@ -1,0 +1,36 @@
+@import basic
+
+.uil-spin-css
+  background: none
+  position: relative
+  width: 200px
+  height: 200px
+
++keyframes(uil-spin-css)
+  0%
+    opacity: 1
+    @include transform(scale(1.4))
+  100%
+    opacity: 0.1
+    @include transform(scale(1.0))
+
+@mixin uil-spin-iter($idx)
+  .uil-spin-css > div:nth-of-type(#{$idx}) > div
+    @include animation(uil-spin-css 1s linear infinite)
+    //- @include animation-delay(1s * ($idx - 1)/8)
+    @include animation-delay(begin#{$idx})
+  .uil-spin-css > div:nth-of-type(#{$idx})
+    @include transform(translate(84px,84px) rotate($idx * 360deg / 8) translate(70px,0))
+    
+.uil-spin-css > div
+  width: 32px
+  height: 32px
+  position: absolute
+.uil-spin-css > div > div
+  width: 100%
+  height: 100%
+  border-radius: 15px
+  background: #000
+
+@for $i from 1 through 8
+  @include uil-spin-iter( $i )
