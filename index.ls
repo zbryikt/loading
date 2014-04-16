@@ -43,8 +43,8 @@ angular.module \main, <[uiloading colorpicker.module]>
       gif: new GIF workers: 2, quality: 10, transparent: transparent or 0xFFFFFF
       addframe: (canvas) ->
         console.log @step
-        @gif.add-frame canvas,  delay: 20
-        if @step >= 1000 + @delta =>
+        @gif.add-frame canvas, delay: 33
+        if @step >= 1000 =>
           @gif.on \finished, (blob) ->
             reader = new window.FileReader!
             reader.readAsDataURL blob
@@ -76,10 +76,13 @@ angular.module \main, <[uiloading colorpicker.module]>
 
   ..controller \main, <[$scope $injector $timeout $interval $http $compile capture outputmodal]> ++ ($scope, $injector, $timeout, $interval, $http, $compile, capture, outputmodal) ->
     $scope.delay = 0
-    $scope.delta = 30
+    $scope.delta = 33
     $scope.ani-timer = null
     $scope.$watch 'build.speed' (v) ->
-      if v > 0 => $scope.delta = 30 / v
+      if v > 0 => $scope.delta = 33 / v
+      if $scope.delta < 10 =>
+        $scope.delta = 10
+        $scope.build.speed = 5
     $scope.$watch 'demoLoader' -> 
       if $scope.demo-loader =>
         for item,i in $scope.demo-loader.vars
@@ -89,7 +92,7 @@ angular.module \main, <[uiloading colorpicker.module]>
           $interval (-> if !$scope.build.making =>
             $scope.demo-loader.step $scope.delay
             if $scope.build.running => $scope.delay = ( $scope.delay + $scope.delta ) % 1000
-          ), 30
+          ), 33
         , 1000
     $scope.build = do
       choices: <[default infinity ellipsis dashinfinity reload wheel g0v pacman facebook spin ball cube]>

@@ -80,9 +80,9 @@ require(['uiloading'], function(){
           var this$ = this;
           console.log(this.step);
           this.gif.addFrame(canvas, {
-            delay: 20
+            delay: 33
           });
-          if (this.step >= 1000 + this.delta) {
+          if (this.step >= 1000) {
             this.gif.on('finished', function(blob){
               var reader;
               reader = new window.FileReader();
@@ -140,11 +140,15 @@ require(['uiloading'], function(){
   });
   x$.controller('main', ['$scope', '$injector', '$timeout', '$interval', '$http', '$compile', 'capture', 'outputmodal'].concat(function($scope, $injector, $timeout, $interval, $http, $compile, capture, outputmodal){
     $scope.delay = 0;
-    $scope.delta = 30;
+    $scope.delta = 33;
     $scope.aniTimer = null;
     $scope.$watch('build.speed', function(v){
       if (v > 0) {
-        return $scope.delta = 30 / v;
+        $scope.delta = 33 / v;
+      }
+      if ($scope.delta < 10) {
+        $scope.delta = 10;
+        return $scope.build.speed = 5;
       }
     });
     $scope.$watch('demoLoader', function(){
@@ -164,7 +168,7 @@ require(['uiloading'], function(){
                   return $scope.delay = ($scope.delay + $scope.delta) % 1000;
                 }
               }
-            }, 30);
+            }, 33);
           }, 1000);
         }
       }
