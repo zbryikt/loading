@@ -19,6 +19,12 @@ angular.module \uiloading
         data = data.replace /15/g, "#{opt.c3}"
         data = data.replace /ballRadius2/g, "#{4 * opt.c3}px"
         data = data.replace /ballRadius/g, "#{2 * opt.c3}px"
+
+        if @variant == 1 => data = data.replace /attributeName="cy"/, ""
+        if @variant == 0 =>
+          data = data.replace /attributeName="transform"/, ""
+          data = data.replace /translate\(30 0\)/, ""
+
         data = data.replace /svg width="100%" height="100%"/, "svg width='#{opt.size * 2}px' height='#{opt.size * 2}px'"
         data = data.replace /"uil-ball-css"/, "'uil-ball-css' style='-webkit-transform:scale(#{opt.size * 2 / 200})'"
       custom: (s, e, a, c) ->
