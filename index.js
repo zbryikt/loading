@@ -170,7 +170,7 @@ require(['uiloading'], function(){
       }
     });
     $scope.build = {
-      choices: ['default', 'infinity', 'ellipsis', 'dashinfinity', 'reload', 'wheel', 'g0v', 'pacman', 'facebook', 'spin', 'ball'],
+      choices: ['default', 'infinity', 'ellipsis', 'dashinfinity', 'reload', 'wheel', 'g0v', 'pacman', 'facebook', 'spin', 'ball', 'cube'],
       size: 60,
       running: true,
       making: false,

@@ -1,0 +1,45 @@
+@import basic
+
+.uil-cube-css
+  background: none
+  position: relative
+  width: 200px
+  height: 200px
+
+
++keyframes(uil-cube-css)
+  0%
+    @include transform(scale(1.4))
+  100%
+    @include transform(scale(1.0))
+
+.uil-cube-css > div
+  position: absolute
+  width: 80px
+  height: 80px
+  @include animation(uil-cube-css 1s cubic-bezier(.2,.8,.2,.8) infinite)
+.uil-cube-css > div:nth-of-type(1)
+  top: 10px
+  left: 10px
+  background: #000
+  opacity: 0.9
+  @include animation-delay(begin1)
+.uil-cube-css > div:nth-of-type(2)
+  top: 10px
+  left: 110px
+  background: #000
+  opacity: 0.8
+  @include animation-delay(begin2)
+.uil-cube-css > div:nth-of-type(3)
+  top: 110px
+  left: 10px
+  background: #000
+  opacity: 0.7
+  @include animation-delay(begin4)
+.uil-cube-css > div:nth-of-type(4)
+  top: 110px
+  left: 110px
+  background: #000
+  opacity: 0.6
+  @include animation-delay(begin3)
+
