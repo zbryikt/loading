@@ -14,7 +14,7 @@ define([], function(){
           placeholder: '',
           type: 'choice',
           'default': 'jump',
-          values: ['jump', 'rotate', 'rubberband'],
+          values: ['jump', 'rotate'],
           attr: 'variant'
         }, {
           name: 'color',
