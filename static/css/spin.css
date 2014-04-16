@@ -81,6 +81,8 @@ uiload {
 .uil-spin-css > div {
   width: 32px;
   height: 32px;
+  margin-left: mgn;
+  margin-top: mgn;
   position: absolute; }
 
 .uil-spin-css > div > div {

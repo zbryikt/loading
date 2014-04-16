@@ -17,7 +17,6 @@
 @mixin uil-spin-iter($idx)
   .uil-spin-css > div:nth-of-type(#{$idx}) > div
     @include animation(uil-spin-css 1s linear infinite)
-    //- @include animation-delay(1s * ($idx - 1)/8)
     @include animation-delay(begin#{$idx})
   .uil-spin-css > div:nth-of-type(#{$idx})
     @include transform(translate(84px,84px) rotate($idx * 360deg / 8) translate(70px,0))
@@ -25,6 +24,8 @@
 .uil-spin-css > div
   width: 32px
   height: 32px
+  margin-left: mgn
+  margin-top: mgn
   position: absolute
 .uil-spin-css > div > div
   width: 100%

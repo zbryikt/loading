@@ -7,6 +7,8 @@ define([], function(){
     return ret = {
       mode: 'both',
       speed: 1,
+      ratio: 0.6,
+      radius: 8,
       vars: [
         {
           name: 'color',
@@ -20,6 +22,12 @@ define([], function(){
           type: 'px',
           'default': '8',
           attr: 'radius'
+        }, {
+          name: 'ratio',
+          placeholder: '6',
+          type: 'px',
+          'default': '6',
+          attr: 'ratio'
         }, {
           name: 'scaling',
           placeholder: '',
@@ -42,18 +50,22 @@ define([], function(){
           }
         }.call(this));
         data = data.replace(/scale/g, s);
+        data = data.replace(/1\.4/g, (1 + this.ratio) + "");
+        data = data.replace(/32px/g, (this.radius || 8) * 4 + "px");
+        data = data.replace(/mgn/g, (16 - (this.radius || 8) * 2) + "px");
         return this.patch(data, opt);
       },
       patchSvg: function(data, opt){
-        var ref$, s1, s2;
+        var sr, ref$, s1, s2;
+        sr = 1.0 + this.ratio;
         ref$ = (function(){
           switch (this.scaling) {
           case 0:
-            return ['1.4', '1.0'];
+            return [sr, 1.0];
           case 1:
-            return ['1.0,1.4', '1.0,1.0'];
+            return ["1.0," + sr, "1.0,1.0"];
           case 2:
-            return ['1.4,1.0', '1.0,1.0'];
+            return [sr + ",1.0", "1.0,1.0"];
           }
         }.call(this)), s1 = ref$[0], s2 = ref$[1];
         data = data.replace(/maxs/g, s1);
@@ -75,6 +87,12 @@ define([], function(){
       },
       custom: function(s, e, a, c){
         var this$ = this;
+        a.$observe('ratio', function(v){
+          var ref$;
+          if (v) {
+            return this$.ratio = ((ref$ = v > 0 ? v : 0) < 20 ? ref$ : 20) / 10.0;
+          }
+        });
         a.$observe('color', function(v){
           if (v) {
             return e.find("circle").css('fill', v);
@@ -82,6 +100,7 @@ define([], function(){
         });
         a.$observe('radius', function(v){
           if (v) {
+            this$.radius = v;
             return e.find("circle").attr('r', v);
           }
         });
@@ -108,11 +127,11 @@ define([], function(){
           $(arguments[1]).attr('opacity', 1 - v * 0.9);
           switch (this$.scaling) {
           case 0:
-            return $(arguments[1]).attr('transform', "scale(" + (1.4 - v * 0.4) + ")");
+            return $(arguments[1]).attr('transform', "scale(" + (1.0 + this$.ratio - v * this$.ratio) + ")");
           case 1:
-            return $(arguments[1]).attr('transform', "scale(1," + (1.4 - v * 0.4) + ")");
+            return $(arguments[1]).attr('transform', "scale(1," + (1.0 + this$.ratio - v * this$.ratio) + ")");
           case 2:
-            return $(arguments[1]).attr('transform', "scale(" + (1.4 - v * 0.4) + ",1)");
+            return $(arguments[1]).attr('transform', "scale(" + (1.0 + this$.ratio - v * this$.ratio) + ",1)");
           }
         });
       }

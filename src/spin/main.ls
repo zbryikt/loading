@@ -5,9 +5,12 @@ angular.module \uiloading
     ret = do
       mode: \both
       speed: 1
+      ratio: 0.6
+      radius: 8
       vars: 
         * name: 'color', placeholder: '#f00', type: 'color', default: '#000', attr: 'color'
         * name: 'radius', placeholder: '8', type: 'px', default: '8', attr: 'radius'
+        * name: 'ratio', placeholder: '6', type: 'px', default: '6', attr: 'ratio'
         * name: 'scaling', placeholder: '', type: 'choice', default: \all, values: <[all x-axis y-axis]>, attr: 'scaling'
       patch-css: (data, opt) ->
         s = switch @scaling
@@ -15,12 +18,16 @@ angular.module \uiloading
         | 1 => \scaleY
         | 2 => \scaleX
         data = data.replace /scale/g, s
+        data = data.replace /1\.4/g, "#{1 + @ratio}"
+        data = data.replace /32px/g, "#{(@radius or 8) * 4}px"
+        data = data.replace /mgn/g, "#{16 - (@radius or 8) * 2}px"
         @patch data, opt
       patch-svg: (data, opt) -> 
+        sr = 1.0 + @ratio
         [s1,s2] = switch @scaling
-        | 0 => <[1.4 1.0]>
-        | 1 => <[1.0,1.4 1.0,1.0]>
-        | 2 => <[1.4,1.0 1.0,1.0]>
+        | 0 => [sr, 1.0]
+        | 1 => ["1.0,#sr" "1.0,1.0"]
+        | 2 => ["#sr,1.0" "1.0,1.0"]
         data = data.replace /maxs/g, s1
         data = data.replace /mins/g, s2
         @patch data, opt
@@ -35,9 +42,12 @@ angular.module \uiloading
           data = data.replace(new RegExp("begin#i", "g"), begin)
         data
       custom: (s, e, a, c) ->
+        a.$observe 'ratio' (v) ~> if v =>
+          @ratio = ( v >?0 <?20 ) / 10.0
         a.$observe 'color' (v) -> if v =>
           e.find "circle" .css \fill, v
-        a.$observe 'radius' (v) -> if v =>
+        a.$observe 'radius' (v) ~> if v =>
+          @radius = v
           e.find "circle" .attr \r, v
         a.$observe 'scaling' (v) ~> if v => @scaling = if v==\x-axis => 1 else if v==\y-axis => 2 else 0
         a.$observe 'background' (v) -> if v =>
@@ -49,6 +59,6 @@ angular.module \uiloading
           v = ((( delay + @speed * ( 7 - &0 ) * 1000 / 8 ) % 1000 ) / 1000)
           $(&1)attr \opacity, 1 - v * 0.9
           switch @scaling
-          | 0 => $(&1)attr \transform, "scale(#{1.4 - v * 0.4})"
-          | 1 => $(&1)attr \transform, "scale(1,#{1.4 - v * 0.4})"
-          | 2 => $(&1)attr \transform, "scale(#{1.4 - v * 0.4},1)"
+          | 0 => $(&1)attr \transform, "scale(#{1.0 + @ratio - v * @ratio})"
+          | 1 => $(&1)attr \transform, "scale(1,#{1.0 + @ratio - v * @ratio})"
+          | 2 => $(&1)attr \transform, "scale(#{1.0 + @ratio - v * @ratio},1)"
