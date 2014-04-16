@@ -1,0 +1,101 @@
+uiload {
+  display: inline-block;
+  position: relative; }
+  uiload > div {
+    position: relative; }
+
+@-webkit-keyframes uil-circle-css {
+  0% {
+    -ms-transform: translate(0, 0) scale(2);
+    -moz-transform: translate(0, 0) scale(2);
+    -webkit-transform: translate(0, 0) scale(2);
+    -o-transform: translate(0, 0) scale(2);
+    transform: translate(0, 0) scale(2);
+    z-index: 1; }
+
+  100% {
+    -ms-transform: translate(0, 0) scale(0.1);
+    -moz-transform: translate(0, 0) scale(0.1);
+    -webkit-transform: translate(0, 0) scale(0.1);
+    -o-transform: translate(0, 0) scale(0.1);
+    transform: translate(0, 0) scale(0.1);
+    z-index: 100; } }
+
+.uil-circle-css {
+  background: none;
+  overflow: hidden;
+  position: relative;
+  width: 200px;
+  height: 200px; }
+  .uil-circle-css > div {
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    -ms-animation: uil-circle-css duration_2 linear infinite;
+    -moz-animation: uil-circle-css duration_2 linear infinite;
+    -webkit-animation: uil-circle-css duration_2 linear infinite;
+    -o-animation: uil-circle-css duration_2 linear infinite;
+    animation: uil-circle-css duration_2 linear infinite; }
+    .uil-circle-css > div:nth-of-type(2n) {
+      background: white; }
+    .uil-circle-css > div:nth-of-type(2n+1) {
+      background: black; }
+
+.uil-circle-css > div:nth-of-type(1) {
+  -ms-animation-delay: begin1;
+  -moz-animation-delay: begin1;
+  -webkit-animation-delay: begin1;
+  -o-animation-delay: begin1;
+  animation-delay: begin1; }
+
+.uil-circle-css > div:nth-of-type(2) {
+  -ms-animation-delay: begin2;
+  -moz-animation-delay: begin2;
+  -webkit-animation-delay: begin2;
+  -o-animation-delay: begin2;
+  animation-delay: begin2; }
+
+.uil-circle-css > div:nth-of-type(3) {
+  -ms-animation-delay: begin3;
+  -moz-animation-delay: begin3;
+  -webkit-animation-delay: begin3;
+  -o-animation-delay: begin3;
+  animation-delay: begin3; }
+
+.uil-circle-css > div:nth-of-type(4) {
+  -ms-animation-delay: begin4;
+  -moz-animation-delay: begin4;
+  -webkit-animation-delay: begin4;
+  -o-animation-delay: begin4;
+  animation-delay: begin4; }
+
+.uil-circle-css > div:nth-of-type(5) {
+  -ms-animation-delay: begin5;
+  -moz-animation-delay: begin5;
+  -webkit-animation-delay: begin5;
+  -o-animation-delay: begin5;
+  animation-delay: begin5; }
+
+.uil-circle-css > div:nth-of-type(6) {
+  -ms-animation-delay: begin6;
+  -moz-animation-delay: begin6;
+  -webkit-animation-delay: begin6;
+  -o-animation-delay: begin6;
+  animation-delay: begin6; }
+
+.uil-circle-css > div:nth-of-type(7) {
+  -ms-animation-delay: begin7;
+  -moz-animation-delay: begin7;
+  -webkit-animation-delay: begin7;
+  -o-animation-delay: begin7;
+  animation-delay: begin7; }
+
+.uil-circle-css > div:nth-of-type(8) {
+  -ms-animation-delay: begin8;
+  -moz-animation-delay: begin8;
+  -webkit-animation-delay: begin8;
+  -o-animation-delay: begin8;
+  animation-delay: begin8; }

@@ -1,0 +1,41 @@
+@import basic
+
+@mixin uil-circle-css($id,$delay)
+  .uil-circle-css > div:nth-of-type(#{$id})
+    @include animation-delay($delay)
+
+@-webkit-keyframes uil-circle-css
+  0%
+    @include transform(translate(0,0) scale(2))
+    z-index: 1
+  100%
+    @include transform(translate(0,0) scale(0.1))
+    z-index: 100
+
+.uil-circle-css
+  background: none
+  overflow: hidden
+  position: relative
+  width: 200px
+  height: 200px
+  &> div
+    width: 200px
+    height: 200px
+    border-radius: 100px
+    position: absolute
+    left: 0
+    top: 0
+    @include animation(uil-circle-css duration_2 linear infinite)
+    &:nth-of-type(2n)
+      background: #fff
+    &:nth-of-type(2n+1)
+      background: #000
+
+@include uil-circle-css(1,begin1)
+@include uil-circle-css(2,begin2)
+@include uil-circle-css(3,begin3)
+@include uil-circle-css(4,begin4)
+@include uil-circle-css(5,begin5)
+@include uil-circle-css(6,begin6)
+@include uil-circle-css(7,begin7)
+@include uil-circle-css(8,begin8)
