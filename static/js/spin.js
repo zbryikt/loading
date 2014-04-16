@@ -24,6 +24,7 @@ define([], function(){
           name: 'scaling',
           placeholder: '',
           type: 'choice',
+          'default': 'all',
           values: ['all', 'x-axis', 'y-axis'],
           attr: 'scaling'
         }

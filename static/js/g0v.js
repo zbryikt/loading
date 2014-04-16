@@ -10,6 +10,7 @@ define([], function(){
         name: 'variant',
         placeholder: '',
         type: 'choice',
+        'default': 'rotate',
         values: ['rotate', 'jump', 'dash'],
         attr: 'variant'
       }],

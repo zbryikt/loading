@@ -8,7 +8,7 @@ angular.module \uiloading
       vars: 
         * name: 'color', placeholder: '#f00', type: 'color', default: '#000', attr: 'color'
         * name: 'radius', placeholder: '8', type: 'px', default: '8', attr: 'radius'
-        * name: 'scaling', placeholder: '', type: 'choice', values: <[all x-axis y-axis]>, attr: 'scaling'
+        * name: 'scaling', placeholder: '', type: 'choice', default: \all, values: <[all x-axis y-axis]>, attr: 'scaling'
       patch-css: (data, opt) ->
         s = switch @scaling
         | 0 => \scale

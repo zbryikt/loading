@@ -13,6 +13,7 @@ define([], function(){
           name: 'variant',
           placeholder: '',
           type: 'choice',
+          'default': 'jump',
           values: ['jump', 'rotate', 'rubberband'],
           attr: 'variant'
         }, {
