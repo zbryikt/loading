@@ -6,7 +6,7 @@
   width: 200px
   height: 200px
 
-+keyframes(uil-ball-anim)
++keyframes(uil-ball-anim0)
   0%
     top: 160px
   12%
@@ -26,6 +26,12 @@
   100%
     top: 160px
 
++keyframes(uil-ball-anim1)
+  0%
+    @include transform(translate(0,-60px) rotate(0deg) translate(60px,0))
+  100%
+    @include transform(translate(0,-60px) rotate(360deg) translate(60px,0))
+
 .uil-ball-css > div
   position: absolute
   top: 160px
@@ -36,4 +42,4 @@
   margin-left: -ballRadius
   border-radius: ballRadius
   background: #000
-  @include animation(uil-ball-anim 1s linear infinite)
+  @include animation(uil-ball-anim-type 1s linear infinite)
