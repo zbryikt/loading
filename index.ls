@@ -65,7 +65,7 @@ angular.module \main, <[uiloading colorpicker.module]>
             #svg2canvas seems not able to parse 100%. workaround this..
             n = @target.node
             [w,h] = [n.width!, n.height!]
-            html = @target.node.html!replace /svg width="100%" height="100%"/,"svg width='#w' height='#h'"
+            html = @target.node.html!replace /width="100%" height="100%"/,"width='#w' height='#h'"
             svg2canvas html, ~> @addframe it 
           ) ,100
       start: (model) -> 

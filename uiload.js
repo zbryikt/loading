@@ -9,7 +9,7 @@ define(['default', 'infinity', 'ellipsis', 'dashinfinity', 'reload', 'wheel', 'g
   x$ = angular.module('uiloading');
   x$.factory('uilresize', function(){
     return function(data, type, opt){
-      data = data.replace(/svg width="100%" height="100%"/, "svg width='" + opt.size * 2 + "px' height='" + opt.size * 2 + "px'");
+      data = data.replace(/width="100%" height="100%"/, "width='" + opt.size * 2 + "px' height='" + opt.size * 2 + "px'");
       return data = data.replace(new RegExp("\"uil-" + type + "-css\""), "'uil-" + type + "-css' style='-webkit-transform:scale(" + opt.size * 2 / 200 + ")'");
     };
   });

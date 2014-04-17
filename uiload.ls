@@ -4,8 +4,9 @@ angular.module \uiloading, <[]>
 <- define <[default infinity ellipsis dashinfinity reload wheel g0v pacman facebook spin ball cube circle]>
 angular.module \uiloading
   ..factory \uilresize, -> (data, type, opt) ->
-    data = data.replace /svg width="100%" height="100%"/, "svg width='#{opt.size * 2}px' height='#{opt.size * 2}px'"
-    data = data.replace new RegExp("\"uil-#{type}-css\""), "'uil-#{type}-css' style='-webkit-transform:scale(#{opt.size * 2 / 200})'"
+    data = data.replace /width="100%" height="100%"/, "width='#{opt.size * 2}px' height='#{opt.size * 2}px'"
+    data = data.replace new RegExp("\"uil-#{type}-css\""),
+      "'uil-#{type}-css' style='-webkit-transform:scale(#{opt.size * 2 / 200})'"
   ..directive \uiload, ($injector, $http, $templateCache, $timeout) -> do
     restrict: \E
     template: ""

@@ -11,7 +11,7 @@ html, body {
   height: 100%; }
 
 html, body {
-  font-family: century gothic;
+  font-family: century gothic, tahoma;
   background: url(bk.jpg) fixed top center no-repeat; }
 
 #banner {
@@ -59,7 +59,7 @@ nav.navbar-default {
     #gallery .ib .glyphicon {
       display: block; }
     #gallery .ib .desc {
-      font-size: 8px; }
+      font-size: 14px; }
 
 #tryit {
   position: absolute;

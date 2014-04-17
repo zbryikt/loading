@@ -118,7 +118,7 @@ require(['uiloading'], function(){
               var n, ref$, w, h, html;
               n = this$.target.node;
               ref$ = [n.width(), n.height()], w = ref$[0], h = ref$[1];
-              html = this$.target.node.html().replace(/svg width="100%" height="100%"/, "svg width='" + w + "' height='" + h + "'");
+              html = this$.target.node.html().replace(/width="100%" height="100%"/, "width='" + w + "' height='" + h + "'");
               return svg2canvas(html, function(it){
                 return this$.addframe(it);
               });
