@@ -44,7 +44,7 @@ angular.module \main, <[uiloading colorpicker.module]>
       addframe: (canvas) ->
         console.log @step
         tick parse-int( @step / 10 ) <?100
-        @gif.add-frame canvas, delay: 33
+        @gif.add-frame canvas, delay: 40
         if @step >= 1000 =>
           @gif.on \finished, (blob) ->
             reader = new window.FileReader!
@@ -55,7 +55,7 @@ angular.module \main, <[uiloading colorpicker.module]>
               cb $(img), blob, model.type
           @gif.render!
         else 
-          $timeout (~> @runner!), 10
+          $timeout (~> @runner!), 100
       runner: ->
         @step += @delta
         @target.step @step
@@ -77,10 +77,10 @@ angular.module \main, <[uiloading colorpicker.module]>
 
   ..controller \main, <[$scope $injector $timeout $interval $http $compile capture outputmodal]> ++ ($scope, $injector, $timeout, $interval, $http, $compile, capture, outputmodal) ->
     $scope.delay = 0
-    $scope.delta = 33
+    $scope.delta = 30
     $scope.ani-timer = null
     $scope.$watch 'build.speed' (v) ->
-      if v > 0 => $scope.delta = 33 / v
+      if v > 0 => $scope.delta = 30 / v
       if $scope.delta < 10 =>
         $scope.delta = 10
         $scope.build.speed = 5
@@ -93,7 +93,7 @@ angular.module \main, <[uiloading colorpicker.module]>
           $interval (-> if !$scope.build.making =>
             $scope.demo-loader.step $scope.delay
             if $scope.build.running => $scope.delay = ( $scope.delay + $scope.delta ) % 1000
-          ), 33
+          ), 30
         , 1000
     $scope.build = do
       choices: <[default infinity ellipsis dashinfinity reload wheel g0v pacman facebook spin ball cube circle]>
@@ -143,7 +143,6 @@ angular.module \main, <[uiloading colorpicker.module]>
         @stop!
         capture $scope.demoLoader, $scope.delta, @cbk, 
         ((percent) ~>
-          console.log(">>>", percent)
           $scope.$apply -> $scope.build.percent = percent), 
         ((img, blob, type) ~>
           outputmodal.create img, blob, type, \GIF

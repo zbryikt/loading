@@ -81,7 +81,7 @@ require(['uiloading'], function(){
           console.log(this.step);
           tick((ref$ = parseInt(this.step / 10)) < 100 ? ref$ : 100);
           this.gif.addFrame(canvas, {
-            delay: 33
+            delay: 40
           });
           if (this.step >= 1000) {
             this.gif.on('finished', function(blob){
@@ -99,7 +99,7 @@ require(['uiloading'], function(){
           } else {
             return $timeout(function(){
               return this$.runner();
-            }, 10);
+            }, 100);
           }
         },
         runner: function(){
@@ -141,11 +141,11 @@ require(['uiloading'], function(){
   });
   x$.controller('main', ['$scope', '$injector', '$timeout', '$interval', '$http', '$compile', 'capture', 'outputmodal'].concat(function($scope, $injector, $timeout, $interval, $http, $compile, capture, outputmodal){
     $scope.delay = 0;
-    $scope.delta = 33;
+    $scope.delta = 30;
     $scope.aniTimer = null;
     $scope.$watch('build.speed', function(v){
       if (v > 0) {
-        $scope.delta = 33 / v;
+        $scope.delta = 30 / v;
       }
       if ($scope.delta < 10) {
         $scope.delta = 10;
@@ -169,7 +169,7 @@ require(['uiloading'], function(){
                   return $scope.delay = ($scope.delay + $scope.delta) % 1000;
                 }
               }
-            }, 33);
+            }, 30);
           }, 1000);
         }
       }
@@ -250,7 +250,6 @@ require(['uiloading'], function(){
         this.making = true;
         this.stop();
         return capture($scope.demoLoader, $scope.delta, this.cbk, function(percent){
-          console.log(">>>", percent);
           return $scope.$apply(function(){
             return $scope.build.percent = percent;
           });

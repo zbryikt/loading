@@ -11,7 +11,7 @@ html, body {
   height: 100%; }
 
 html, body {
-  font-family: century gothic, tahoma;
+  font-family: "century gothic", verdana;
   background: url(bk.jpg) fixed top center no-repeat; }
 
 #banner {
