@@ -141,11 +141,10 @@ require(['uiloading'], function(){
   });
   x$.controller('main', ['$scope', '$injector', '$timeout', '$interval', '$http', '$compile', 'capture', 'outputmodal'].concat(function($scope, $injector, $timeout, $interval, $http, $compile, capture, outputmodal){
     $scope.delay = 0;
-    $scope.delta = 30;
-    $scope.aniTimer = null;
+    $scope.delta = 50;
     $scope.$watch('build.speed', function(v){
       if (v > 0) {
-        $scope.delta = 30 / v;
+        $scope.delta = 50 / v;
       }
       if ($scope.delta < 10) {
         $scope.delta = 10;
@@ -153,38 +152,51 @@ require(['uiloading'], function(){
       }
     });
     $scope.$watch('demoLoader', function(){
-      var i$, ref$, len$, i, item;
       if ($scope.demoLoader) {
-        for (i$ = 0, len$ = (ref$ = $scope.demoLoader.vars).length; i$ < len$; ++i$) {
-          i = i$;
-          item = ref$[i$];
-          $scope.build["c" + (i + 1)] = item['default'];
-        }
-        if (!$scope.aniTimer) {
-          return $scope.aniTimer = $timeout(function(){
-            return $interval(function(){
-              if (!$scope.build.making) {
-                $scope.demoLoader.step($scope.delay);
-                if ($scope.build.running) {
-                  return $scope.delay = ($scope.delay + $scope.delta) % 1000;
-                }
-              }
-            }, 30);
-          }, 1000);
-        }
+        return $timeout(function(){
+          var i$, ref$, len$, i, item;
+          for (i$ = 0, len$ = (ref$ = $scope.demoLoader.vars).length; i$ < len$; ++i$) {
+            i = i$;
+            item = ref$[i$];
+            $scope.build["c" + (i + 1)] = item['default'];
+          }
+          if ($scope.demoLoader.speed) {
+            $scope.build.speed = $scope.demoLoader.speed;
+          }
+          return $scope.build.start();
+        }, 10);
       }
     });
     $scope.build = {
-      choices: ['default', 'infinity', 'ellipsis', 'dashinfinity', 'reload', 'wheel', 'g0v', 'pacman', 'facebook', 'spin', 'ball', 'cube', 'circle'],
+      choices: ['default', 'infinity', 'ellipsis', 'dashinfinity', 'reload', 'wheel', 'g0v', 'pacman', 'facebook', 'spin', 'ball', 'cube', 'circle', 'pie'],
+      anitimer: null,
       size: 60,
       running: true,
       making: false,
       done: false,
       speed: 1,
+      runner: function(){
+        if (!$scope.build.making) {
+          $scope.demoLoader.step($scope.delay);
+          if ($scope.build.running) {
+            return $scope.delay = ($scope.delay + $scope.delta) % 1000;
+          }
+        }
+      },
       start: function(){
+        var this$ = this;
+        if (!this.anitimer) {
+          this.anitimer = $interval(function(){
+            return this$.runner();
+          }, 50);
+        }
         return this.running = true;
       },
       stop: function(){
+        if (this.anitimer) {
+          $interval.cancel(this.anitimer);
+          this.anitimer = null;
+        }
         return this.running = false;
       },
       type: 'default',

@@ -4,7 +4,7 @@ x$ = angular.module('uiloading', []);
 x$.factory('uilSvg', function(){
   return 'width="100%" height="100%" viewBox="0 0 100 100"';
 });
-define(['default', 'infinity', 'ellipsis', 'dashinfinity', 'reload', 'wheel', 'g0v', 'pacman', 'facebook', 'spin', 'ball', 'cube', 'circle'], function(){
+define(['default', 'infinity', 'ellipsis', 'dashinfinity', 'reload', 'wheel', 'g0v', 'pacman', 'facebook', 'spin', 'ball', 'cube', 'circle', 'pie'], function(){
   var x$;
   x$ = angular.module('uiloading');
   x$.factory('uilresize', function(){
@@ -47,6 +47,7 @@ define(['default', 'infinity', 'ellipsis', 'dashinfinity', 'reload', 'wheel', 'g
         });
         scope.p = {
           node: e,
+          speed: mod.speed || 1,
           mode: mod.mode,
           vars: mod.vars,
           type: type,

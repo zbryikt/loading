@@ -1,7 +1,7 @@
 angular.module \uiloading, <[]>
   ..factory \uilSvg, -> 'width="100%" height="100%" viewBox="0 0 100 100"'
 
-<- define <[default infinity ellipsis dashinfinity reload wheel g0v pacman facebook spin ball cube circle]>
+<- define <[default infinity ellipsis dashinfinity reload wheel g0v pacman facebook spin ball cube circle pie]>
 angular.module \uiloading
   ..factory \uilresize, -> (data, type, opt) ->
     data = data.replace /width="100%" height="100%"/, "width='#{opt.size * 2}px' height='#{opt.size * 2}px'"
@@ -24,6 +24,7 @@ angular.module \uiloading
         if not js => $timeout (-> mod.start scope, e, attrs, ctrl ), 0
       scope.p = do
         node: e
+        speed: mod.speed or 1
         mode: mod.mode
         vars: mod.vars
         type: type
