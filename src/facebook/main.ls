@@ -5,7 +5,7 @@ angular.module \uiloading
     ret = do
       mode: \both
       vars: 
-        [{ name: 'color', placeholder: '#f00', type: 'color', default: '#000', attr: 'color' }]
+        [{ name: 'color', placeholder: '#000', type: 'color', default: '#3769c8', attr: 'color' }]
       patch-css: (data, opt) -> @patch data, opt
       patch-svg: (data, opt) -> @patch data, opt
       patch: (data, opt) -> 

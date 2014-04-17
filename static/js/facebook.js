@@ -8,9 +8,9 @@ define([], function(){
       mode: 'both',
       vars: [{
         name: 'color',
-        placeholder: '#f00',
+        placeholder: '#000',
         type: 'color',
-        'default': '#000',
+        'default': '#3769c8',
         attr: 'color'
       }],
       patchCss: function(data, opt){
