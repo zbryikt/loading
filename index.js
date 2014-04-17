@@ -273,9 +273,16 @@ require(['uiloading'], function(){
       }
     };
     $('.ttn').tooltip();
-    return $timeout(function(){
+    $timeout(function(){
       return $scope.build.settype('default');
     }, 0);
+    return $(window).scroll(function(){
+      if ($(document.body).scrollTop() < 150) {
+        return $('#nav-top').removeClass('dim');
+      } else if ($(document.body).scrollTop() > 150) {
+        return $('#nav-top').addClass('dim');
+      }
+    });
   }));
   return angular.bootstrap($("body"), ['main']);
 });

@@ -156,6 +156,10 @@ angular.module \main, <[uiloading colorpicker.module]>
         )
     $(\.ttn)tooltip!
     $timeout (-> $scope.build.settype \default), 0
+    $(window)scroll -> 
+      if $(document.body)scroll-top! < 150 => $(\#nav-top)removeClass \dim
+      else if $(document.body)scroll-top! > 150 => $(\#nav-top)addClass \dim
+        
 
 
 angular.bootstrap $("body"), <[main]>
