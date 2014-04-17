@@ -85,7 +85,7 @@ angular.module \main, <[uiloading colorpicker.module]>
         $scope.build.speed = 5
     $scope.$watch 'demoLoader' -> 
       if $scope.demo-loader => 
-        <- $timeout _, 10
+        <- $timeout _, 100
         for item,i in $scope.demo-loader.vars
           $scope.build["c#{i + 1}"] = item.default
         if $scope.demo-loader.speed => $scope.build.speed = $scope.demo-loader.speed

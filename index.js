@@ -165,7 +165,7 @@ require(['uiloading'], function(){
             $scope.build.speed = $scope.demoLoader.speed;
           }
           return $scope.build.start();
-        }, 10);
+        }, 100);
       }
     });
     $scope.build = {
