@@ -12,8 +12,8 @@ angular.module \uiloading
       patch: (data, opt) -> 
         data = data.replace /duration_2/g, "#{opt.speed * 2}s"
         data = data.replace /duration/g, "#{opt.speed}s"
-        data = data.replace /#000/g, opt.c1
-        data = data.replace /#fff/g, opt.c2
+        data = data.replace /#000|black/g, opt.c1
+        data = data.replace /#fff|white/g, opt.c2
         data = data.replace /svg width="100%" height="100%"/, "svg width='#{opt.size * 2}px' height='#{opt.size * 2}px'"
         data = data.replace /"uil-circle-css"/, "'uil-circle-css' style='-webkit-transform:scale(#{opt.size * 2 / 200})'"
         for i from 8 to 1 by -1 =>
