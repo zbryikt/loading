@@ -6,8 +6,8 @@ angular.module \uiloading
       mode: \both
       angle: 30
       vars: 
-        * name: 'color', placeholder: '#f00', type: 'color', default: '#000', attr: 'color'
-        * name: 'angle', placeholder: '#f00', type: 'px', default: '30', attr: 'angle'
+        * name: 'color', placeholder: '#000', type: 'color', default: '#f0c741', attr: 'color'
+        * name: 'angle', placeholder: '30', type: 'px', default: '30', attr: 'angle'
       patch-css: (data, opt) -> @patch data, opt
       patch-svg: (data, opt) -> @patch data, opt
       patch: (data, opt) ->

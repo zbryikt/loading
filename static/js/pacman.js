@@ -10,13 +10,13 @@ define([], function(){
       vars: [
         {
           name: 'color',
-          placeholder: '#f00',
+          placeholder: '#000',
           type: 'color',
-          'default': '#000',
+          'default': '#f0c741',
           attr: 'color'
         }, {
           name: 'angle',
-          placeholder: '#f00',
+          placeholder: '30',
           type: 'px',
           'default': '30',
           attr: 'angle'
