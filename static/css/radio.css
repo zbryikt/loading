@@ -1,0 +1,11 @@
+uiload {
+  display: inline-block;
+  position: relative; }
+  uiload > div {
+    position: relative; }
+
+.uil-radio {
+  background: none;
+  position: relative;
+  width: 200px;
+  height: 200px; }
