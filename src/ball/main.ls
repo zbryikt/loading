@@ -39,6 +39,7 @@ angular.module \uiloading
           e.find "g > g" .attr \transform, "rotate(0)"
         a.$observe 'color' (v) -> if v => e.find \circle .css \fill, v
         a.$observe 'radius' (v) ~> if v => 
+          console.log v
           @radius = v
           e.find \circle .attr \r, v
         a.$observe 'background' (v) -> if v => e.find \rect .css \fill, v

@@ -76,6 +76,7 @@ define([], function(){
         });
         a.$observe('radius', function(v){
           if (v) {
+            console.log(v);
             this$.radius = v;
             return e.find('circle').attr('r', v);
           }

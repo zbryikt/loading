@@ -204,6 +204,7 @@ require(['uiloading'], function(){
         var this$ = this;
         return setTimeout(function(){
           var mod, e, customVars, res$, i$, ref$, len$, i, v, defaultVars, customStyle, html;
+          this$.stop();
           this$.type = type;
           try {
             mod = $injector.get("uilType-" + type);

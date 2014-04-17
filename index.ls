@@ -111,6 +111,7 @@ angular.module \main, <[uiloading colorpicker.module]>
         @running = false
       type: \default
       settype: (type) -> set-timeout (~>
+        @stop!
         @type = type
         try mod = $injector.get "uilType-#type"
         catch => return console.log("module not found.")
