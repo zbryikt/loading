@@ -141,8 +141,10 @@ html(lang="en")
                 .btn.btn-default(ng-click="build.makegif()")
                   | Make GIF
     #chooser
-      .item(ng-repeat="t in build.choices",ng-class="{'active':build.type==t}") 
-        .delay(delay-bk="res/{{t}}.png",ng-click="build.settype(t)")
+      .ib
+        .item(ng-repeat="t in build.choices",ng-class="{'active':build.type==t}") 
+          .delay(delay-bk="res/{{t}}.png",ng-click="build.settype(t)")
+          .title {{t}}
     #output-modal.modal.fade(ng-controller="output")
       .modal-dialog
         .modal-content

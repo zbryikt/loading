@@ -177,9 +177,12 @@ nav.navbar-default {
 #chooser {
   position: relative;
   width: 100%;
-  padding: 3px 20% 3px 10%;
+  padding: 3px;
   margin: 10px 0;
   background: rgba(0, 0, 0, 0.2); }
+  #chooser .ib {
+    width: 640px;
+    margin: 0 auto; }
   #chooser:before {
     content: " ";
     width: 0;
@@ -189,13 +192,15 @@ nav.navbar-default {
     border-bottom: 20px solid rgba(0, 0, 0, 0.2);
     position: absolute;
     top: -20px;
-    margin-left: 100px; }
+    margin-left: 400px; }
   #chooser .item {
     display: inline-block;
     margin: 7px;
     padding: 8px;
+    width: 95px;
     cursor: pointer;
     background: rgba(0, 0, 0, 0);
+    text-align: center;
     box-shadow: 0 0 0 yellow;
     -ms-transition: box-shadow 0.2s, background 0.4s;
     -moz-transition: box-shadow 0.2s, background 0.4s;
@@ -205,9 +210,15 @@ nav.navbar-default {
     #chooser .item .delay {
       background: white;
       width: 64px;
+      margin: auto;
       height: 64px;
       border-radius: 3px;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); }
+    #chooser .item .title {
+      color: white;
+      font-weight: 200;
+      font-size: 0.9em;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5); }
   #chooser .item.active {
     border-radius: 10px;
     background: rgba(255, 255, 255, 0.5);
