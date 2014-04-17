@@ -55,7 +55,7 @@ angular.module \main, <[uiloading colorpicker.module]>
               cb $(img), blob, model.type
           @gif.render!
         else 
-          $timeout (~> @runner!), 100
+          $timeout (~> @runner!), 10
       runner: ->
         @step += @delta
         @target.step @step

@@ -99,7 +99,7 @@ require(['uiloading'], function(){
           } else {
             return $timeout(function(){
               return this$.runner();
-            }, 100);
+            }, 10);
           }
         },
         runner: function(){
