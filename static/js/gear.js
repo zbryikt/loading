@@ -21,7 +21,7 @@ define([], function(){
       },
       patch: function(data, opt){
         data = data.replace(/1s/g, opt.speed + "s");
-        data = data.replace(/#000|black/g, opt.c1 + "s");
+        data = data.replace(/#000|black/g, opt.c1 + "");
         return data = uilresize(data, 'default', opt);
       },
       custom: function(s, e, a, c){
@@ -40,7 +40,7 @@ define([], function(){
       stop: function(s, e, a, c){},
       step: function(s, e, a, c, delay){
         var r;
-        r = 360 * ((delay % 1000) / 1000);
+        r = 90 * ((delay % 1000) / 1000);
         return e.find('path').each(function(){
           return $(arguments[1]).attr('transform', "rotate(" + r + " 50 50)");
         });
