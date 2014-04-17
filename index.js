@@ -64,7 +64,7 @@ require(['uiloading'], function(){
     });
   }));
   x$.factory('capture', function($timeout, svg2canvas, outputmodal){
-    return function(model, delta, transparent, cb){
+    return function(model, delta, transparent, tick, cb){
       var ret;
       transparent = transparent ? transparent.replace("#", "0x") : "0xFFFFFF";
       ret = import$({}, {
@@ -77,8 +77,9 @@ require(['uiloading'], function(){
           transparent: transparent
         }) || 0xFFFFFF,
         addframe: function(canvas){
-          var this$ = this;
+          var ref$, this$ = this;
           console.log(this.step);
+          tick((ref$ = parseInt(this.step / 10)) < 100 ? ref$ : 100);
           this.gif.addFrame(canvas, {
             delay: 33
           });
@@ -248,7 +249,12 @@ require(['uiloading'], function(){
         this.done = false;
         this.making = true;
         this.stop();
-        return capture($scope.demoLoader, $scope.delta, this.cbk, function(img, blob, type){
+        return capture($scope.demoLoader, $scope.delta, this.cbk, function(percent){
+          console.log(">>>", percent);
+          return $scope.$apply(function(){
+            return $scope.build.percent = percent;
+          });
+        }, function(img, blob, type){
           outputmodal.create(img, blob, type, 'GIF');
           return this$.done = true, this$.making = false, this$;
         });

@@ -34,7 +34,7 @@ angular.module \main, <[uiloading colorpicker.module]>
   ..controller \output, <[$scope outputmodal]> ++ ($scope, outputmodal) ->
     $scope.outputmodal = outputmodal
     $scope.$watch 'outputmodal.mode' -> $scope.mode = outputmodal.mode
-  ..factory \capture, ($timeout, svg2canvas, outputmodal) -> (model, delta, transparent, cb) ->
+  ..factory \capture, ($timeout, svg2canvas, outputmodal) -> (model, delta, transparent, tick, cb) ->
     transparent = if transparent => transparent.replace "#", "0x" else "0xFFFFFF"
     ret = {} <<< do
       delta: delta
@@ -43,6 +43,7 @@ angular.module \main, <[uiloading colorpicker.module]>
       gif: new GIF workers: 2, quality: 10, transparent: transparent or 0xFFFFFF
       addframe: (canvas) ->
         console.log @step
+        tick parse-int( @step / 10 ) <?100
         @gif.add-frame canvas, delay: 33
         if @step >= 1000 =>
           @gif.on \finished, (blob) ->
@@ -140,9 +141,14 @@ angular.module \main, <[uiloading colorpicker.module]>
       makegif: -> 
         @ <<< {done: false, making: true}
         @stop!
-        capture $scope.demoLoader, $scope.delta, @cbk, (img, blob, type) ~>
+        capture $scope.demoLoader, $scope.delta, @cbk, 
+        ((percent) ~>
+          console.log(">>>", percent)
+          $scope.$apply -> $scope.build.percent = percent), 
+        ((img, blob, type) ~>
           outputmodal.create img, blob, type, \GIF
           @ <<< {done: true, making: false}
+        )
     $(\.ttn)tooltip!
     $timeout (-> $scope.build.settype \default), 0
 

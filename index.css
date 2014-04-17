@@ -107,10 +107,12 @@ nav.navbar-default {
   left: 0;
   z-index: 10;
   font-size: 90px;
-  padding-top: 7%;
+  padding-top: 3%;
   color: white;
   text-align: center;
   text-shadow: 0 0 13px black; }
+  #making .is {
+    font-size: 0.4em; }
 
 #play .btn-default {
   background: white; }

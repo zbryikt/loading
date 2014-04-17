@@ -111,7 +111,9 @@
     </div>
     <div id="panel">
       <div id="tryit"></div>
-      <div id="making" ng-class="{'invis':!build.making}" class="anim invis">Generating<img src="res/ellipsis.gif"></div>
+      <div id="making" ng-class="{'invis':!build.making}" class="anim invis"><span ng-if="build.percent&lt;100">Recording</span><span ng-if="build.percent&gt;=100">Generating</span><img src="res/ellipsis.gif"><br>
+        <div class="is">{{build.percent}}%</div>
+      </div>
       <div class="row">
         <div class="col-md-5">
           <div id="demo-panel" ng-attr-style="background:{{build.cbk || '#fff'}}"></div>

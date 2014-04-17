@@ -90,8 +90,12 @@ html(lang="en")
     #panel
       #tryit
       #making.anim.invis(ng-class="{'invis':!build.making}")
-        | Generating
+        span(ng-if="build.percent<100") Recording
+        span(ng-if="build.percent>=100") Generating
         img(src="res/ellipsis.gif")
+        br
+        .is {{build.percent}}%
+
       .row
         .col-md-5
           #demo-panel(ng-attr-style="background:{{build.cbk || '#fff'}}")
