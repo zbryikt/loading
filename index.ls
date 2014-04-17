@@ -91,7 +91,7 @@ angular.module \main, <[uiloading colorpicker.module]>
         if $scope.demo-loader.speed => $scope.build.speed = $scope.demo-loader.speed
         $scope.build.start!
     $scope.build = do
-      choices: <[default infinity ellipsis dashinfinity reload wheel g0v pacman facebook spin ball cube circle pie radio poi gear]>
+      choices: <[default infinity ellipsis dashinfinity reload wheel g0v pacman facebook spin ball cube circle pie radio poi gear gears]>
       anitimer: null
       size: 60
       running: true
