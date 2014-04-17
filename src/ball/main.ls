@@ -8,7 +8,7 @@ angular.module \uiloading
       variant: 1
       vars: 
         * name: 'variant', placeholder: '', type: 'choice', default: \jump, values: <[jump rotate]>, attr: 'variant'
-        * name: 'color', placeholder: '#f00', type: 'color', default: '#000', attr: 'color'
+        * name: 'color', placeholder: '#b00', type: 'color', default: '#b10000', attr: 'color'
         * name: 'radius', placeholder: '15', type: 'px', default: '15', attr: 'radius'
       patch-css: (data, opt) -> @patch data, opt
       patch-svg: (data, opt) -> @patch data, opt

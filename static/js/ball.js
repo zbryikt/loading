@@ -18,9 +18,9 @@ define([], function(){
           attr: 'variant'
         }, {
           name: 'color',
-          placeholder: '#f00',
+          placeholder: '#b00',
           type: 'color',
-          'default': '#000',
+          'default': '#b10000',
           attr: 'color'
         }, {
           name: 'radius',
