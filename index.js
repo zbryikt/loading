@@ -228,9 +228,10 @@ require(['uiloading'], function(){
         }, 0);
       },
       resize: function(e){
-        var total, ref$, ref1$;
+        var total, offset, ref$;
         total = 200;
-        return this.size = parseInt(100 * ((ref$ = (ref1$ = e.offsetX) > 50 ? ref1$ : 50) < 200 ? ref$ : 200) / (total != null ? total : 200));
+        offset = e.offsetX || e.pageX - $(e.target).offset().left;
+        return this.size = parseInt(100 * ((ref$ = offset > 50 ? offset : 50) < 200 ? ref$ : 200) / (total != null ? total : 200));
       },
       makesvg: function(){
         var type;

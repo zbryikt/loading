@@ -130,7 +130,8 @@ angular.module \main, <[uiloading colorpicker.module]>
         ), 0
       resize: (e) -> 
         total = 200 # $(e.target or e.srcElement)width!
-        @size = parse-int( 100 * ( e.offsetX >? 50 <? 200 ) / ( total ? 200 ) )
+        offset = e.offsetX or (e.pageX - $(e.target)offset!left)
+        @size = parse-int( 100 * ( offset >? 50 <? 200 ) / ( total ? 200 ) )
       makesvg: ->
         type = $scope.demoLoader.type
         (raw-svg) <- $http.get "/static/html/#{type}.svg.html" .success
