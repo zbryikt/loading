@@ -140,6 +140,7 @@ require(['uiloading'], function(){
     };
   });
   x$.controller('main', ['$scope', '$injector', '$timeout', '$interval', '$http', '$compile', 'capture', 'outputmodal'].concat(function($scope, $injector, $timeout, $interval, $http, $compile, capture, outputmodal){
+    var attributionData;
     $scope.delay = 0;
     $scope.delta = 50;
     $scope.$watch('build.speed', function(v){
@@ -276,12 +277,43 @@ require(['uiloading'], function(){
     $timeout(function(){
       return $scope.build.settype('default');
     }, 0);
-    return $(window).scroll(function(){
+    $(window).scroll(function(){
       if ($(document.body).scrollTop() < 150) {
         return $('#nav-top').removeClass('dim');
       } else if ($(document.body).scrollTop() > 150) {
         return $('#nav-top').addClass('dim');
       }
+    });
+    attributionData = ['"<a href="http://thenounproject.com/term/dots/21252/">Dots</a>", Istiko Rahadi, BY-CC 3.0', '"<a href="http://www.kingthingsfonts.co.uk/fonts/fonts.htm">Kingthings Sans</a>", Kingthings'];
+    $('#attribution').popover({
+      placement: 'top',
+      html: 'true',
+      title: "Attributions to Resources",
+      content: attributionData.join('<br>')
+    });
+    $('#eula').popover({
+      placement: 'top',
+      html: 'true',
+      title: "Term of Use",
+      content: "All materials used in generating animated icons in this website, except the g0v icon, are created by loading.io. You can use them freely for any purpose."
+    });
+    $('#about').popover({
+      placement: 'top',
+      html: 'true',
+      title: "About Us",
+      content: "Loading.io is built upon several open source projects, including angularjs, canvg, svg2canvs, and gif.js."
+    });
+    $('#nav-examples').tooltip({
+      placement: 'bottom',
+      title: "Coming Soon"
+    });
+    $('#nav-compatibility').tooltip({
+      placement: 'bottom',
+      title: "Coming Soon"
+    });
+    return $('#nav-more').tooltip({
+      placement: 'bottom',
+      title: "Coming Soon"
     });
   }));
   return angular.bootstrap($("body"), ['main']);

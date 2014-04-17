@@ -56,6 +56,9 @@ nav.navbar-default {
     color: white;
     font-family: century gothic, arial;
     letter-spacing: 1px; }
+    nav.navbar-default .navbar-brand:hover, nav.navbar-default .navbar-nav > li > a:hover {
+      color: white;
+      text-shadow: 0 0 5px rgba(255, 255, 128, 0.7); }
 
 #gallery {
   width: 100%;
@@ -221,6 +224,7 @@ nav.navbar-default {
   background: rgba(0, 0, 0, 0.4);
   margin-top: 20px;
   padding: 12px 20px;
+  z-index: 11;
   box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.3); }
   #footer .ib {
     max-width: 1024px;
@@ -229,6 +233,9 @@ nav.navbar-default {
     color: white;
     margin: 0 20px;
     cursor: pointer; }
+  #footer .popover a {
+    color: #dd2200;
+    margin: auto; }
 
 #footer-top {
   width: 100%;

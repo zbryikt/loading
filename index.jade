@@ -36,10 +36,9 @@ html(lang="en")
               | LOADING.IO
           .collapse.navbar-collapse
             ul.nav.navbar-nav
-              li: a(href="#") ABOUT
-              li: a(href="#") EXAMPLES
-              li: a(href="#") COMPATIBILITY
-              li: a(href="#") MORE
+              li: a#nav-examples(href="#") EXAMPLES
+              li: a#nav-compatibility(href="#") COMPATIBILITY
+              li: a#nav-more(href="#") MORE
             ul.nav.navbar-nav.pull-right
               li.anim.profile.invis(ng-class="{'invis':!username}"): a(href="#")
                 .avatar
@@ -162,7 +161,6 @@ html(lang="en")
     #footer
       .ib
         a#eula Term of Use
-        a#privacy Privacy Policy
         a#attribution Attribution
         a#about About Us
         .fb-like(style="float:right;",data-href="http://loading.io",data-layout="button_count",data-action="like",data-show-faces="true",data-share="true")

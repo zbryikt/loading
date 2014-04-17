@@ -159,7 +159,39 @@ angular.module \main, <[uiloading colorpicker.module]>
     $(window)scroll -> 
       if $(document.body)scroll-top! < 150 => $(\#nav-top)removeClass \dim
       else if $(document.body)scroll-top! > 150 => $(\#nav-top)addClass \dim
-        
+    attribution-data = [
+      '"<a href="http://thenounproject.com/term/dots/21252/">Dots</a>", Istiko Rahadi, BY-CC 3.0'
+      '"<a href="http://www.kingthingsfonts.co.uk/fonts/fonts.htm">Kingthings Sans</a>", Kingthings'
+    ]
 
+    $(\#attribution)popover do
+      placement: \top
+      html: \true
+      title: "Attributions to Resources"
+      content: attribution-data.join \<br>
+
+    $(\#eula)popover do
+      placement: \top
+      html: \true
+      title: "Term of Use"
+      content: "All materials used in generating animated icons in this website, except the g0v icon, are created by loading.io. You can use them freely for any purpose."
+
+    $(\#about)popover do
+      placement: \top
+      html: \true
+      title: "About Us"
+      content: "Loading.io is built upon several open source projects, including angularjs, canvg, svg2canvs, and gif.js."
+
+    $(\#nav-examples)tooltip do
+      placement: \bottom
+      title: "Coming Soon"
+
+    $(\#nav-compatibility)tooltip do
+      placement: \bottom
+      title: "Coming Soon"
+
+    $(\#nav-more)tooltip do
+      placement: \bottom
+      title: "Coming Soon"
 
 angular.bootstrap $("body"), <[main]>
