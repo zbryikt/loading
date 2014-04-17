@@ -269,7 +269,9 @@ require(['uiloading'], function(){
           });
         }, function(img, blob, type){
           outputmodal.create(img, blob, type, 'GIF');
-          return this$.done = true, this$.making = false, this$;
+          return $scope.$apply(function(){
+            return this$.done = true, this$.making = false, this$;
+          });
         });
       }
     };

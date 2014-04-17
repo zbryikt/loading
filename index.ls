@@ -152,7 +152,7 @@ angular.module \main, <[uiloading colorpicker.module]>
           $scope.$apply -> $scope.build.percent = percent), 
         ((img, blob, type) ~>
           outputmodal.create img, blob, type, \GIF
-          @ <<< {done: true, making: false}
+          $scope.$apply ~> @ <<< {done: true, making: false}
         )
     $(\.ttn)tooltip!
     $timeout (-> $scope.build.settype \default), 0
