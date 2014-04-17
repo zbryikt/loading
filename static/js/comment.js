@@ -11,7 +11,7 @@ define([], function(){
           name: 'color1',
           placeholder: '#999',
           type: 'color',
-          'default': '#999',
+          'default': '#b2de00',
           attr: 'color1'
         }, {
           name: 'color2',
