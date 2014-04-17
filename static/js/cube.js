@@ -10,7 +10,7 @@ define([], function(){
         name: 'color',
         placeholder: '#f00',
         type: 'color',
-        'default': '#000',
+        'default': '#21b827',
         attr: 'color'
       }],
       patchCss: function(data, opt){
