@@ -5,8 +5,8 @@ angular.module \uiloading
     ret = do
       mode: \svg
       vars: 
-        * name: 'line color', placeholder: '#f00', type: 'color', default: '#000', attr: 'line-color'
-        * name: 'dash length', placeholder: '5', type: 'px', default: '5', attr: 'dash-length'
+        * name: 'line color', placeholder: '#f00', type: 'color', default: '#f00', attr: 'line-color'
+        * name: 'dash length', placeholder: '8', type: 'px', default: '8', attr: 'dash-length'
       patch-css: (data, opt) -> @patch data, opt
       patch-svg: (data, opt) -> @patch data, opt
       patch: (data, opt) ->

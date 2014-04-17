@@ -11,13 +11,13 @@ define([], function(){
           name: 'line color',
           placeholder: '#f00',
           type: 'color',
-          'default': '#000',
+          'default': '#f00',
           attr: 'line-color'
         }, {
           name: 'dash length',
-          placeholder: '5',
+          placeholder: '8',
           type: 'px',
-          'default': '5',
+          'default': '8',
           attr: 'dash-length'
         }
       ],
