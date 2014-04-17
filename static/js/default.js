@@ -1,7 +1,7 @@
 define([], function(){
   var x$;
   x$ = angular.module('uiloading');
-  x$.factory('uilType-default', function($interval){
+  x$.factory('uilType-default', function($interval, uilresize){
     var offset, start, ret;
     offset = [0, 83, 166, 250, 333, 416, 500, 583, 666, 750, 833, 916, 1000];
     start = null;
@@ -25,8 +25,7 @@ define([], function(){
         data = data.replace(/barColor/g, opt.c1);
         data = data.replace(/bkColor/g, opt.cbk);
         data = data.replace(/duration/g, opt.speed + "s");
-        data = data.replace(/svg width="100%" height="100%"/, "svg width='" + opt.size * 2 + "px' height='" + opt.size * 2 + "px'");
-        data = data.replace(/"uil-default-css"/, "'uil-default-css' style='-webkit-transform:scale(" + opt.size * 2 / 200 + ")'");
+        data = uilresize(data, 'default', opt);
         for (i$ = 12; i$ >= 1; --i$) {
           i = i$;
           begin = parseInt(((i - 1) * opt.speed / 12) * 100) / 100 + "s";

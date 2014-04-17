@@ -1,6 +1,6 @@
 <- define <[]>
 angular.module \uiloading
-  ..factory \uilType-default, ($interval) ->
+  ..factory \uilType-default, ($interval, uilresize) ->
     offset = [0 83 166 250 333 416 500 583 666 750 833 916 1000]
     start = null
     ret = do
@@ -13,8 +13,7 @@ angular.module \uiloading
         data = data.replace /barColor/g, opt.c1
         data = data.replace /bkColor/g, opt.cbk
         data = data.replace /duration/g, "#{opt.speed}s"
-        data = data.replace /svg width="100%" height="100%"/, "svg width='#{opt.size * 2}px' height='#{opt.size * 2}px'"
-        data = data.replace /"uil-default-css"/, "'uil-default-css' style='-webkit-transform:scale(#{opt.size * 2 / 200})'"
+        data = uilresize data, \default, opt
         # always do this reversely so begin1 won't override begin12
         for i from 12 to 1 by -1 =>
           begin = "#{parse-int(((i - 1) * opt.speed / 12) * 100) / 100 }s"
