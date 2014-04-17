@@ -113,6 +113,22 @@ nav.navbar-default {
     width: 200px;
     height: 200px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); }
+    #panel #demo-panel uiload {
+      opacity: 1;
+      z-index: 10;
+      -ms-transition: opacity 1s, z-index 1s;
+      -moz-transition: opacity 1s, z-index 1s;
+      -webkit-transition: opacity 1s, z-index 1s;
+      -o-transition: opacity 1s, z-index 1s;
+      transition: opacity 1s, z-index 1s; }
+    #panel #demo-panel.invis > uiload {
+      opacity: 0;
+      z-index: 1;
+      -ms-transition: opacity 0s, z-index 0s;
+      -moz-transition: opacity 0s, z-index 0s;
+      -webkit-transition: opacity 0s, z-index 0s;
+      -o-transition: opacity 0s, z-index 0s;
+      transition: opacity 0s, z-index 0s; }
   #panel .progress {
     cursor: pointer; }
 

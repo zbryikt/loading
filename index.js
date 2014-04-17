@@ -164,8 +164,9 @@ require(['uiloading'], function(){
           if ($scope.demoLoader.speed) {
             $scope.build.speed = $scope.demoLoader.speed;
           }
-          return $scope.build.start();
-        }, 100);
+          $scope.build.start();
+          return $scope.build.show = true;
+        }, 500);
       }
     });
     $scope.build = {
@@ -175,6 +176,7 @@ require(['uiloading'], function(){
       running: true,
       making: false,
       done: false,
+      show: false,
       speed: 1,
       runner: function(){
         if (!$scope.build.making) {
@@ -206,6 +208,7 @@ require(['uiloading'], function(){
         return setTimeout(function(){
           var mod, e, customVars, res$, i$, ref$, len$, i, v, defaultVars, customStyle, html;
           this$.stop();
+          this$.show = false;
           this$.type = type;
           try {
             mod = $injector.get("uilType-" + type);

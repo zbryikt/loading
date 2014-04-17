@@ -111,6 +111,14 @@ nav.navbar-default
     width: 200px
     height: 200px
     box-shadow: 0 1px 3px rgba(0,0,0,0.3)
+    uiload
+      opacity: 1
+      z-index: 10
+      @include transition(opacity 1.0s,z-index 1.0s)
+    &.invis > uiload
+      opacity: 0
+      z-index: 1
+      @include transition(opacity 0.0s,z-index 0.0s)
   .progress
     cursor: pointer
 

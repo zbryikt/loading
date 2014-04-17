@@ -117,7 +117,7 @@
       </div>
       <div class="row">
         <div class="col-md-5">
-          <div id="demo-panel" ng-attr-style="background:{{build.cbk || '#fff'}}"></div>
+          <div id="demo-panel" ng-attr-style="background:{{build.cbk || '#fff'}}" ng-class="{'invis':!build.show}" class="invis"></div>
           <div ng-mousemove="build.resize($event)" class="progress progress-striped">
             <div role="progressbar" ng-attr-aria-valuenow="{{build.size}}" aria-valuemin="0" aria-valuemax="100" ng-attr-style="width:{{build.size}}%;" class="progress-bar">{{2 * build.size}}px</div>
           </div>

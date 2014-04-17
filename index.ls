@@ -85,11 +85,12 @@ angular.module \main, <[uiloading colorpicker.module]>
         $scope.build.speed = 5
     $scope.$watch 'demoLoader' -> 
       if $scope.demo-loader => 
-        <- $timeout _, 100
+        <- $timeout _, 500
         for item,i in $scope.demo-loader.vars
           $scope.build["c#{i + 1}"] = item.default
         if $scope.demo-loader.speed => $scope.build.speed = $scope.demo-loader.speed
         $scope.build.start!
+        $scope.build.show = true
     $scope.build = do
       choices: <[default infinity ellipsis dashinfinity reload wheel g0v pacman facebook spin ball cube circle pie radio poi gear gears comment]>
       anitimer: null
@@ -97,6 +98,7 @@ angular.module \main, <[uiloading colorpicker.module]>
       running: true
       making: false
       done: false
+      show: false
       speed: 1
       runner: -> if !$scope.build.making =>
         $scope.demo-loader.step $scope.delay
@@ -112,6 +114,7 @@ angular.module \main, <[uiloading colorpicker.module]>
       type: \default
       settype: (type) -> set-timeout (~>
         @stop!
+        @show = false
         @type = type
         try mod = $injector.get "uilType-#type"
         catch => return console.log("module not found.")
