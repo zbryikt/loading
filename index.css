@@ -230,6 +230,13 @@ nav.navbar-default {
       height: 64px;
       border-radius: 3px;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); }
+    #chooser .item .delay.more {
+      opacity: 1;
+      border: 2px dashed rgba(0, 0, 0, 0.5);
+      position: relative;
+      left: -2px;
+      background: none;
+      box-shadow: none; }
     #chooser .item .title {
       color: white;
       font-weight: 200;
