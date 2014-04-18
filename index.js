@@ -309,14 +309,6 @@ require(['uiloading'], function(){
       title: "About Us",
       content: "Loading.io is built upon several open source projects, including angularjs, canvg, svg2canvs, and gif.js."
     });
-    $('#nav-examples').tooltip({
-      placement: 'bottom',
-      title: "Coming Soon"
-    });
-    $('#nav-compatibility').tooltip({
-      placement: 'bottom',
-      title: "Coming Soon"
-    });
     return $('#nav-more').tooltip({
       placement: 'bottom',
       title: "Coming Soon"
