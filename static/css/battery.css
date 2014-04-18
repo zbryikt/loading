@@ -1,0 +1,223 @@
+uiload {
+  display: inline-block;
+  position: relative; }
+  uiload > div {
+    position: relative; }
+
+@-webkit-keyframes uil-battery-anim4 {
+  0% {
+    opacity: 0; }
+
+  10% {
+    opacity: 0; }
+
+  30% {
+    opacity: 1; } }
+
+@-moz-keyframes uil-battery-anim4 {
+  0% {
+    opacity: 0; }
+
+  10% {
+    opacity: 0; }
+
+  30% {
+    opacity: 1; } }
+
+@-ms-keyframes uil-battery-anim4 {
+  0% {
+    opacity: 0; }
+
+  10% {
+    opacity: 0; }
+
+  30% {
+    opacity: 1; } }
+
+@keyframes uil-battery-anim4 {
+  0% {
+    opacity: 0; }
+
+  10% {
+    opacity: 0; }
+
+  30% {
+    opacity: 1; } }
+
+@-webkit-keyframes uil-battery-anim3 {
+  0% {
+    opacity: 0; }
+
+  30% {
+    opacity: 0; }
+
+  50% {
+    opacity: 1; } }
+
+@-moz-keyframes uil-battery-anim3 {
+  0% {
+    opacity: 0; }
+
+  30% {
+    opacity: 0; }
+
+  50% {
+    opacity: 1; } }
+
+@-ms-keyframes uil-battery-anim3 {
+  0% {
+    opacity: 0; }
+
+  30% {
+    opacity: 0; }
+
+  50% {
+    opacity: 1; } }
+
+@keyframes uil-battery-anim3 {
+  0% {
+    opacity: 0; }
+
+  30% {
+    opacity: 0; }
+
+  50% {
+    opacity: 1; } }
+
+@-webkit-keyframes uil-battery-anim2 {
+  0% {
+    opacity: 0; }
+
+  50% {
+    opacity: 0; }
+
+  70% {
+    opacity: 1; } }
+
+@-moz-keyframes uil-battery-anim2 {
+  0% {
+    opacity: 0; }
+
+  50% {
+    opacity: 0; }
+
+  70% {
+    opacity: 1; } }
+
+@-ms-keyframes uil-battery-anim2 {
+  0% {
+    opacity: 0; }
+
+  50% {
+    opacity: 0; }
+
+  70% {
+    opacity: 1; } }
+
+@keyframes uil-battery-anim2 {
+  0% {
+    opacity: 0; }
+
+  50% {
+    opacity: 0; }
+
+  70% {
+    opacity: 1; } }
+
+@-webkit-keyframes uil-battery-anim1 {
+  0% {
+    opacity: 0; }
+
+  70% {
+    opacity: 0; }
+
+  90% {
+    opacity: 1; } }
+
+@-moz-keyframes uil-battery-anim1 {
+  0% {
+    opacity: 0; }
+
+  70% {
+    opacity: 0; }
+
+  90% {
+    opacity: 1; } }
+
+@-ms-keyframes uil-battery-anim1 {
+  0% {
+    opacity: 0; }
+
+  70% {
+    opacity: 0; }
+
+  90% {
+    opacity: 1; } }
+
+@keyframes uil-battery-anim1 {
+  0% {
+    opacity: 0; }
+
+  70% {
+    opacity: 0; }
+
+  90% {
+    opacity: 1; } }
+
+.uil-battery-css {
+  background: none;
+  position: relative;
+  width: 200px;
+  height: 200px; }
+  .uil-battery-css .outer {
+    position: absolute;
+    width: 104px;
+    border: 16px solid outerColor;
+    height: 145px;
+    top: 35px;
+    left: 47px;
+    border-radius: 10px; }
+    .uil-battery-css .outer:after {
+      content: " ";
+      display: block;
+      position: absolute;
+      top: -33px;
+      left: 6px;
+      width: 60px;
+      height: 32px;
+      border-radius: 10px;
+      background: outerColor; }
+  .uil-battery-css .inner {
+    position: absolute;
+    width: 60px;
+    height: 20px;
+    left: 69px;
+    background: innerColor; }
+  .uil-battery-css .inner:nth-of-type(2) {
+    top: 58px;
+    -ms-animation: uil-battery-anim1 1s linear infinite;
+    -moz-animation: uil-battery-anim1 1s linear infinite;
+    -webkit-animation: uil-battery-anim1 1s linear infinite;
+    -o-animation: uil-battery-anim1 1s linear infinite;
+    animation: uil-battery-anim1 1s linear infinite; }
+  .uil-battery-css .inner:nth-of-type(3) {
+    top: 85px;
+    -ms-animation: uil-battery-anim2 1s linear infinite;
+    -moz-animation: uil-battery-anim2 1s linear infinite;
+    -webkit-animation: uil-battery-anim2 1s linear infinite;
+    -o-animation: uil-battery-anim2 1s linear infinite;
+    animation: uil-battery-anim2 1s linear infinite; }
+  .uil-battery-css .inner:nth-of-type(4) {
+    top: 112px;
+    -ms-animation: uil-battery-anim3 1s linear infinite;
+    -moz-animation: uil-battery-anim3 1s linear infinite;
+    -webkit-animation: uil-battery-anim3 1s linear infinite;
+    -o-animation: uil-battery-anim3 1s linear infinite;
+    animation: uil-battery-anim3 1s linear infinite; }
+  .uil-battery-css .inner:nth-of-type(5) {
+    top: 139px;
+    -ms-animation: uil-battery-anim4 1s linear infinite;
+    -moz-animation: uil-battery-anim4 1s linear infinite;
+    -webkit-animation: uil-battery-anim4 1s linear infinite;
+    -o-animation: uil-battery-anim4 1s linear infinite;
+    animation: uil-battery-anim4 1s linear infinite; }
