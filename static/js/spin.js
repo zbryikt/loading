@@ -18,15 +18,15 @@ define([], function(){
           attr: 'color'
         }, {
           name: 'radius',
-          placeholder: '8',
-          type: 'px',
-          'default': '8',
-          attr: 'radius'
-        }, {
-          name: 'ratio',
           placeholder: '6',
           type: 'px',
           'default': '6',
+          attr: 'radius'
+        }, {
+          name: 'ratio',
+          placeholder: '5',
+          type: 'px',
+          'default': '5',
           attr: 'ratio'
         }, {
           name: 'scaling',

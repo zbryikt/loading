@@ -6,7 +6,7 @@ angular.module \uiloading
     ret = do
       mode: \both
       vars: 
-        [ { name: 'bar color', placeholder: '#f00', type: 'color', default: '#000', attr: 'bar-color' } ]
+        [ { name: 'bar color', placeholder: '#000', type: 'color', default: '#02bde7', attr: 'bar-color' } ]
       patch-css: (data, opt) -> @patch data, opt
       patch-svg: (data, opt) -> @patch data, opt
       patch: (data, opt) ->

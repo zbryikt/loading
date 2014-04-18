@@ -9,8 +9,8 @@ angular.module \uiloading
       radius: 8
       vars: 
         * name: 'color', placeholder: '#f00', type: 'color', default: '#000', attr: 'color'
-        * name: 'radius', placeholder: '8', type: 'px', default: '8', attr: 'radius'
-        * name: 'ratio', placeholder: '6', type: 'px', default: '6', attr: 'ratio'
+        * name: 'radius', placeholder: '6', type: 'px', default: '6', attr: 'radius'
+        * name: 'ratio', placeholder: '5', type: 'px', default: '5', attr: 'ratio'
         * name: 'scaling', placeholder: '', type: 'choice', default: \all, values: <[all x-axis y-axis]>, attr: 'scaling'
       patch-css: (data, opt) ->
         s = switch @scaling

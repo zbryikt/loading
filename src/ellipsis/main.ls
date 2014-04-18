@@ -10,18 +10,20 @@ angular.module \uiloading
       mode: \both
       circle-radius: 15
       vars: 
-        * name: 'circle color', placeholder: '#f00', type: 'color', default: '#000', attr: 'circle-color'
+        * name: 'color1', placeholder: '#000', type: 'color', default: '#403d3d', attr: 'color1'
+        * name: 'color2', placeholder: '#000', type: 'color', default: '#808a80', attr: 'color2'
         * name: 'circle radius', placeholder: '15', type: 'px', default: '15', attr: 'circle-radius'
       patch-css: (data, opt) -> @patch data, opt
       patch-svg: (data, opt) -> @patch data, opt
       patch: (data, opt) ->
         #data = data.replace /svg width="100%" height="100%"/, "svg width='#{opt.size * 2}px' height='#{opt.size * 2}px'"
         data = uilresize data, \ellipsis, opt
-        data = data.replace /circleColor/g, opt.c1
-        data = data.replace /15/g, opt.c2
-        data = data.replace /circleRadius2/g, "#{opt.c2 * 4}px"
-        data = data.replace /circleRadius/g, "#{opt.c2 * 2}px"
-        data = data.replace /circleMargin/g, "#{30 - opt.c2 * 2}px"
+        data = data.replace /circleColor1/g, opt.c1
+        data = data.replace /circleColor2/g, opt.c2
+        data = data.replace /15/g, opt.c3
+        data = data.replace /circleRadius2/g, "#{opt.c3 * 4}px"
+        data = data.replace /circleRadius/g, "#{opt.c3 * 2}px"
+        data = data.replace /circleMargin/g, "#{30 - opt.c3 * 2}px"
         data = data.replace /duration/g, "#{opt.speed}s"
         data = data.replace /s?1-8s/g, "#{1 * opt.speed / 8}s"
         data = data.replace /s?2-8s/g, "#{2 * opt.speed / 8}s"
@@ -31,8 +33,10 @@ angular.module \uiloading
         data = data.replace /s?6-8s/g, "#{6 * opt.speed / 8}s"
         data
       custom: (s, e, a, c) ->
-        a.$observe 'circleColor' (v) -> if v =>
-          e.find \circle .css \fill, v
+        a.$observe 'color1' (v) -> if v =>
+          e.find "circle:nth-of-type(2n+1)" .css \fill, v
+        a.$observe 'color2' (v) -> if v =>
+          e.find "circle:nth-of-type(2n)" .css \fill, v
         a.$observe 'circleRadius' (v) ~> if v =>
           e.find \circle .attr \r, v
           @circle-radius = parse-int v

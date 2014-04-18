@@ -9,15 +9,15 @@ define([], function(){
       vars: [
         {
           name: 'circle color',
-          placeholder: '#f00',
+          placeholder: '#000',
           type: 'color',
-          'default': '#000',
+          'default': '#ff0000',
           attr: 'circle-color'
         }, {
           name: 'line color',
-          placeholder: '#f00',
+          placeholder: '#000',
           type: 'color',
-          'default': '#000',
+          'default': '#c0bb9c',
           attr: 'line-color'
         }
       ],

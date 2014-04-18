@@ -14,11 +14,17 @@ define([], function(){
       circleRadius: 15,
       vars: [
         {
-          name: 'circle color',
-          placeholder: '#f00',
+          name: 'color1',
+          placeholder: '#000',
           type: 'color',
-          'default': '#000',
-          attr: 'circle-color'
+          'default': '#403d3d',
+          attr: 'color1'
+        }, {
+          name: 'color2',
+          placeholder: '#000',
+          type: 'color',
+          'default': '#808a80',
+          attr: 'color2'
         }, {
           name: 'circle radius',
           placeholder: '15',
@@ -35,11 +41,12 @@ define([], function(){
       },
       patch: function(data, opt){
         data = uilresize(data, 'ellipsis', opt);
-        data = data.replace(/circleColor/g, opt.c1);
-        data = data.replace(/15/g, opt.c2);
-        data = data.replace(/circleRadius2/g, opt.c2 * 4 + "px");
-        data = data.replace(/circleRadius/g, opt.c2 * 2 + "px");
-        data = data.replace(/circleMargin/g, (30 - opt.c2 * 2) + "px");
+        data = data.replace(/circleColor1/g, opt.c1);
+        data = data.replace(/circleColor2/g, opt.c2);
+        data = data.replace(/15/g, opt.c3);
+        data = data.replace(/circleRadius2/g, opt.c3 * 4 + "px");
+        data = data.replace(/circleRadius/g, opt.c3 * 2 + "px");
+        data = data.replace(/circleMargin/g, (30 - opt.c3 * 2) + "px");
         data = data.replace(/duration/g, opt.speed + "s");
         data = data.replace(/s?1-8s/g, 1 * opt.speed / 8 + "s");
         data = data.replace(/s?2-8s/g, 2 * opt.speed / 8 + "s");
@@ -51,9 +58,14 @@ define([], function(){
       },
       custom: function(s, e, a, c){
         var this$ = this;
-        a.$observe('circleColor', function(v){
+        a.$observe('color1', function(v){
           if (v) {
-            return e.find('circle').css('fill', v);
+            return e.find("circle:nth-of-type(2n+1)").css('fill', v);
+          }
+        });
+        a.$observe('color2', function(v){
+          if (v) {
+            return e.find("circle:nth-of-type(2n)").css('fill', v);
           }
         });
         a.$observe('circleRadius', function(v){

@@ -5,17 +5,21 @@ angular.module \uiloading
     ret = do
       mode: \svg
       vars: 
-        [{ name: 'color', placeholder: '#f00', type: 'color', default: '#000', attr: 'color' }]
+        * name: 'color', placeholder: '#f00', type: 'color', default: '#000', attr: 'color'
+        * name: 'opacity', placeholder: '0.5', type: 'px', default: '0.9', attr: 'opacity'
       patch-css: (data, opt) -> @patch data, opt
       patch-svg: (data, opt) -> @patch data, opt
       patch: (data, opt) ->
         data = data.replace /#000|black/g, "#{opt.c1}"
+        data = data.replace /0.9/g, "#{opt.c2}"
         data = data.replace /1s/g, "#{opt.speed}s"
         data = data.replace /svg width="100%" height="100%"/, "svg width='#{opt.size * 2}px' height='#{opt.size * 2}px'"
         data = data.replace /"uil-wheel-css"/, "'uil-wheel-css' style='-webkit-transform:scale(#{opt.size * 2 / 200})'"
       custom: (s, e, a, c) ->
         a.$observe 'color' (v) -> if v =>
           e.find \circle .css \stroke, v
+        a.$observe 'opacity' (v) -> if v =>
+          e.find \circle .attr \opacity, v
         a.$observe 'background' (v) -> if v =>
           e.find \rect .css \fill, v
       start: (s, e, a, c) ->

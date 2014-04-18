@@ -48,7 +48,10 @@
       height: circleRadius2
       border-radius: circleRadius
       margin: circleMargin
-      background: circleColor
+    & > div(2n+1)
+      background: circleColor1
+    & > div(2n)
+      background: circleColor2
 
 @include uil-ellipsis(1,0s)
 @include uil-ellipsis(2,s2-8s)

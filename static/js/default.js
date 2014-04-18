@@ -9,9 +9,9 @@ define([], function(){
       mode: 'both',
       vars: [{
         name: 'bar color',
-        placeholder: '#f00',
+        placeholder: '#000',
         type: 'color',
-        'default': '#000',
+        'default': '#02bde7',
         attr: 'bar-color'
       }],
       patchCss: function(data, opt){
