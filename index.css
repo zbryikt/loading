@@ -35,7 +35,6 @@ html, body {
   height: 90px;
   background: none;
   position: fixed;
-  display: none;
   -ms-transition: background 0.3s ease-out, opacity 0.3s ease-out;
   -moz-transition: background 0.3s ease-out, opacity 0.3s ease-out;
   -webkit-transition: background 0.3s ease-out, opacity 0.3s ease-out;
@@ -251,6 +250,31 @@ nav.navbar-default {
     -webkit-transition: box-shadow 0.2s, background 0.4s;
     -o-transition: box-shadow 0.2s, background 0.4s;
     transition: box-shadow 0.2s, background 0.4s; }
+
+a.hash-anchor {
+  position: relative;
+  top: -120px;
+  display: block;
+  visibility: hidden; }
+
+#examples, #compatibility {
+  margin: 30px auto;
+  max-width: 1024px; }
+  #examples .panel, #compatibility .panel {
+    background: rgba(255, 255, 255, 0.5);
+    padding: 5px;
+    white-space: pre; }
+  #examples p, #examples ul, #compatibility p, #compatibility ul {
+    font-family: arial;
+    font-size: 1.2em; }
+  #examples h2, #examples h4, #compatibility h2, #compatibility h4 {
+    color: black;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3); }
+  #examples iframe, #compatibility iframe {
+    border: none;
+    width: 200px;
+    height: 200px;
+    overflow: hidden; }
 
 #footer {
   position: fixed;

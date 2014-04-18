@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg width='198px' height='198px' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" class="uil-circle">
+  <rect x="0" y="0" width="100" height="100" fill="none" class="bk"></rect>
+  <g>
+    <circle cx="50" cy="50" r="105" fill="#bafeff">
+      <animate attributeName="r" from="105" to="75" repeatCount="indefinite" dur="1s"></animate>
+    </circle>
+    <circle cx="50" cy="50" r="90" fill="#4dcbff">
+      <animate attributeName="r" from="90" to="60" repeatCount="indefinite" dur="1s"></animate>
+    </circle>
+    <circle cx="50" cy="50" r="75" fill="#bafeff">
+      <animate attributeName="r" from="75" to="45" repeatCount="indefinite" dur="1s"></animate>
+    </circle>
+    <circle cx="50" cy="50" r="60" fill="#4dcbff">
+      <animate attributeName="r" from="60" to="30" repeatCount="indefinite" dur="1s"></animate>
+    </circle>
+    <circle cx="50" cy="50" r="45" fill="#bafeff">
+      <animate attributeName="r" from="45" to="15" repeatCount="indefinite" dur="1s"></animate>
+    </circle>
+    <circle cx="50" cy="50" r="30" fill="#4dcbff">
+      <animate attributeName="r" from="30" to="0" repeatCount="indefinite" dur="1s"></animate>
+    </circle>
+    <circle cx="50" cy="50" r="15" fill="#bafeff">
+      <animate attributeName="r" from="15" to="0" repeatCount="indefinite" dur="1s"></animate>
+    </circle>
+  </g>
+</svg>
