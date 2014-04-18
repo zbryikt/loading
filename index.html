@@ -49,14 +49,12 @@
             <ul class="nav navbar-nav">
               <li><a id="nav-examples" href="#examples">EXAMPLES</a></li>
               <li><a id="nav-compatibility" href="#compatibility">COMPATIBILITY</a></li>
-              <li><a id="nav-more" href="#">MORE</a></li>
             </ul>
             <ul class="nav navbar-nav pull-right">
               <li ng-class="{'invis':!username}" class="anim profile invis"><a href="#">
                   <div class="avatar"><img ng-src="http://graph.facebook.com/{{uid}}/picture?type=small" ng-show="uid"></div>
-                  <div class="name">{{username}}</div></a></li>
-              <li ng-show="!accessToken" class="logon"><a href="#" ng-click="login()">LOGIN</a></li>
-              <li ng-show="accessToken" class="logon ng-hide"><a href="#" ng-click="logout()">LOGOUT</a></li>
+                  <div class="name">{{username}}</div>
+                  <li><a href="http://github.com/zbryikt/loading/">GITHUB</a></li></a></li>
             </ul>
           </div>
         </div>

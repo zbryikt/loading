@@ -38,14 +38,16 @@ html(lang="en")
             ul.nav.navbar-nav
               li: a#nav-examples(href="#examples") EXAMPLES
               li: a#nav-compatibility(href="#compatibility") COMPATIBILITY
-              li: a#nav-more(href="#") MORE
+              //-li: a#nav-more(href="#") MORE
             ul.nav.navbar-nav.pull-right
               li.anim.profile.invis(ng-class="{'invis':!username}"): a(href="#")
                 .avatar
                   img(ng-src="http://graph.facebook.com/{{uid}}/picture?type=small",ng-show="uid")
                 .name {{username}}
-              li.logon(ng-show="!accessToken"): a(href="#",ng-click="login()") LOGIN
-              li.logon.ng-hide(ng-show="accessToken"): a(href="#",ng-click="logout()") LOGOUT
+                li: a(href="http://github.com/zbryikt/loading/") GITHUB
+              //-
+                li.logon(ng-show="!accessToken"): a(href="#",ng-click="login()") LOGIN
+                li.logon.ng-hide(ng-show="accessToken"): a(href="#",ng-click="logout()") LOGOUT
 
     #banner
       .img: img(src="banner.png")
