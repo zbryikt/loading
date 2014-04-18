@@ -5,10 +5,7 @@ ajax loading icon library, use CSS3 Animation and SVG SMIL.
 
 ToDo
 ============
-
- * svg counter part / css alternative
- * parametrization
- * gif generator
+ * Write ToDo Items
 
 Restrictions
 ============
