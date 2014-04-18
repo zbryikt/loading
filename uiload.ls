@@ -1,7 +1,7 @@
 angular.module \uiloading, <[]>
   ..factory \uilSvg, -> 'width="100%" height="100%" viewBox="0 0 100 100"'
 
-<- define <[default infinity ellipsis dashinfinity reload wheel g0v pacman facebook spin ball cube circle pie radio poi gear gears comment]>
+<- define <[default infinity ellipsis dashinfinity reload wheel g0v pacman facebook spin ball cube circle pie radio poi gear gears comment wave]>
 angular.module \uiloading
   ..factory \uilresize, -> (data, type, opt) ->
     data = data.replace /width="100%" height="100%"/, "width='#{opt.size * 2}px' height='#{opt.size * 2}px'"

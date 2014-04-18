@@ -92,7 +92,7 @@ angular.module \main, <[uiloading colorpicker.module]>
         $scope.build.start!
         $scope.build.show = true
     $scope.build = do
-      choices: <[default infinity ellipsis dashinfinity reload wheel g0v pacman facebook spin ball cube circle pie radio poi gear gears comment]>
+      choices: <[default infinity ellipsis dashinfinity reload wheel g0v pacman facebook spin ball cube circle pie radio poi gear gears comment wave]>
       anitimer: null
       size: 60
       running: true
