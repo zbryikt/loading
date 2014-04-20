@@ -1,0 +1,42 @@
+@import basic
+
+.uil-sunny-css
+  background: none
+  position: relative
+  width: 200px
+  height: 200px
+  
+.uil-sunny-circle
+  position: absolute
+  width: 100px
+  height: 100px
+  border-radius: 50px
+  top: 50px
+  left: 50px
+  background: circleColor
+
+.uil-sunny-light > div
+  position: absolute
+  width: 0
+  height: 0
+  border-left: 25px solid lightColor
+  border-top: 10px solid transparent
+  border-bottom: 10px solid transparent
+
+@mixin uil-sunny-light($i)
+  .uil-sunny-light > div:nth-of-type(#{$i})
+    @include transform(rotate($i * 360deg / 12) translate(70px,0))
+
+@for $i from 1 through 12
+  @include uil-sunny-light($i)
+
++keyframes(xxx)
+  0%
+    @include transform(translate(88px,90px) rotate(0deg))
+  100%
+    @include transform(translate(88px,90px) rotate(60deg))
+
+.uil-sunny-light
+  width: 25px
+  height: 20px
+  @include animation(xxx 1s linear infinite)
