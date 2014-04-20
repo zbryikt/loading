@@ -30,7 +30,7 @@
 @for $i from 1 through 12
   @include uil-sunny-light($i)
 
-+keyframes(xxx)
++keyframes(uil-sunny-rotate)
   0%
     @include transform(translate(88px,90px) rotate(0deg))
   100%
@@ -39,4 +39,4 @@
 .uil-sunny-light
   width: 25px
   height: 20px
-  @include animation(xxx 1s linear infinite)
+  @include animation(uil-sunny-rotate 1s linear infinite)

@@ -111,7 +111,7 @@ uiload {
   -o-transform: rotate(360deg) translate(70px, 0);
   transform: rotate(360deg) translate(70px, 0); }
 
-@-webkit-keyframes xxx {
+@-webkit-keyframes uil-sunny-rotate {
   0% {
     -ms-transform: translate(88px, 90px) rotate(0deg);
     -moz-transform: translate(88px, 90px) rotate(0deg);
@@ -126,7 +126,7 @@ uiload {
     -o-transform: translate(88px, 90px) rotate(60deg);
     transform: translate(88px, 90px) rotate(60deg); } }
 
-@-moz-keyframes xxx {
+@-moz-keyframes uil-sunny-rotate {
   0% {
     -ms-transform: translate(88px, 90px) rotate(0deg);
     -moz-transform: translate(88px, 90px) rotate(0deg);
@@ -141,7 +141,7 @@ uiload {
     -o-transform: translate(88px, 90px) rotate(60deg);
     transform: translate(88px, 90px) rotate(60deg); } }
 
-@-ms-keyframes xxx {
+@-ms-keyframes uil-sunny-rotate {
   0% {
     -ms-transform: translate(88px, 90px) rotate(0deg);
     -moz-transform: translate(88px, 90px) rotate(0deg);
@@ -156,7 +156,7 @@ uiload {
     -o-transform: translate(88px, 90px) rotate(60deg);
     transform: translate(88px, 90px) rotate(60deg); } }
 
-@keyframes xxx {
+@keyframes uil-sunny-rotate {
   0% {
     -ms-transform: translate(88px, 90px) rotate(0deg);
     -moz-transform: translate(88px, 90px) rotate(0deg);
@@ -174,8 +174,8 @@ uiload {
 .uil-sunny-light {
   width: 25px;
   height: 20px;
-  -ms-animation: xxx 1s linear infinite;
-  -moz-animation: xxx 1s linear infinite;
-  -webkit-animation: xxx 1s linear infinite;
-  -o-animation: xxx 1s linear infinite;
-  animation: xxx 1s linear infinite; }
+  -ms-animation: uil-sunny-rotate 1s linear infinite;
+  -moz-animation: uil-sunny-rotate 1s linear infinite;
+  -webkit-animation: uil-sunny-rotate 1s linear infinite;
+  -o-animation: uil-sunny-rotate 1s linear infinite;
+  animation: uil-sunny-rotate 1s linear infinite; }
