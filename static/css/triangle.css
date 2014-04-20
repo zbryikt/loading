@@ -1,0 +1,107 @@
+uiload {
+  display: inline-block;
+  position: relative; }
+  uiload > div {
+    position: relative; }
+
+@-webkit-keyframes uil-triangle-rotate {
+  0% {
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg); }
+
+  100% {
+    -ms-transform: rotate(120deg);
+    -moz-transform: rotate(120deg);
+    -webkit-transform: rotate(120deg);
+    -o-transform: rotate(120deg);
+    transform: rotate(120deg); } }
+
+@-moz-keyframes uil-triangle-rotate {
+  0% {
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg); }
+
+  100% {
+    -ms-transform: rotate(120deg);
+    -moz-transform: rotate(120deg);
+    -webkit-transform: rotate(120deg);
+    -o-transform: rotate(120deg);
+    transform: rotate(120deg); } }
+
+@-ms-keyframes uil-triangle-rotate {
+  0% {
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg); }
+
+  100% {
+    -ms-transform: rotate(120deg);
+    -moz-transform: rotate(120deg);
+    -webkit-transform: rotate(120deg);
+    -o-transform: rotate(120deg);
+    transform: rotate(120deg); } }
+
+@keyframes uil-triangle-rotate {
+  0% {
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg); }
+
+  100% {
+    -ms-transform: rotate(120deg);
+    -moz-transform: rotate(120deg);
+    -webkit-transform: rotate(120deg);
+    -o-transform: rotate(120deg);
+    transform: rotate(120deg); } }
+
+.uil-triangle-css {
+  background: none;
+  position: relative;
+  width: 200px;
+  height: 200px; }
+
+.uil-triangle-css > div > div {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-top: 56px solid black;
+  border-left: 33px solid transparent;
+  border-right: 33px solid transparent; }
+
+.uil-triangle-css > div {
+  position: absolute;
+  width: 66px;
+  height: 36px;
+  -ms-animation: uil-triangle-rotate 1s linear infinite;
+  -moz-animation: uil-triangle-rotate 1s linear infinite;
+  -webkit-animation: uil-triangle-rotate 1s linear infinite;
+  -o-animation: uil-triangle-rotate 1s linear infinite;
+  animation: uil-triangle-rotate 1s linear infinite; }
+
+.uil-triangle-css > div:nth-of-type(1) {
+  top: 40px;
+  left: 30px; }
+  .uil-triangle-css > div:nth-of-type(1) > div {
+    border-top: 56px solid color1; }
+
+.uil-triangle-css > div:nth-of-type(2) {
+  top: 40px;
+  left: 100px; }
+  .uil-triangle-css > div:nth-of-type(2) > div {
+    border-top: 56px solid color2; }
+
+.uil-triangle-css > div:nth-of-type(3) {
+  top: 110px;
+  left: 67px; }
+  .uil-triangle-css > div:nth-of-type(3) > div {
+    border-top: 56px solid color3; }

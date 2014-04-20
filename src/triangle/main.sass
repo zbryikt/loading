@@ -1,0 +1,42 @@
+@import basic
+
++keyframes(uil-triangle-rotate)
+  0%
+    @include transform(rotate(0deg))
+  100%
+    @include transform(rotate(120deg))
+
+.uil-triangle-css
+  background: none
+  position: relative
+  width: 200px
+  height: 200px
+
+.uil-triangle-css > div > div
+  position: absolute
+  width: 0
+  height: 0
+  border-top: 56px solid #000
+  border-left: 33px solid transparent
+  border-right: 33px solid transparent
+.uil-triangle-css > div
+  position: absolute
+  width: 66px
+  height: 36px
+  @include animation(uil-triangle-rotate 1s linear infinite)
+
+.uil-triangle-css > div:nth-of-type(1)
+  top: 40px
+  left: 30px
+  & > div
+    border-top: 56px solid color1
+.uil-triangle-css > div:nth-of-type(2)
+  top: 40px
+  left: 100px
+  & > div
+    border-top: 56px solid color2
+.uil-triangle-css > div:nth-of-type(3)
+  top: 110px
+  left: 67px
+  & > div
+    border-top: 56px solid color3
