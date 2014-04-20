@@ -17,7 +17,6 @@ angular.module \uiloading
         a.$observe 'color' (v) -> if v =>
           e.find "path" 
             .css \fill, v
-            #.attr \filter, 'url(#ring-shadow)'
         a.$observe 'background' (v) -> if v =>
           e.find \rect.bk .css \fill, v
       start: (s, e, a, c) ->
