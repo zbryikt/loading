@@ -140,8 +140,9 @@ html(lang="en")
                 .btn.btn-default(ng-disabled="demoLoader.mode=='svg'",ng-click="build.makecss()")
                   span(ng-if="demoLoader.mode!='svg'") Download CSS
                   span(ng-if="demoLoader.mode=='svg'") CSS N/A
-                .btn.btn-default(ng-click="build.makegif()")
-                  | Make GIF
+                .btn.btn-default(ng-click="build.makegif()",ng-disabled="demoLoader.nogif")
+                  span(ng-if="!demoLoader.nogif") Make GIF
+                  span(ng-if="demoLoader.nogif") GIF N/A
     #chooser
       .ib
         .item(ng-repeat="t in build.choices",ng-class="{'active':build.type==t}") 

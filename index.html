@@ -161,7 +161,7 @@
               <div id="build" class="btn-group">
                 <div ng-click="build.makesvg()" class="btn btn-default">Download SVG</div>
                 <div ng-disabled="demoLoader.mode=='svg'" ng-click="build.makecss()" class="btn btn-default"><span ng-if="demoLoader.mode!='svg'">Download CSS</span><span ng-if="demoLoader.mode=='svg'">CSS N/A</span></div>
-                <div ng-click="build.makegif()" class="btn btn-default">Make GIF</div>
+                <div ng-click="build.makegif()" ng-disabled="demoLoader.nogif" class="btn btn-default"><span ng-if="!demoLoader.nogif">Make GIF</span><span ng-if="demoLoader.nogif">GIF N/A</span></div>
               </div>
             </div>
           </form>

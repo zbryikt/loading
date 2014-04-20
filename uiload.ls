@@ -1,7 +1,7 @@
 angular.module \uiloading, <[]>
   ..factory \uilSvg, -> 'width="100%" height="100%" viewBox="0 0 100 100"'
 
-<- define <[default infinity ellipsis dashinfinity reload wheel g0v pacman facebook spin ball cube circle pie radio poi gear gears comment wave battery sunny triangle flickr]>
+<- define <[default infinity ellipsis dashinfinity reload wheel g0v pacman facebook spin ball cube circle pie radio poi gear gears comment wave battery sunny triangle flickr ring]>
 angular.module \uiloading
   ..factory \uilresize, -> (data, type, opt) ->
     data = data.replace /width="100%" height="100%"/, "width='#{opt.size * 2}px' height='#{opt.size * 2}px'"
@@ -25,6 +25,7 @@ angular.module \uiloading
       scope.p = do
         node: e
         speed: mod.speed or 1
+        nogif: mod.nogif
         mode: mod.mode
         vars: mod.vars
         type: type
