@@ -5,7 +5,6 @@ define([], function(){
     var start, ret;
     start = null;
     return ret = {
-      nogif: true,
       mode: 'both',
       vars: [{
         name: 'ring color',

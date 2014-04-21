@@ -3,7 +3,7 @@ angular.module \uiloading
   ..factory \uilType-ring, ($interval,uilresize) ->
     start = null
     ret = do
-      nogif: true
+      #nogif: true
       mode: \both
       vars: 
         [{ name: 'ring color', placeholder: '#000', type: 'color', default: '#59ebff', attr: 'color' }]
