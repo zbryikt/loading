@@ -190,4 +190,6 @@ angular.module \main, <[uiloading colorpicker.module]>
       placement: \bottom
       title: "Coming Soon"
 
+    $timeout (-> $(\#dimmer)fadeOut!), 1000
+
 angular.bootstrap $("body"), <[main]>

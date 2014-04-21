@@ -27,7 +27,10 @@ html(lang="en")
     script(type="text/javascript",src="canvg.js")
 
     script(type="text/javascript",src="index.js")
-  body(ng-controller="main")
+  body(ng-controller="main",ng-cloak)
+    #dimmer
+      img(src="banner.png")
+
     #nav-top
       nav.navbar.navbar-default(role="navigation")
         .container-fluid
