@@ -4,7 +4,7 @@ doctype html
 - var useog = true
 - var lib = { jquery: true, d3js: true, angular: true, bootstrap: true, semantic: false }
 - var assets = "assets"
-- var thumbnail = "http://loading.io/thumbnail.png"
+- var thumbnail = "http://loading.io/thumbnail.jpg"
 html(lang="en")
   head(prefix="og: http://ogp.me/ns#")
     meta(charset="utf-8")
@@ -41,13 +41,15 @@ html(lang="en")
             ul.nav.navbar-nav
               li: a#nav-examples(href="#examples") EXAMPLES
               li: a#nav-compatibility(href="#compatibility") COMPATIBILITY
+              li: a#nav-comment(href="#comment") CONTACT
               li: a#nav-more(href="#") MORE
             ul.nav.navbar-nav.pull-right
               li.anim.profile.invis(ng-class="{'invis':!username}"): a(href="#")
                 .avatar
                   img(ng-src="http://graph.facebook.com/{{uid}}/picture?type=small",ng-show="uid")
                 .name {{username}}
-                li: a(href="http://github.com/zbryikt/loading/") GITHUB
+              li: a(href="#") &#x2764;
+              //li: a(href="http://github.com/zbryikt/loading/") GITHUB
               //-
                 li.logon(ng-show="!accessToken"): a(href="#",ng-click="login()") LOGIN
                 li.logon.ng-hide(ng-show="accessToken"): a(href="#",ng-click="logout()") LOGOUT
@@ -155,99 +157,104 @@ html(lang="en")
           .delay.more
           .title want more?
 
-    a.hash-anchor(id="examples")
-    #examples
-      h2 Examples
-      p Choose the icon you want to use, customize it and click "Download SVG" (or Download CSS, depends on your need). SVG file then can be used by &#60;img&#62; tag, for example:
-      .panel.
-        &#60;img src="examples/circle1.svg"&#62;
-        &#60;img src="examples/circle2.svg"&#62;
-        &#60;img src="examples/circle3.svg"&#62;
-      p will be like this:
-      div(style="text-align:center")
-        img(src="examples/circle1.svg")
-        img(src="examples/circle2.svg")
-        img(src="examples/circle3.svg")
-      br
-      br
-      p To use CSS animation, please move the html code inside downloaded css file to where you want to place the animation, and link your document with the css file. For example:
-      .panel.
-        &#60;link rel="stylesheet" type="text/css" href="examples/battery.css"&#62;
-        &#60;div class='uil-battery-demo-css' style='-webkit-transform:scale(0.6)'&#62;
-          &#60;outer&#62;&#60;/outer&#62;
-          &#60;inner&#62;&#60;/inner&#62;
-          &#60;inner&#62;&#60;/inner&#62;
-          &#60;inner&#62;&#60;/inner&#62;
-          &#60;inner&#62;&#60;/inner&#62;
-      p will be like this:
-      link(rel="stylesheet",type="text/css",href="examples/battery.css")
-      .uil-battery-demo-css(style='-webkit-transform:scale(0.6)')
-        .outer
-        .inner
-        .inner
-        .inner
-        .inner
+    #icontent
+      a.hash-anchor(id="examples")
+      #examples
+        h2 Examples
+        p Choose the icon you want to use, customize it and click "Download SVG" (or Download CSS, depends on your need). SVG file then can be used by &#60;img&#62; tag, for example:
+        .panel.
+          &#60;img src="examples/circle1.svg"&#62;
+          &#60;img src="examples/circle2.svg"&#62;
+          &#60;img src="examples/circle3.svg"&#62;
+        p will be like this:
+        div(style="text-align:center")
+          img(src="examples/circle1.svg")
+          img(src="examples/circle2.svg")
+          img(src="examples/circle3.svg")
+        br
+        br
+        p To use CSS animation, please move the html code inside downloaded css file to where you want to place the animation, and link your document with the css file. For example:
+        .panel.
+          &#60;link rel="stylesheet" type="text/css" href="examples/battery.css"&#62;
+          &#60;div class='uil-battery-demo-css' style='-webkit-transform:scale(0.6)'&#62;
+            &#60;outer&#62;&#60;/outer&#62;
+            &#60;inner&#62;&#60;/inner&#62;
+            &#60;inner&#62;&#60;/inner&#62;
+            &#60;inner&#62;&#60;/inner&#62;
+            &#60;inner&#62;&#60;/inner&#62;
+        p will be like this:
+        link(rel="stylesheet",type="text/css",href="examples/battery.css")
+        .uil-battery-demo-css(style='-webkit-transform:scale(0.6)')
+          .outer
+          .inner
+          .inner
+          .inner
+          .inner
 
-    a.hash-anchor(id="compatibility")
-    #compatibility
-      h2 Browser Compatibility
-      p
-        | loading.io is built upon 
-        a(href="http://getbootstrap.com") bootstrap
-        |, 
-        a(href="https://angularjs.org/") angularjs
-        |, 
-        a(href="https://code.google.com/p/canvg/") canvg
-        |,  
-        a(href="http://jnordberg.github.io/gif.js/") gif.js
-        |  and  
-        a(href="http://requirejs.org/") require.js 
-        |. Some of them use quite new technologies such as  
-        a(href="http://caniuse.com/webworkers") web workers
-        | , so you might need a new enough browser that supports html5 to play with this site. So far this website is tested on following browsers:
-        ul
-          li Google Chrome 34.0.
-          li Firefox 28.0
-          li Safari 7.03
-          li Opera 18.0.
-          li Internet Explorer 11.0
-      p
-        | Some animations can't be shown on IE, which is explained in the next paragraph. 
-      br
-      h4 About SVG / CSS Animation
-      p In order to use SVG and CSS to make animation, SMIL and CSS3 Animation are used. This constrains the browsers that can see these animations to following:
-       ul
-         li border-radius: IE &#x2265; 9.0
-         li CSS3 Transform (2D): IE &#x2265; 9.0
-         li CSS3 Transform (3D): IE &#x2265; 10.0 (partially support)
-         li CSS3 Animation: IE &#x2265; 10.0
-         li SVG: IE &#x2265; 9.0
-         li
-           | SVG SMIL: 
-           b IE doesn't support.
+      a.hash-anchor(id="compatibility")
+      #compatibility
+        h2 Browser Compatibility
+        p
+          | loading.io is built upon 
+          a(href="http://getbootstrap.com") bootstrap
+          |, 
+          a(href="https://angularjs.org/") angularjs
+          |, 
+          a(href="https://code.google.com/p/canvg/") canvg
+          |,  
+          a(href="http://jnordberg.github.io/gif.js/") gif.js
+          |  and  
+          a(href="http://requirejs.org/") require.js 
+          |. Some of them use quite new technologies such as  
+          a(href="http://caniuse.com/webworkers") web workers
+          | , so you might need a new enough browser that supports html5 to play with this site. So far this website is tested on following browsers:
+          ul
+            li Google Chrome 34.0.
+            li Firefox 28.0
+            li Safari 7.03
+            li Opera 18.0.
+            li Internet Explorer 11.0
+        p
+          | Some animations can't be shown on IE, which is explained in the next paragraph. 
+        br
+        h4 About SVG / CSS Animation
+        p In order to use SVG and CSS to make animation, SMIL and CSS3 Animation are used. This constrains the browsers that can see these animations to following:
+         ul
+           li border-radius: IE &#x2265; 9.0
+           li CSS3 Transform (2D): IE &#x2265; 9.0
+           li CSS3 Transform (3D): IE &#x2265; 10.0 (partially support)
+           li CSS3 Animation: IE &#x2265; 10.0
+           li SVG: IE &#x2265; 9.0
+           li
+             | SVG SMIL: 
+             b IE doesn't support.
 
-       p 
-         b Conclusion: 
-         | You can use these animations in almost all browsers except 
-         b Internet Explorer. 
-         | To support most browsers, please use CSS animation or pre-generated GIF.
+         p 
+           b Conclusion: 
+           | You can use these animations in almost all browsers except 
+           b Internet Explorer. 
+           | To support most browsers, please use CSS animation or pre-generated GIF.
 
-       p If you find any bugs(except browser limitation) about this website, please kindly report to us.
+         p If you find any bugs(except browser limitation) about this website, please kindly report to us.
 
-    #output-modal.modal.fade(ng-controller="output")
-      .modal-dialog
-        .modal-content
-          .modal-header
-            button.close(type="button",data-dismiss="modal",aria-hidden="true") &times;
-            h2.modal-title Build Complete!
-          .modal-body
-            #output-box
-            | Here is the requested {{mode}}
-            .glyphicon.glyphicon-circle-arrow-up
-          .modal-footer
-            a#output-box-link.btn.btn-success(href="#") Download {{mode}}
-            .btn.btn-default(data-dismiss="modal") Dismiss
+      #output-modal.modal.fade(ng-controller="output")
+        .modal-dialog
+          .modal-content
+            .modal-header
+              button.close(type="button",data-dismiss="modal",aria-hidden="true") &times;
+              h2.modal-title Build Complete!
+            .modal-body
+              #output-box
+              | Here is the requested {{mode}}
+              .glyphicon.glyphicon-circle-arrow-up
+            .modal-footer
+              a#output-box-link.btn.btn-success(href="#") Download {{mode}}
+              .btn.btn-default(data-dismiss="modal") Dismiss
 
+    a.hash-anchor(id="comment")
+    #comment
+      .ib
+        .fb-comments(data-href="http://loading.io",data-width="984px",data-numposts="5",data-colorscheme="light")
     #footer-top
     #footer
       .ib

@@ -7,7 +7,7 @@
     <meta property="fb:admins" content="586097167">
     <meta property="fb:app_id" content="538062799648166">
     <meta property="og:locale" content="zh_TW">
-    <meta property="og:image" content="http://loading.io/thumbnail.png">
+    <meta property="og:image" content="http://loading.io/thumbnail.jpg">
     <meta property="og:image:type" content="image/png">
     <meta property="og:image:width" content="200">
     <meta property="og:image:height" content="200">
@@ -20,7 +20,7 @@
     <meta name="description" content="Build your web app with SVG ajax loader. Lots of customizable loaders for you to choose, and we also have CSS, GIF alternatives!">
     <meta name="keywords" content="ajax,loader,loading,svg,gif,css,wait,png,animation,sass,jade,spinner,spin,circle,reload,ball,bouncing,facebook,pacman,wheel,infinity,ellipsis,jump,dash,rotate">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:image" content="http://loading.io/thumbnail.png">
+    <meta name="twitter:image" content="http://loading.io/thumbnail.jpg">
     <script type="text/javascript" src="assets/jquery/1.10.2/jquery.min.js"></script>
     <script type="text/javascript" src="assets/d3js/3.3.11/d3.v3.min.js"></script>
     <script type="text/javascript" src="assets/angular/1.2.3/angular.min.js"></script>
@@ -50,13 +50,15 @@
             <ul class="nav navbar-nav">
               <li><a id="nav-examples" href="#examples">EXAMPLES</a></li>
               <li><a id="nav-compatibility" href="#compatibility">COMPATIBILITY</a></li>
+              <li><a id="nav-comment" href="#comment">CONTACT</a></li>
               <li><a id="nav-more" href="#">MORE</a></li>
             </ul>
             <ul class="nav navbar-nav pull-right">
               <li ng-class="{'invis':!username}" class="anim profile invis"><a href="#">
                   <div class="avatar"><img ng-src="http://graph.facebook.com/{{uid}}/picture?type=small" ng-show="uid"></div>
-                  <div class="name">{{username}}</div>
-                  <li><a href="http://github.com/zbryikt/loading/">GITHUB</a></li></a></li>
+                  <div class="name">{{username}}</div></a></li>
+              <li><a href="#">&#x2764;</a></li>
+              <!--li: a(href="http://github.com/zbryikt/loading/") GITHUB-->
             </ul>
           </div>
         </div>
@@ -180,78 +182,85 @@
           <div class="title">want more?</div>
         </div>
       </div>
-    </div><a id="examples" class="hash-anchor"></a>
-    <div id="examples">
-      <h2>Examples</h2>
-      <p>Choose the icon you want to use, customize it and click "Download SVG" (or Download CSS, depends on your need). SVG file then can be used by &#60;img&#62; tag, for example:</p>
-      <div class="panel">
-        &#60;img src="examples/circle1.svg"&#62;
-        &#60;img src="examples/circle2.svg"&#62;
-        &#60;img src="examples/circle3.svg"&#62;
-      </div>
-      <p>will be like this:</p>
-      <div style="text-align:center"><img src="examples/circle1.svg"><img src="examples/circle2.svg"><img src="examples/circle3.svg"></div><br><br>
-      <p>To use CSS animation, please move the html code inside downloaded css file to where you want to place the animation, and link your document with the css file. For example:</p>
-      <div class="panel">
-        &#60;link rel="stylesheet" type="text/css" href="examples/battery.css"&#62;
-        &#60;div class='uil-battery-demo-css' style='-webkit-transform:scale(0.6)'&#62;
-          &#60;outer&#62;&#60;/outer&#62;
-          &#60;inner&#62;&#60;/inner&#62;
-          &#60;inner&#62;&#60;/inner&#62;
-          &#60;inner&#62;&#60;/inner&#62;
-          &#60;inner&#62;&#60;/inner&#62;
-      </div>
-      <p>will be like this:</p>
-      <link rel="stylesheet" type="text/css" href="examples/battery.css">
-      <div style="-webkit-transform:scale(0.6)" class="uil-battery-demo-css">
-        <div class="outer"></div>
-        <div class="inner"></div>
-        <div class="inner"></div>
-        <div class="inner"></div>
-        <div class="inner"></div>
-      </div>
-    </div><a id="compatibility" class="hash-anchor"></a>
-    <div id="compatibility">
-      <h2>Browser Compatibility</h2>
-      <p>loading.io is built upon <a href="http://getbootstrap.com">bootstrap</a>, <a href="https://angularjs.org/">angularjs</a>, <a href="https://code.google.com/p/canvg/">canvg</a>,  <a href="http://jnordberg.github.io/gif.js/">gif.js</a> and  <a href="http://requirejs.org/">require.js </a>. Some of them use quite new technologies such as  <a href="http://caniuse.com/webworkers">web workers</a>, so you might need a new enough browser that supports html5 to play with this site. So far this website is tested on following browsers:
-        <ul>
-          <li>Google Chrome 34.0.</li>
-          <li>Firefox 28.0</li>
-          <li>Safari 7.03</li>
-          <li>Opera 18.0.</li>
-          <li>Internet Explorer 11.0</li>
-        </ul>
-      </p>
-      <p>Some animations can't be shown on IE, which is explained in the next paragraph. </p><br>
-      <h4>About SVG / CSS Animation</h4>
-      <p>In order to use SVG and CSS to make animation, SMIL and CSS3 Animation are used. This constrains the browsers that can see these animations to following:
-        <ul>
-          <li>border-radius: IE &#x2265; 9.0</li>
-          <li>CSS3 Transform (2D): IE &#x2265; 9.0</li>
-          <li>CSS3 Transform (3D): IE &#x2265; 10.0 (partially support)</li>
-          <li>CSS3 Animation: IE &#x2265; 10.0</li>
-          <li>SVG: IE &#x2265; 9.0</li>
-          <li>SVG SMIL: <b>IE doesn't support.</b></li>
-        </ul>
-        <p><b>Conclusion: </b>You can use these animations in almost all browsers except <b>Internet Explorer. </b>To support most browsers, please use CSS animation or pre-generated GIF.</p>
-        <p>If you find any bugs(except browser limitation) about this website, please kindly report to us.</p>
-      </p>
     </div>
-    <div id="output-modal" ng-controller="output" class="modal fade">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" data-dismiss="modal" aria-hidden="true" class="close">&times;</button>
-            <h2 class="modal-title">Build Complete!</h2>
-          </div>
-          <div class="modal-body">
-            <div id="output-box"></div>Here is the requested {{mode}}
-            <div class="glyphicon glyphicon-circle-arrow-up"></div>
-          </div>
-          <div class="modal-footer"><a id="output-box-link" href="#" class="btn btn-success">Download {{mode}}</a>
-            <div data-dismiss="modal" class="btn btn-default">Dismiss</div>
+    <div id="icontent"><a id="examples" class="hash-anchor"></a>
+      <div id="examples">
+        <h2>Examples</h2>
+        <p>Choose the icon you want to use, customize it and click "Download SVG" (or Download CSS, depends on your need). SVG file then can be used by &#60;img&#62; tag, for example:</p>
+        <div class="panel">
+          &#60;img src="examples/circle1.svg"&#62;
+          &#60;img src="examples/circle2.svg"&#62;
+          &#60;img src="examples/circle3.svg"&#62;
+        </div>
+        <p>will be like this:</p>
+        <div style="text-align:center"><img src="examples/circle1.svg"><img src="examples/circle2.svg"><img src="examples/circle3.svg"></div><br><br>
+        <p>To use CSS animation, please move the html code inside downloaded css file to where you want to place the animation, and link your document with the css file. For example:</p>
+        <div class="panel">
+          &#60;link rel="stylesheet" type="text/css" href="examples/battery.css"&#62;
+          &#60;div class='uil-battery-demo-css' style='-webkit-transform:scale(0.6)'&#62;
+            &#60;outer&#62;&#60;/outer&#62;
+            &#60;inner&#62;&#60;/inner&#62;
+            &#60;inner&#62;&#60;/inner&#62;
+            &#60;inner&#62;&#60;/inner&#62;
+            &#60;inner&#62;&#60;/inner&#62;
+        </div>
+        <p>will be like this:</p>
+        <link rel="stylesheet" type="text/css" href="examples/battery.css">
+        <div style="-webkit-transform:scale(0.6)" class="uil-battery-demo-css">
+          <div class="outer"></div>
+          <div class="inner"></div>
+          <div class="inner"></div>
+          <div class="inner"></div>
+          <div class="inner"></div>
+        </div>
+      </div><a id="compatibility" class="hash-anchor"></a>
+      <div id="compatibility">
+        <h2>Browser Compatibility</h2>
+        <p>loading.io is built upon <a href="http://getbootstrap.com">bootstrap</a>, <a href="https://angularjs.org/">angularjs</a>, <a href="https://code.google.com/p/canvg/">canvg</a>,  <a href="http://jnordberg.github.io/gif.js/">gif.js</a> and  <a href="http://requirejs.org/">require.js </a>. Some of them use quite new technologies such as  <a href="http://caniuse.com/webworkers">web workers</a>, so you might need a new enough browser that supports html5 to play with this site. So far this website is tested on following browsers:
+          <ul>
+            <li>Google Chrome 34.0.</li>
+            <li>Firefox 28.0</li>
+            <li>Safari 7.03</li>
+            <li>Opera 18.0.</li>
+            <li>Internet Explorer 11.0</li>
+          </ul>
+        </p>
+        <p>Some animations can't be shown on IE, which is explained in the next paragraph. </p><br>
+        <h4>About SVG / CSS Animation</h4>
+        <p>In order to use SVG and CSS to make animation, SMIL and CSS3 Animation are used. This constrains the browsers that can see these animations to following:
+          <ul>
+            <li>border-radius: IE &#x2265; 9.0</li>
+            <li>CSS3 Transform (2D): IE &#x2265; 9.0</li>
+            <li>CSS3 Transform (3D): IE &#x2265; 10.0 (partially support)</li>
+            <li>CSS3 Animation: IE &#x2265; 10.0</li>
+            <li>SVG: IE &#x2265; 9.0</li>
+            <li>SVG SMIL: <b>IE doesn't support.</b></li>
+          </ul>
+          <p><b>Conclusion: </b>You can use these animations in almost all browsers except <b>Internet Explorer. </b>To support most browsers, please use CSS animation or pre-generated GIF.</p>
+          <p>If you find any bugs(except browser limitation) about this website, please kindly report to us.</p>
+        </p>
+      </div>
+      <div id="output-modal" ng-controller="output" class="modal fade">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" data-dismiss="modal" aria-hidden="true" class="close">&times;</button>
+              <h2 class="modal-title">Build Complete!</h2>
+            </div>
+            <div class="modal-body">
+              <div id="output-box"></div>Here is the requested {{mode}}
+              <div class="glyphicon glyphicon-circle-arrow-up"></div>
+            </div>
+            <div class="modal-footer"><a id="output-box-link" href="#" class="btn btn-success">Download {{mode}}</a>
+              <div data-dismiss="modal" class="btn btn-default">Dismiss</div>
+            </div>
           </div>
         </div>
+      </div>
+    </div><a id="comment" class="hash-anchor"></a>
+    <div id="comment">
+      <div class="ib">
+        <div data-href="http://loading.io" data-width="984px" data-numposts="5" data-colorscheme="light" class="fb-comments"></div>
       </div>
     </div>
     <div id="footer-top"></div>
