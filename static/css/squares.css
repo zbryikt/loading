@@ -1,0 +1,164 @@
+uiload {
+  display: inline-block;
+  position: relative; }
+  uiload > div {
+    position: relative; }
+
+@-webkit-keyframes xxxx {
+  0% {
+    background-color: darkColor; }
+
+  1% {
+    background-color: lightColor; }
+
+  11% {
+    background-color: lightColor; }
+
+  21% {
+    background-color: darkColor; }
+
+  100% {
+    background-color: darkColor; } }
+
+@-moz-keyframes xxxx {
+  0% {
+    background-color: darkColor; }
+
+  1% {
+    background-color: lightColor; }
+
+  11% {
+    background-color: lightColor; }
+
+  21% {
+    background-color: darkColor; }
+
+  100% {
+    background-color: darkColor; } }
+
+@-ms-keyframes xxxx {
+  0% {
+    background-color: darkColor; }
+
+  1% {
+    background-color: lightColor; }
+
+  11% {
+    background-color: lightColor; }
+
+  21% {
+    background-color: darkColor; }
+
+  100% {
+    background-color: darkColor; } }
+
+@keyframes xxxx {
+  0% {
+    background-color: darkColor; }
+
+  1% {
+    background-color: lightColor; }
+
+  11% {
+    background-color: lightColor; }
+
+  21% {
+    background-color: darkColor; }
+
+  100% {
+    background-color: darkColor; } }
+
+.uil-squares-css {
+  background: none;
+  position: relative;
+  width: 200px;
+  height: 200px; }
+  .uil-squares-css div {
+    position: absolute;
+    z-index: 1;
+    width: 40px;
+    height: 40px;
+    background-color: darkColor; }
+    .uil-squares-css div > div {
+      position: absolute;
+      top: 0;
+      left: 0;
+      -ms-animation: xxxx 1s linear infinite;
+      -moz-animation: xxxx 1s linear infinite;
+      -webkit-animation: xxxx 1s linear infinite;
+      -o-animation: xxxx 1s linear infinite;
+      animation: xxxx 1s linear infinite;
+      width: 40px;
+      height: 40px; }
+  .uil-squares-css > div:nth-of-type(1) {
+    top: 30px;
+    left: 30px; }
+    .uil-squares-css > div:nth-of-type(1) > div {
+      -ms-animation-delay: s18;
+      -moz-animation-delay: s18;
+      -webkit-animation-delay: s18;
+      -o-animation-delay: s18;
+      animation-delay: s18; }
+  .uil-squares-css > div:nth-of-type(2) {
+    top: 30px;
+    left: 80px; }
+    .uil-squares-css > div:nth-of-type(2) > div {
+      -ms-animation-delay: s28;
+      -moz-animation-delay: s28;
+      -webkit-animation-delay: s28;
+      -o-animation-delay: s28;
+      animation-delay: s28; }
+  .uil-squares-css > div:nth-of-type(3) {
+    top: 30px;
+    left: 130px; }
+    .uil-squares-css > div:nth-of-type(3) > div {
+      -ms-animation-delay: s38;
+      -moz-animation-delay: s38;
+      -webkit-animation-delay: s38;
+      -o-animation-delay: s38;
+      animation-delay: s38; }
+  .uil-squares-css > div:nth-of-type(4) {
+    top: 80px;
+    left: 130px; }
+    .uil-squares-css > div:nth-of-type(4) > div {
+      -ms-animation-delay: s48;
+      -moz-animation-delay: s48;
+      -webkit-animation-delay: s48;
+      -o-animation-delay: s48;
+      animation-delay: s48; }
+  .uil-squares-css > div:nth-of-type(5) {
+    top: 130px;
+    left: 130px; }
+    .uil-squares-css > div:nth-of-type(5) > div {
+      -ms-animation-delay: s58;
+      -moz-animation-delay: s58;
+      -webkit-animation-delay: s58;
+      -o-animation-delay: s58;
+      animation-delay: s58; }
+  .uil-squares-css > div:nth-of-type(6) {
+    top: 130px;
+    left: 80px; }
+    .uil-squares-css > div:nth-of-type(6) > div {
+      -ms-animation-delay: s68;
+      -moz-animation-delay: s68;
+      -webkit-animation-delay: s68;
+      -o-animation-delay: s68;
+      animation-delay: s68; }
+  .uil-squares-css > div:nth-of-type(7) {
+    top: 130px;
+    left: 30px; }
+    .uil-squares-css > div:nth-of-type(7) > div {
+      -ms-animation-delay: s78;
+      -moz-animation-delay: s78;
+      -webkit-animation-delay: s78;
+      -o-animation-delay: s78;
+      animation-delay: s78; }
+  .uil-squares-css > div:nth-of-type(8) {
+    top: 80px;
+    left: 30px; }
+    .uil-squares-css > div:nth-of-type(8) > div {
+      -ms-animation-delay: s88;
+      -moz-animation-delay: s88;
+      -webkit-animation-delay: s88;
+      -o-animation-delay: s88;
+      animation-delay: s88; }

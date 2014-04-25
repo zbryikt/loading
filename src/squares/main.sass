@@ -1,0 +1,72 @@
+@import basic
+
++keyframes(xxxx)
+  0%
+    background-color: darkColor
+  1%
+    background-color: lightColor
+  11%
+    background-color: lightColor
+  21%
+    background-color: darkColor
+  100%
+    background-color: darkColor
+
+.uil-squares-css
+  background: none
+  position: relative
+  width: 200px
+  height: 200px
+  div
+    position: absolute
+    z-index: 1
+    width: 40px
+    height: 40px
+    background-color: darkColor
+    & > div
+      position: absolute
+      top: 0
+      left: 0
+      @include animation(xxxx 1s linear infinite)
+      width: 40px
+      height: 40px
+  & > div:nth-of-type(1)
+    top: 30px
+    left: 30px
+    & > div
+      @include animation-delay(s18)
+  & > div:nth-of-type(2)
+    top: 30px
+    left: 80px
+    & > div
+      @include animation-delay(s28)
+  & > div:nth-of-type(3)
+    top: 30px
+    left: 130px
+    & > div
+      @include animation-delay(s38)
+  & > div:nth-of-type(4)
+    top: 80px
+    left: 130px
+    & > div
+      @include animation-delay(s48)
+  & > div:nth-of-type(5)
+    top: 130px
+    left: 130px
+    & > div
+      @include animation-delay(s58)
+  & > div:nth-of-type(6)
+    top: 130px
+    left: 80px
+    & > div
+      @include animation-delay(s68)
+  & > div:nth-of-type(7)
+    top: 130px
+    left: 30px
+    & > div
+      @include animation-delay(s78)
+  & > div:nth-of-type(8)
+    top: 80px
+    left: 30px
+    & > div
+      @include animation-delay(s88)
