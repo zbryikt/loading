@@ -4,7 +4,7 @@ x$ = angular.module('uiloading', []);
 x$.factory('uilSvg', function(){
   return 'width="100%" height="100%" viewBox="0 0 100 100"';
 });
-define(['default', 'infinity', 'ellipsis', 'dashinfinity', 'reload', 'wheel', 'g0v', 'pacman', 'facebook', 'spin', 'ball', 'cube', 'circle', 'pie', 'radio', 'poi', 'gear', 'gears', 'comment', 'wave', 'battery', 'sunny', 'triangle', 'flickr', 'ring', 'spiral', 'squares'], function(){
+define(['default', 'infinity', 'ellipsis', 'dashinfinity', 'reload', 'wheel', 'g0v', 'pacman', 'facebook', 'spin', 'ball', 'cube', 'circle', 'pie', 'radio', 'poi', 'gear', 'gears', 'comment', 'wave', 'battery', 'sunny', 'triangle', 'flickr', 'ring', 'spiral', 'squares', 'hourglass'], function(){
   var x$;
   x$ = angular.module('uiloading');
   x$.factory('uilresize', function(){
