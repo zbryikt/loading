@@ -1,7 +1,7 @@
 define([], function(){
   var x$;
   x$ = angular.module('uiloading');
-  x$.factory('uilType-blank', function($interval){
+  x$.factory('uilType-blank', function($interval, uilresize){
     var start, ret;
     start = null;
     return ret = {

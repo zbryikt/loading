@@ -1,6 +1,6 @@
 <- define <[]>
 angular.module \uiloading
-  ..factory \uilType-blank, ($interval) ->
+  ..factory \uilType-blank, ($interval, uilresize) ->
     start = null
     ret = do
       mode: \both

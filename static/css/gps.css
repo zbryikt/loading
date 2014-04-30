@@ -1,0 +1,242 @@
+uiload {
+  display: inline-block;
+  position: relative; }
+  uiload > div {
+    position: relative; }
+
+@-webkit-keyframes uil-gps-inner {
+  0% {
+    opacity: 1; }
+
+  45% {
+    opacity: 1; }
+
+  50% {
+    opacity: 0; }
+
+  95% {
+    opacity: 0; }
+
+  100% {
+    opacity: 1; } }
+
+@-moz-keyframes uil-gps-inner {
+  0% {
+    opacity: 1; }
+
+  45% {
+    opacity: 1; }
+
+  50% {
+    opacity: 0; }
+
+  95% {
+    opacity: 0; }
+
+  100% {
+    opacity: 1; } }
+
+@-ms-keyframes uil-gps-inner {
+  0% {
+    opacity: 1; }
+
+  45% {
+    opacity: 1; }
+
+  50% {
+    opacity: 0; }
+
+  95% {
+    opacity: 0; }
+
+  100% {
+    opacity: 1; } }
+
+@keyframes uil-gps-inner {
+  0% {
+    opacity: 1; }
+
+  45% {
+    opacity: 1; }
+
+  50% {
+    opacity: 0; }
+
+  95% {
+    opacity: 0; }
+
+  100% {
+    opacity: 1; } }
+
+.uil-gps-css {
+  background: none;
+  position: relative;
+  width: 200px;
+  height: 200px; }
+  .uil-gps-css .inner {
+    position: absolute;
+    top: 60px;
+    left: 60px;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: innerColor;
+    -ms-animation: uil-gps-inner duration linear infinite;
+    -moz-animation: uil-gps-inner duration linear infinite;
+    -webkit-animation: uil-gps-inner duration linear infinite;
+    -o-animation: uil-gps-inner duration linear infinite;
+    animation: uil-gps-inner duration linear infinite; }
+  .uil-gps-css .outer {
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 15px solid outerColor; }
+  .uil-gps-css .marker {
+    position: absolute;
+    width: 20px;
+    height: 40px;
+    border-radius: 10px;
+    background: outerColor; }
+
+@-webkit-keyframes uil-gps-marker {
+  0% {
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg); }
+
+  50% {
+    -ms-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    transform: rotate(90deg); }
+
+  100% {
+    -ms-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    transform: rotate(90deg); } }
+
+@-moz-keyframes uil-gps-marker {
+  0% {
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg); }
+
+  50% {
+    -ms-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    transform: rotate(90deg); }
+
+  100% {
+    -ms-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    transform: rotate(90deg); } }
+
+@-ms-keyframes uil-gps-marker {
+  0% {
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg); }
+
+  50% {
+    -ms-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    transform: rotate(90deg); }
+
+  100% {
+    -ms-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    transform: rotate(90deg); } }
+
+@keyframes uil-gps-marker {
+  0% {
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg); }
+
+  50% {
+    -ms-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    transform: rotate(90deg); }
+
+  100% {
+    -ms-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    transform: rotate(90deg); } }
+
+.uil-gps-css .markers {
+  -ms-transform: translate(100px, 100px);
+  -moz-transform: translate(100px, 100px);
+  -webkit-transform: translate(100px, 100px);
+  -o-transform: translate(100px, 100px);
+  transform: translate(100px, 100px); }
+
+.uil-gps-css .markers-ib {
+  width: 0;
+  height: 0;
+  -ms-animation: uil-gps-marker duration linear infinite;
+  -moz-animation: uil-gps-marker duration linear infinite;
+  -webkit-animation: uil-gps-marker duration linear infinite;
+  -o-animation: uil-gps-marker duration linear infinite;
+  animation: uil-gps-marker duration linear infinite; }
+
+.uil-gps-css .marker:nth-of-type(1) {
+  top: -20px;
+  left: -10px;
+  -ms-transform: rotate(0deg) translate(0, -70px);
+  -moz-transform: rotate(0deg) translate(0, -70px);
+  -webkit-transform: rotate(0deg) translate(0, -70px);
+  -o-transform: rotate(0deg) translate(0, -70px);
+  transform: rotate(0deg) translate(0, -70px); }
+
+.uil-gps-css .marker:nth-of-type(2) {
+  top: -20px;
+  left: -10px;
+  -ms-transform: rotate(90deg) translate(0, -70px);
+  -moz-transform: rotate(90deg) translate(0, -70px);
+  -webkit-transform: rotate(90deg) translate(0, -70px);
+  -o-transform: rotate(90deg) translate(0, -70px);
+  transform: rotate(90deg) translate(0, -70px); }
+
+.uil-gps-css .marker:nth-of-type(3) {
+  top: -20px;
+  left: -10px;
+  -ms-transform: rotate(180deg) translate(0, -70px);
+  -moz-transform: rotate(180deg) translate(0, -70px);
+  -webkit-transform: rotate(180deg) translate(0, -70px);
+  -o-transform: rotate(180deg) translate(0, -70px);
+  transform: rotate(180deg) translate(0, -70px); }
+
+.uil-gps-css .marker:nth-of-type(4) {
+  top: -20px;
+  left: -10px;
+  -ms-transform: rotate(270deg) translate(0, -70px);
+  -moz-transform: rotate(270deg) translate(0, -70px);
+  -webkit-transform: rotate(270deg) translate(0, -70px);
+  -o-transform: rotate(270deg) translate(0, -70px);
+  transform: rotate(270deg) translate(0, -70px); }

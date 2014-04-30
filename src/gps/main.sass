@@ -1,0 +1,64 @@
+@import basic
+
++keyframes(uil-gps-inner)
+  0%
+    opacity: 1
+  45%
+    opacity: 1
+  50%
+    opacity: 0
+  95%
+    opacity: 0
+  100%
+    opacity: 1
+.uil-gps-css
+  background: none
+  position: relative
+  width: 200px
+  height: 200px
+  .inner
+    position: absolute
+    top: 60px
+    left: 60px
+    width: 80px
+    height: 80px
+    border-radius: 50%
+    background: innerColor
+    @include animation(uil-gps-inner duration linear infinite)
+  .outer
+    position: absolute
+    top: 25px
+    left: 25px
+    width: 150px
+    height: 150px
+    border-radius: 50%
+    border: 15px solid outerColor
+  .marker
+    position: absolute
+    width: 20px
+    height: 40px
+    border-radius: 10px
+    background: outerColor
++keyframes(uil-gps-marker)
+  0%
+    @include transform(rotate(0deg))
+  50%
+    @include transform(rotate(90deg))
+  100%
+    @include transform(rotate(90deg))
+
+.uil-gps-css .markers
+  @include transform(translate(100px,100px))
+.uil-gps-css .markers-ib
+  width: 0
+  height: 0
+  @include animation(uil-gps-marker duration linear infinite)
+
+@mixin uil-gps-marker($idx)
+  .uil-gps-css .marker:nth-of-type(#{$idx})
+    top: -20px
+    left: -10px
+    @include transform(rotate(90deg * ($idx - 1) ) translate(0,-70px))
+
+@for $i from 1 through 4
+  @include uil-gps-marker($i)
