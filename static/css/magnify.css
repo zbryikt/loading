@@ -1,0 +1,162 @@
+uiload {
+  display: inline-block;
+  position: relative; }
+  uiload > div {
+    position: relative; }
+
+@-webkit-keyframes uil-magnify-move {
+  0% {
+    -ms-transform: translate(30px, 30px);
+    -moz-transform: translate(30px, 30px);
+    -webkit-transform: translate(30px, 30px);
+    -o-transform: translate(30px, 30px);
+    transform: translate(30px, 30px); }
+
+  33% {
+    -ms-transform: translate(-30px, 30px);
+    -moz-transform: translate(-30px, 30px);
+    -webkit-transform: translate(-30px, 30px);
+    -o-transform: translate(-30px, 30px);
+    transform: translate(-30px, 30px); }
+
+  66% {
+    -ms-transform: translate(0, -22px);
+    -moz-transform: translate(0, -22px);
+    -webkit-transform: translate(0, -22px);
+    -o-transform: translate(0, -22px);
+    transform: translate(0, -22px); }
+
+  100% {
+    -ms-transform: translate(30px, 30px);
+    -moz-transform: translate(30px, 30px);
+    -webkit-transform: translate(30px, 30px);
+    -o-transform: translate(30px, 30px);
+    transform: translate(30px, 30px); } }
+
+@-moz-keyframes uil-magnify-move {
+  0% {
+    -ms-transform: translate(30px, 30px);
+    -moz-transform: translate(30px, 30px);
+    -webkit-transform: translate(30px, 30px);
+    -o-transform: translate(30px, 30px);
+    transform: translate(30px, 30px); }
+
+  33% {
+    -ms-transform: translate(-30px, 30px);
+    -moz-transform: translate(-30px, 30px);
+    -webkit-transform: translate(-30px, 30px);
+    -o-transform: translate(-30px, 30px);
+    transform: translate(-30px, 30px); }
+
+  66% {
+    -ms-transform: translate(0, -22px);
+    -moz-transform: translate(0, -22px);
+    -webkit-transform: translate(0, -22px);
+    -o-transform: translate(0, -22px);
+    transform: translate(0, -22px); }
+
+  100% {
+    -ms-transform: translate(30px, 30px);
+    -moz-transform: translate(30px, 30px);
+    -webkit-transform: translate(30px, 30px);
+    -o-transform: translate(30px, 30px);
+    transform: translate(30px, 30px); } }
+
+@-ms-keyframes uil-magnify-move {
+  0% {
+    -ms-transform: translate(30px, 30px);
+    -moz-transform: translate(30px, 30px);
+    -webkit-transform: translate(30px, 30px);
+    -o-transform: translate(30px, 30px);
+    transform: translate(30px, 30px); }
+
+  33% {
+    -ms-transform: translate(-30px, 30px);
+    -moz-transform: translate(-30px, 30px);
+    -webkit-transform: translate(-30px, 30px);
+    -o-transform: translate(-30px, 30px);
+    transform: translate(-30px, 30px); }
+
+  66% {
+    -ms-transform: translate(0, -22px);
+    -moz-transform: translate(0, -22px);
+    -webkit-transform: translate(0, -22px);
+    -o-transform: translate(0, -22px);
+    transform: translate(0, -22px); }
+
+  100% {
+    -ms-transform: translate(30px, 30px);
+    -moz-transform: translate(30px, 30px);
+    -webkit-transform: translate(30px, 30px);
+    -o-transform: translate(30px, 30px);
+    transform: translate(30px, 30px); } }
+
+@keyframes uil-magnify-move {
+  0% {
+    -ms-transform: translate(30px, 30px);
+    -moz-transform: translate(30px, 30px);
+    -webkit-transform: translate(30px, 30px);
+    -o-transform: translate(30px, 30px);
+    transform: translate(30px, 30px); }
+
+  33% {
+    -ms-transform: translate(-30px, 30px);
+    -moz-transform: translate(-30px, 30px);
+    -webkit-transform: translate(-30px, 30px);
+    -o-transform: translate(-30px, 30px);
+    transform: translate(-30px, 30px); }
+
+  66% {
+    -ms-transform: translate(0, -22px);
+    -moz-transform: translate(0, -22px);
+    -webkit-transform: translate(0, -22px);
+    -o-transform: translate(0, -22px);
+    transform: translate(0, -22px); }
+
+  100% {
+    -ms-transform: translate(30px, 30px);
+    -moz-transform: translate(30px, 30px);
+    -webkit-transform: translate(30px, 30px);
+    -o-transform: translate(30px, 30px);
+    transform: translate(30px, 30px); } }
+
+.uil-magnify-css {
+  background: none;
+  position: relative;
+  width: 200px;
+  height: 200px; }
+  .uil-magnify-css .outer-circle {
+    position: absolute;
+    width: 110px;
+    height: 110px;
+    top: 30px;
+    left: 30px;
+    border: 15px solid bodyColor;
+    border-radius: 60px; }
+  .uil-magnify-css .inner-circle {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    top: 45px;
+    left: 45px;
+    background: glassColor;
+    border-radius: 30px; }
+  .uil-magnify-css .grip {
+    position: absolute;
+    width: 24px;
+    height: 60px;
+    top: 100px;
+    left: 118px;
+    border-radius: 20px;
+    background: bodyColor;
+    -ms-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg); }
+  .uil-magnify-css .group {
+    -ms-animation: uil-magnify-move duration linear infinite;
+    -moz-animation: uil-magnify-move duration linear infinite;
+    -webkit-animation: uil-magnify-move duration linear infinite;
+    -o-animation: uil-magnify-move duration linear infinite;
+    animation: uil-magnify-move duration linear infinite; }

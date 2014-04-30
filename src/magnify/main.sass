@@ -1,0 +1,47 @@
+@import basic
+
++keyframes(uil-magnify-move)
+  0%
+    @include transform(translate(30px,30px))
+  33%
+    @include transform(translate(-30px,30px))
+  66%
+    @include transform(translate(0,-22px))
+  100%
+    @include transform(translate(30px,30px))
+
+.uil-magnify-css
+  background: none
+  position: relative
+  width: 200px
+  height: 200px
+
+  .outer-circle
+    position: absolute
+    width: 110px
+    height: 110px
+    top: 30px
+    left: 30px
+    border: 15px solid bodyColor
+    border-radius: 60px
+
+  .inner-circle
+    position: absolute
+    width: 80px
+    height: 80px
+    top: 45px
+    left: 45px
+    background: glassColor
+    border-radius: 30px
+
+  .grip
+    position: absolute
+    width: 24px
+    height: 60px
+    top: 100px
+    left: 118px
+    border-radius: 20px
+    background: bodyColor
+    @include transform(rotate(-45deg))
+  .group
+    @include animation(uil-magnify-move duration linear infinite)
