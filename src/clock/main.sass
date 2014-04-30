@@ -1,0 +1,46 @@
+@import basic
+
++keyframes(uil-clock-rotate1)
+  0%
+    @include transform(rotate(0deg) translate(0,-25px))
+  100%
+    @include transform(rotate(360deg) translate(0,-25px))
+
++keyframes(uil-clock-rotate2)
+  0%
+    @include transform(rotate(0deg) translate(0,-35px))
+  100%
+    @include transform(rotate(360deg) translate(0,-35px))
+
+.uil-clock-css
+  background: none
+  position: relative
+  width: 200px
+  height: 200px
+  .clock
+    position: absolute
+    width: 160px
+    height: 160px
+    border-radius: 80px
+    background: clockColor
+    border: 16px solid circleColor
+    top: 20px
+    left: 20px
+  .ptr1
+    position: absolute
+    width: 10px
+    height: 50px
+    top: 75px
+    left: 95px
+    background: lineColor1
+    border-radius: 5px
+    @include animation(uil-clock-rotate1 duration2 linear infinite)
+  .ptr2
+    position: absolute
+    width: 4px
+    height: 80px
+    top: 60px
+    left: 98px
+    background: lineColor2
+    border-radius: 2px
+    @include animation(uil-clock-rotate2 duration1 linear infinite)
