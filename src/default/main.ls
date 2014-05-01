@@ -47,7 +47,7 @@ angular.module \uiloading
           transform = "rotate(#{parseInt(360 * i / @count)}deg) translate(0,-#{@offset * 2}px)"
           style = "top:#{100 - @height}px;left:#{100 - @width}px;width:#{@width * 2}px;height:#{@height * 2}px;" +
             "background:#{@color};-webkit-transform:#{transform};transform:#{transform};" +
-            "border-radius:#{@radius * 2}px;"
+            "border-radius:#{@radius * 2}px;position:absolute;"
           one-css = ".uil-default-css > div:nth-of-type(#{i+1}){"+
           "-webkit-animation: #{animation-value};"+
           "animation: #{animation-value};"+

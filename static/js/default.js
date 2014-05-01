@@ -73,7 +73,7 @@ define([], function(){
         for (i$ = 0, to$ = this.count; i$ < to$; ++i$) {
           i = i$;
           transform = "rotate(" + parseInt(360 * i / this.count) + "deg) translate(0,-" + this.offset * 2 + "px)";
-          style = ("top:" + (100 - this.height) + "px;left:" + (100 - this.width) + "px;width:" + this.width * 2 + "px;height:" + this.height * 2 + "px;") + ("background:" + this.color + ";-webkit-transform:" + transform + ";transform:" + transform + ";") + ("border-radius:" + this.radius * 2 + "px;");
+          style = ("top:" + (100 - this.height) + "px;left:" + (100 - this.width) + "px;width:" + this.width * 2 + "px;height:" + this.height * 2 + "px;") + ("background:" + this.color + ";-webkit-transform:" + transform + ";transform:" + transform + ";") + ("border-radius:" + this.radius * 2 + "px;position:absolute;");
           oneCss = (".uil-default-css > div:nth-of-type(" + (i + 1) + "){") + ("-webkit-animation: " + animationValue + ";") + ("animation: " + animationValue + ";") + ("-webkit-animation-delay: " + (i * speed / this.count - speed / 2) + "s;") + ("animation-delay: " + (i * speed / this.count - speed / 2) + "s;") + "}";
           css += oneCss;
           html += "<div style='" + style + "'></div>";
