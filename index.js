@@ -143,6 +143,11 @@ require(['uiloading'], function(){
     var attributionData;
     $scope.delay = 0;
     $scope.delta = 50;
+    $scope.$watch('build', function(v){
+      if ($scope.build.lastValue) {
+        return ga('send', 'event', 'edit', 'config', $scope.build.type);
+      }
+    }, true);
     $scope.$watch('build.speed', function(v){
       if (v > 0) {
         $scope.delta = 50 / v;
@@ -207,6 +212,7 @@ require(['uiloading'], function(){
         var this$ = this;
         return setTimeout(function(){
           var mod, e, customVars, res$, i$, ref$, len$, i, v, defaultVars, customStyle, html;
+          ga('send', 'event', 'edit', 'settype', type);
           this$.stop();
           this$.show = false;
           this$.type = type;
@@ -232,12 +238,14 @@ require(['uiloading'], function(){
       },
       resize: function(e){
         var total, offset, ref$;
+        ga('send', 'event', 'edit', 'resize', this.type);
         total = 200;
         offset = e.offsetX || e.pageX - $(e.target).offset().left;
         return this.size = parseInt(100 * ((ref$ = offset > 50 ? offset : 50) < 200 ? ref$ : 200) / (total != null ? total : 200));
       },
       makesvg: function(){
         var type;
+        ga('send', 'event', 'build', 'svg', this.type);
         type = $scope.demoLoader.type;
         return $http.get("/static/html/" + type + ".svg.html").success(function(rawSvg){
           var svg;
@@ -250,6 +258,7 @@ require(['uiloading'], function(){
       },
       makecss: function(){
         var type;
+        ga('send', 'event', 'build', 'css', this.type);
         type = $scope.demoLoader.type;
         return $http.get("/static/html/" + type + ".css.html").success(function(rawHtml){
           return $http.get("/static/css/" + type + ".css").success(function(rawCss){
@@ -264,6 +273,7 @@ require(['uiloading'], function(){
       },
       makegif: function(){
         var this$ = this;
+        ga('send', 'event', 'build', 'gif', this.type);
         this.done = false;
         this.making = true;
         this.stop();

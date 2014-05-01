@@ -78,6 +78,9 @@ angular.module \main, <[uiloading colorpicker.module]>
   ..controller \main, <[$scope $injector $timeout $interval $http $compile capture outputmodal]> ++ ($scope, $injector, $timeout, $interval, $http, $compile, capture, outputmodal) ->
     $scope.delay = 0
     $scope.delta = 50
+    $scope.$watch 'build', (v) ->
+      if $scope.build.last-value => ga \send, \event, \edit, \config, $scope.build.type
+    , true
     $scope.$watch 'build.speed' (v) ->
       if v > 0 => $scope.delta = 50 / v
       if $scope.delta < 10 =>
@@ -113,6 +116,7 @@ angular.module \main, <[uiloading colorpicker.module]>
         @running = false
       type: \default
       settype: (type) -> set-timeout (~>
+        ga \send, \event, \edit, \settype, type
         @stop!
         @show = false
         @type = type
@@ -132,16 +136,19 @@ angular.module \main, <[uiloading colorpicker.module]>
         $(\#demo-panel)append $compile(html)($scope)
         ), 0
       resize: (e) -> 
+        ga \send, \event, \edit, \resize, @type
         total = 200 # $(e.target or e.srcElement)width!
         offset = e.offsetX or (e.pageX - $(e.target)offset!left)
         @size = parse-int( 100 * ( offset >? 50 <? 200 ) / ( total ? 200 ) )
       makesvg: ->
+        ga \send, \event, \build, \svg, @type
         type = $scope.demoLoader.type
         (raw-svg) <- $http.get "/static/html/#{type}.svg.html" .success
         raw-svg = '<?xml version="1.0" encoding="utf-8"?>' + raw-svg
         svg = $scope.demo-loader.patch-svg raw-svg, $scope.build
         outputmodal.create $(svg), new Blob([svg],type:'text/html'), type, \SVG
       makecss: ->
+        ga \send, \event, \build, \css, @type
         type = $scope.demoLoader.type
         (raw-html) <- $http.get "/static/html/#{type}.css.html" .success
         (raw-css) <- $http.get "/static/css/#{type}.css" .success
@@ -149,6 +156,7 @@ angular.module \main, <[uiloading colorpicker.module]>
         data = $scope.demo-loader.patch-css data, $scope.build
         outputmodal.create $(data), new Blob([data],type:'text/html'), type, \CSS
       makegif: -> 
+        ga \send, \event, \build, \gif, @type
         @ <<< {done: false, making: true}
         @stop!
         capture $scope.demoLoader, $scope.delta, @cbk, 
