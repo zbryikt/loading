@@ -144,8 +144,13 @@ require(['uiloading'], function(){
     $scope.delay = 0;
     $scope.delta = 50;
     $scope.$watch('build', function(v){
-      if ($scope.build.lastValue) {
-        return ga('send', 'event', 'edit', 'config', $scope.build.type);
+      var now, varsState;
+      now = new Date().getTime();
+      varsState = $scope.build.snapshot();
+      if ($scope.build.varsState !== varsState && now - $scope.build.updateTime > 1000) {
+        ga('send', 'event', 'edit', 'config', $scope.build.type);
+        $scope.build.varsState = varsState;
+        return $scope.build.updateTime = now;
       }
     }, true);
     $scope.$watch('build.speed', function(v){
@@ -183,6 +188,7 @@ require(['uiloading'], function(){
       done: false,
       show: false,
       speed: 1,
+      vars: [],
       runner: function(){
         if (!$scope.build.making) {
           $scope.demoLoader.step($scope.delay);
@@ -208,10 +214,20 @@ require(['uiloading'], function(){
         return this.running = false;
       },
       type: 'default',
+      snapshot: function(it){
+        return (function(){
+          var i$, ref$, len$, results$ = [];
+          for (i$ = 0, len$ = (ref$ = this.vars).length; i$ < len$; ++i$) {
+            it = ref$[i$];
+            results$.push(this[it]);
+          }
+          return results$;
+        }.call(this)).join("/");
+      },
       settype: function(type){
         var this$ = this;
         return setTimeout(function(){
-          var mod, e, customVars, res$, i$, ref$, len$, i, v, defaultVars, customStyle, html;
+          var mod, e, i, customVars, res$, i$, ref$, len$, v, defaultVars, customStyle, html;
           ga('send', 'event', 'edit', 'settype', type);
           this$.stop();
           this$.show = false;
@@ -222,6 +238,16 @@ require(['uiloading'], function(){
             e = e$;
             return console.log("module not found.");
           }
+          this$.vars = ['size', 'speed', 'cbk'].concat((function(){
+            var i$, to$, results$ = [];
+            for (i$ = 1, to$ = mod.vars.length; i$ <= to$; ++i$) {
+              i = i$;
+              results$.push("c" + i);
+            }
+            return results$;
+          }()));
+          this$.varsState = this$.snapshot();
+          this$.updateTime = new Date().getTime();
           res$ = [];
           for (i$ = 0, len$ = (ref$ = mod.vars).length; i$ < len$; ++i$) {
             i = i$;
@@ -236,12 +262,16 @@ require(['uiloading'], function(){
           return $('#demo-panel').append($compile(html)($scope));
         }, 0);
       },
+      _resized: {},
       resize: function(e){
         var total, offset, ref$;
-        ga('send', 'event', 'edit', 'resize', this.type);
+        if (!this._resized[this.type]) {
+          ga('send', 'event', 'edit', 'resize', this.type);
+          this._resized[this.type] = true;
+        }
         total = 200;
         offset = e.offsetX || e.pageX - $(e.target).offset().left;
-        return this.size = parseInt(100 * ((ref$ = offset > 50 ? offset : 50) < 200 ? ref$ : 200) / (total != null ? total : 200));
+        return this.size = parseInt(100 * ((ref$ = offset > 32 ? offset : 32) < 200 ? ref$ : 200) / (total != null ? total : 200));
       },
       makesvg: function(){
         var type;

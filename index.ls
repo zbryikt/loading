@@ -79,7 +79,12 @@ angular.module \main, <[uiloading colorpicker.module]>
     $scope.delay = 0
     $scope.delta = 50
     $scope.$watch 'build', (v) ->
-      if $scope.build.last-value => ga \send, \event, \edit, \config, $scope.build.type
+      now = new Date!getTime!
+      vars-state = $scope.build.snapshot!
+      if $scope.build.vars-state!=vars-state and now - $scope.build.update-time > 1000 =>
+        ga \send, \event, \edit, \config, $scope.build.type
+        $scope.build.vars-state = vars-state
+        $scope.build.update-time = now
     , true
     $scope.$watch 'build.speed' (v) ->
       if v > 0 => $scope.delta = 50 / v
@@ -103,6 +108,7 @@ angular.module \main, <[uiloading colorpicker.module]>
       done: false
       show: false
       speed: 1
+      vars: []
       runner: -> if !$scope.build.making =>
         $scope.demo-loader.step $scope.delay
         if $scope.build.running => $scope.delay = ( $scope.delay + $scope.delta ) % 1000
@@ -115,6 +121,8 @@ angular.module \main, <[uiloading colorpicker.module]>
           @anitimer = null
         @running = false
       type: \default
+      snapshot: ->
+        return [@[it] for it in @vars]join("/")
       settype: (type) -> set-timeout (~>
         ga \send, \event, \edit, \settype, type
         @stop!
@@ -122,6 +130,9 @@ angular.module \main, <[uiloading colorpicker.module]>
         @type = type
         try mod = $injector.get "uilType-#type"
         catch => return console.log("module not found.")
+        @vars = <[size speed cbk]> ++ ["c#i" for i from 1 to mod.vars.length]
+        @vars-state = @snapshot!
+        @update-time = new Date!getTime!
         custom-vars = ["#{v.attr}='{{build.c#{i + 1}}}'" for v,i in mod.vars]
         default-vars = ["type='#type'", "background='{{build.cbk}}'", "js", "ng-model='demoLoader'"]
         custom-style = [
@@ -135,11 +146,14 @@ angular.module \main, <[uiloading colorpicker.module]>
         $(\#demo-panel)html ""
         $(\#demo-panel)append $compile(html)($scope)
         ), 0
+      _resized: {}
       resize: (e) -> 
-        ga \send, \event, \edit, \resize, @type
+        if !@_resized[@type] =>
+          ga \send, \event, \edit, \resize, @type
+          @_resized[@type] = true
         total = 200 # $(e.target or e.srcElement)width!
         offset = e.offsetX or (e.pageX - $(e.target)offset!left)
-        @size = parse-int( 100 * ( offset >? 50 <? 200 ) / ( total ? 200 ) )
+        @size = parse-int( 100 * ( offset >? 32 <? 200 ) / ( total ? 200 ) )
       makesvg: ->
         ga \send, \event, \build, \svg, @type
         type = $scope.demoLoader.type

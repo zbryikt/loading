@@ -248,15 +248,24 @@ nav.navbar-default {
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); }
     #chooser .item .delay.more {
       opacity: 1;
-      border: 2px dashed rgba(0, 0, 0, 0.5);
       position: relative;
       left: -2px;
       background: none;
-      box-shadow: none; }
+      box-shadow: none;
+      width: 128px;
+      text-align: center; }
+      #chooser .item .delay.more .fb-like {
+        margin-top: 15%;
+        -ms-transform: scale(1.5);
+        -moz-transform: scale(1.5);
+        -webkit-transform: scale(1.5);
+        -o-transform: scale(1.5);
+        transform: scale(1.5); }
     #chooser .item .title {
       color: white;
       font-weight: 200;
       font-size: 0.9em;
+      font-family: verdana;
       text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5); }
   #chooser .item.active {
     border-radius: 10px;
