@@ -29,7 +29,7 @@ define([], function(){
       },
       custom: function(s, e, a, c){
         var this$ = this;
-        return a.$observe('variant', function(v){
+        a.$observe('variant', function(v){
           if (v) {
             this$.variant = v;
             switch (this$.variant) {
@@ -54,6 +54,11 @@ define([], function(){
                 "stroke-width": '0px'
               });
             }
+          }
+        });
+        return a.$observe('background', function(v){
+          if (v) {
+            return e.find('rect.bk').css('fill', v);
           }
         });
       },

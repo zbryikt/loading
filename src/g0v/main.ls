@@ -26,6 +26,8 @@ angular.module \uiloading
           | otherwise =>
             e.find 'path:nth-of-type(1)' .attr fill: \#c60000, "stroke-width": \0px
             e.find 'path:nth-of-type(2)' .attr fill: \#000, "stroke-width": \0px
+        a.$observe 'background' (v) -> if v =>
+          e.find \rect.bk .css \fill, v
       start: (s, e, a, c) ->
       stop: (s, e, a, c) ->
       step: (s, e, a, c, delay) ->
