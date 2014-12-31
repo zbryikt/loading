@@ -7,67 +7,47 @@ uiload {
 @-webkit-keyframes xxxx {
   0% {
     background-color: darkColor; }
-
   1% {
     background-color: lightColor; }
-
   11% {
     background-color: lightColor; }
-
   21% {
     background-color: darkColor; }
-
   100% {
     background-color: darkColor; } }
-
 @-moz-keyframes xxxx {
   0% {
     background-color: darkColor; }
-
   1% {
     background-color: lightColor; }
-
   11% {
     background-color: lightColor; }
-
   21% {
     background-color: darkColor; }
-
   100% {
     background-color: darkColor; } }
-
 @-ms-keyframes xxxx {
   0% {
     background-color: darkColor; }
-
   1% {
     background-color: lightColor; }
-
   11% {
     background-color: lightColor; }
-
   21% {
     background-color: darkColor; }
-
   100% {
     background-color: darkColor; } }
-
 @keyframes xxxx {
   0% {
     background-color: darkColor; }
-
   1% {
     background-color: lightColor; }
-
   11% {
     background-color: lightColor; }
-
   21% {
     background-color: darkColor; }
-
   100% {
     background-color: darkColor; } }
-
 .uil-squares-css {
   background: none;
   position: relative;
@@ -162,3 +142,5 @@ uiload {
       -webkit-animation-delay: s88;
       -o-animation-delay: s88;
       animation-delay: s88; }
+
+/*# sourceMappingURL=squares.css.map */

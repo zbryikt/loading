@@ -7,67 +7,47 @@ uiload {
 @-webkit-keyframes uil-gps-inner {
   0% {
     opacity: 1; }
-
   45% {
     opacity: 1; }
-
   50% {
     opacity: 0; }
-
   95% {
     opacity: 0; }
-
   100% {
     opacity: 1; } }
-
 @-moz-keyframes uil-gps-inner {
   0% {
     opacity: 1; }
-
   45% {
     opacity: 1; }
-
   50% {
     opacity: 0; }
-
   95% {
     opacity: 0; }
-
   100% {
     opacity: 1; } }
-
 @-ms-keyframes uil-gps-inner {
   0% {
     opacity: 1; }
-
   45% {
     opacity: 1; }
-
   50% {
     opacity: 0; }
-
   95% {
     opacity: 0; }
-
   100% {
     opacity: 1; } }
-
 @keyframes uil-gps-inner {
   0% {
     opacity: 1; }
-
   45% {
     opacity: 1; }
-
   50% {
     opacity: 0; }
-
   95% {
     opacity: 0; }
-
   100% {
     opacity: 1; } }
-
 .uil-gps-css {
   background: none;
   position: relative;
@@ -108,21 +88,18 @@ uiload {
     -webkit-transform: rotate(0deg);
     -o-transform: rotate(0deg);
     transform: rotate(0deg); }
-
   50% {
     -ms-transform: rotate(90deg);
     -moz-transform: rotate(90deg);
     -webkit-transform: rotate(90deg);
     -o-transform: rotate(90deg);
     transform: rotate(90deg); }
-
   100% {
     -ms-transform: rotate(90deg);
     -moz-transform: rotate(90deg);
     -webkit-transform: rotate(90deg);
     -o-transform: rotate(90deg);
     transform: rotate(90deg); } }
-
 @-moz-keyframes uil-gps-marker {
   0% {
     -ms-transform: rotate(0deg);
@@ -130,21 +107,18 @@ uiload {
     -webkit-transform: rotate(0deg);
     -o-transform: rotate(0deg);
     transform: rotate(0deg); }
-
   50% {
     -ms-transform: rotate(90deg);
     -moz-transform: rotate(90deg);
     -webkit-transform: rotate(90deg);
     -o-transform: rotate(90deg);
     transform: rotate(90deg); }
-
   100% {
     -ms-transform: rotate(90deg);
     -moz-transform: rotate(90deg);
     -webkit-transform: rotate(90deg);
     -o-transform: rotate(90deg);
     transform: rotate(90deg); } }
-
 @-ms-keyframes uil-gps-marker {
   0% {
     -ms-transform: rotate(0deg);
@@ -152,21 +126,18 @@ uiload {
     -webkit-transform: rotate(0deg);
     -o-transform: rotate(0deg);
     transform: rotate(0deg); }
-
   50% {
     -ms-transform: rotate(90deg);
     -moz-transform: rotate(90deg);
     -webkit-transform: rotate(90deg);
     -o-transform: rotate(90deg);
     transform: rotate(90deg); }
-
   100% {
     -ms-transform: rotate(90deg);
     -moz-transform: rotate(90deg);
     -webkit-transform: rotate(90deg);
     -o-transform: rotate(90deg);
     transform: rotate(90deg); } }
-
 @keyframes uil-gps-marker {
   0% {
     -ms-transform: rotate(0deg);
@@ -174,21 +145,18 @@ uiload {
     -webkit-transform: rotate(0deg);
     -o-transform: rotate(0deg);
     transform: rotate(0deg); }
-
   50% {
     -ms-transform: rotate(90deg);
     -moz-transform: rotate(90deg);
     -webkit-transform: rotate(90deg);
     -o-transform: rotate(90deg);
     transform: rotate(90deg); }
-
   100% {
     -ms-transform: rotate(90deg);
     -moz-transform: rotate(90deg);
     -webkit-transform: rotate(90deg);
     -o-transform: rotate(90deg);
     transform: rotate(90deg); } }
-
 .uil-gps-css .markers {
   -ms-transform: translate(100px, 100px);
   -moz-transform: translate(100px, 100px);
@@ -240,3 +208,5 @@ uiload {
   -webkit-transform: rotate(270deg) translate(0, -70px);
   -o-transform: rotate(270deg) translate(0, -70px);
   transform: rotate(270deg) translate(0, -70px); }
+
+/*# sourceMappingURL=gps.css.map */

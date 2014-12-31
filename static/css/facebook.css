@@ -11,21 +11,18 @@ uiload {
     -webkit-transform: scale(2);
     -o-transform: scale(2);
     transform: scale(2); }
-
   90% {
     -ms-transform: scale(1);
     -moz-transform: scale(1);
     -webkit-transform: scale(1);
     -o-transform: scale(1);
     transform: scale(1); }
-
   100% {
     -ms-transform: scale(1);
     -moz-transform: scale(1);
     -webkit-transform: scale(1);
     -o-transform: scale(1);
     transform: scale(1); } }
-
 @-moz-keyframes uil-facebook {
   0% {
     -ms-transform: scale(2);
@@ -33,21 +30,18 @@ uiload {
     -webkit-transform: scale(2);
     -o-transform: scale(2);
     transform: scale(2); }
-
   90% {
     -ms-transform: scale(1);
     -moz-transform: scale(1);
     -webkit-transform: scale(1);
     -o-transform: scale(1);
     transform: scale(1); }
-
   100% {
     -ms-transform: scale(1);
     -moz-transform: scale(1);
     -webkit-transform: scale(1);
     -o-transform: scale(1);
     transform: scale(1); } }
-
 @-ms-keyframes uil-facebook {
   0% {
     -ms-transform: scale(2);
@@ -55,21 +49,18 @@ uiload {
     -webkit-transform: scale(2);
     -o-transform: scale(2);
     transform: scale(2); }
-
   90% {
     -ms-transform: scale(1);
     -moz-transform: scale(1);
     -webkit-transform: scale(1);
     -o-transform: scale(1);
     transform: scale(1); }
-
   100% {
     -ms-transform: scale(1);
     -moz-transform: scale(1);
     -webkit-transform: scale(1);
     -o-transform: scale(1);
     transform: scale(1); } }
-
 @keyframes uil-facebook {
   0% {
     -ms-transform: scale(2);
@@ -77,21 +68,18 @@ uiload {
     -webkit-transform: scale(2);
     -o-transform: scale(2);
     transform: scale(2); }
-
   90% {
     -ms-transform: scale(1);
     -moz-transform: scale(1);
     -webkit-transform: scale(1);
     -o-transform: scale(1);
     transform: scale(1); }
-
   100% {
     -ms-transform: scale(1);
     -moz-transform: scale(1);
     -webkit-transform: scale(1);
     -o-transform: scale(1);
     transform: scale(1); } }
-
 .uil-facebook-css {
   background: none;
   position: relative;
@@ -104,7 +92,7 @@ uiload {
   height: 120px;
   top: 40px;
   left: 20px;
-  background: black;
+  background: #000;
   opacity: 0.6;
   -ms-animation: uil-facebook 1s cubic-bezier(0.01, 0.73, 0.28, 0.93) infinite;
   -moz-animation: uil-facebook 1s cubic-bezier(0.01, 0.73, 0.28, 0.93) infinite;
@@ -127,3 +115,5 @@ uiload {
     -webkit-animation-delay: begin3;
     -o-animation-delay: begin3;
     animation-delay: begin3; }
+
+/*# sourceMappingURL=facebook.css.map */

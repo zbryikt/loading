@@ -7,36 +7,28 @@ uiload {
 @-webkit-keyframes uil-inf {
   0% {
     stroke-dashoffset: 0; }
-
   100% {
     stroke-dashoffset: 10px; } }
-
 @-moz-keyframes uil-inf {
   0% {
     stroke-dashoffset: 0; }
-
   100% {
     stroke-dashoffset: 10px; } }
-
 @-ms-keyframes uil-inf {
   0% {
     stroke-dashoffset: 0; }
-
   100% {
     stroke-dashoffset: 10px; } }
-
 @keyframes uil-inf {
   0% {
     stroke-dashoffset: 0; }
-
   100% {
     stroke-dashoffset: 10px; } }
-
 svg.uil-inf {
   display: block; }
   svg.uil-inf path {
     fill: none;
-    stroke: black;
+    stroke: #000;
     stroke-width: 1px;
     stroke-dasharray: 5px;
     -ms-animation: uil-dinf 2s linear infinite;
@@ -44,3 +36,5 @@ svg.uil-inf {
     -webkit-animation: uil-dinf 2s linear infinite;
     -o-animation: uil-dinf 2s linear infinite;
     animation: uil-dinf 2s linear infinite; }
+
+/*# sourceMappingURL=infinity.css.map */

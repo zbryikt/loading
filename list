@@ -6,6 +6,9 @@ over.loading.io
 now.loading.io
 web.loading.io
 
+pattern.loading.io - programmtically generated patterns
+shape.loading.io - customizable shapes
+
 http://thenounproject.com/term/dots/21252/
 http://thenounproject.com/term/loading/20724/
 
@@ -13,3 +16,16 @@ x http://thenounproject.com/term/vector-file/33001/
 x http://thenounproject.com/term/css/32982/
 
 font from dafont - Kingthings Sans
+
+(cloud) arrow up / down
+rain
+magnify with plus rotating inside
+?
+?
+
+* other topic
+ - js controllable loading status indicator + progress bar
+ - generic animation (bouncing, rotation, etc + simple shape & svg uploading for gif generating)
+   - can be stored on serevr and shared
+
+

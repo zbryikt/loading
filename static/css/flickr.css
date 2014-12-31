@@ -7,107 +7,79 @@ uiload {
 @-webkit-keyframes uil-flickr-anim1 {
   0% {
     left: 0; }
-
   50% {
     left: 100px; }
-
   100% {
     left: 0; } }
-
 @-moz-keyframes uil-flickr-anim1 {
   0% {
     left: 0; }
-
   50% {
     left: 100px; }
-
   100% {
     left: 0; } }
-
 @-ms-keyframes uil-flickr-anim1 {
   0% {
     left: 0; }
-
   50% {
     left: 100px; }
-
   100% {
     left: 0; } }
-
 @keyframes uil-flickr-anim1 {
   0% {
     left: 0; }
-
   50% {
     left: 100px; }
-
   100% {
     left: 0; } }
-
 @-webkit-keyframes uil-flickr-anim2 {
   0% {
     left: 100px;
     z-index: 1; }
-
   49% {
     z-index: 1; }
-
   50% {
     left: 0;
     z-index: 10; }
-
   100% {
     left: 100px;
     z-index: 10; } }
-
 @-moz-keyframes uil-flickr-anim2 {
   0% {
     left: 100px;
     z-index: 1; }
-
   49% {
     z-index: 1; }
-
   50% {
     left: 0;
     z-index: 10; }
-
   100% {
     left: 100px;
     z-index: 10; } }
-
 @-ms-keyframes uil-flickr-anim2 {
   0% {
     left: 100px;
     z-index: 1; }
-
   49% {
     z-index: 1; }
-
   50% {
     left: 0;
     z-index: 10; }
-
   100% {
     left: 100px;
     z-index: 10; } }
-
 @keyframes uil-flickr-anim2 {
   0% {
     left: 100px;
     z-index: 1; }
-
   49% {
     z-index: 1; }
-
   50% {
     left: 0;
     z-index: 10; }
-
   100% {
     left: 100px;
     z-index: 10; } }
-
 .uil-flickr-css {
   background: none;
   position: relative;
@@ -136,3 +108,5 @@ uiload {
     -webkit-animation: uil-flickr-anim2 1s linear infinite;
     -o-animation: uil-flickr-anim2 1s linear infinite;
     animation: uil-flickr-anim2 1s linear infinite; }
+
+/*# sourceMappingURL=flickr.css.map */

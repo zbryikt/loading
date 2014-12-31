@@ -11,14 +11,12 @@ uiload {
     -webkit-transform: rotate(0deg);
     -o-transform: rotate(0deg);
     transform: rotate(0deg); }
-
   100% {
     -ms-transform: rotate(120deg);
     -moz-transform: rotate(120deg);
     -webkit-transform: rotate(120deg);
     -o-transform: rotate(120deg);
     transform: rotate(120deg); } }
-
 @-moz-keyframes uil-triangle-rotate {
   0% {
     -ms-transform: rotate(0deg);
@@ -26,14 +24,12 @@ uiload {
     -webkit-transform: rotate(0deg);
     -o-transform: rotate(0deg);
     transform: rotate(0deg); }
-
   100% {
     -ms-transform: rotate(120deg);
     -moz-transform: rotate(120deg);
     -webkit-transform: rotate(120deg);
     -o-transform: rotate(120deg);
     transform: rotate(120deg); } }
-
 @-ms-keyframes uil-triangle-rotate {
   0% {
     -ms-transform: rotate(0deg);
@@ -41,14 +37,12 @@ uiload {
     -webkit-transform: rotate(0deg);
     -o-transform: rotate(0deg);
     transform: rotate(0deg); }
-
   100% {
     -ms-transform: rotate(120deg);
     -moz-transform: rotate(120deg);
     -webkit-transform: rotate(120deg);
     -o-transform: rotate(120deg);
     transform: rotate(120deg); } }
-
 @keyframes uil-triangle-rotate {
   0% {
     -ms-transform: rotate(0deg);
@@ -56,14 +50,12 @@ uiload {
     -webkit-transform: rotate(0deg);
     -o-transform: rotate(0deg);
     transform: rotate(0deg); }
-
   100% {
     -ms-transform: rotate(120deg);
     -moz-transform: rotate(120deg);
     -webkit-transform: rotate(120deg);
     -o-transform: rotate(120deg);
     transform: rotate(120deg); } }
-
 .uil-triangle-css {
   background: none;
   position: relative;
@@ -74,7 +66,7 @@ uiload {
   position: absolute;
   width: 0;
   height: 0;
-  border-top: 56px solid black;
+  border-top: 56px solid #000;
   border-left: 33px solid transparent;
   border-right: 33px solid transparent; }
 
@@ -105,3 +97,5 @@ uiload {
   left: 67px; }
   .uil-triangle-css > div:nth-of-type(3) > div {
     border-top: 56px solid color3; }
+
+/*# sourceMappingURL=triangle.css.map */

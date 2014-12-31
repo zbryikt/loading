@@ -234,9 +234,9 @@ update-file = (fn) ->
       timer.sass = set-timeout (-> build "#{sass} uiload.sass uiload.css"), 200
     else if fn.index-of(\src/)==0 =>
       name = dir.replace(/src\/?/, "")replace /\//,\.
-      cmd = "#{sass} #{fn} static/css/#{name}.css"
+      cmd = "#{sass} --sourcemap=none #{fn} static/css/#{name}.css"
     else
-      cmd = "#{sass} #{fn} #{fn.replace /\.sass$/, \.css}"
+      cmd = "#{sass} --sourcemap=none #{fn} #{fn.replace /\.sass$/, \.css}"
   if type == \jade => 
     if fn.index-of(\src/)==0 =>
       name = dir.replace(/src\/?/, "")replace /\//,\.
@@ -254,6 +254,6 @@ watcher = chokidar.watch watch-path, ignored: ignore-func, persistent: true
   .on \add, update-file
   .on \change, update-file
 
-http.createServer server .listen 9999, \0.0.0.0
+http.createServer server .listen 9998, \0.0.0.0
 
-console.log "running server on 0.0.0.0:9999"
+console.log "running server on 0.0.0.0:9998"

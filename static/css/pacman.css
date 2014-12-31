@@ -11,21 +11,18 @@ uiload {
     -webkit-transform: rotate(0deg);
     -o-transform: rotate(0deg);
     transform: rotate(0deg); }
-
   50% {
     -ms-transform: rotate(-30deg);
     -moz-transform: rotate(-30deg);
     -webkit-transform: rotate(-30deg);
     -o-transform: rotate(-30deg);
     transform: rotate(-30deg); }
-
   100% {
     -ms-transform: rotate(0deg);
     -moz-transform: rotate(0deg);
     -webkit-transform: rotate(0deg);
     -o-transform: rotate(0deg);
     transform: rotate(0deg); } }
-
 @-moz-keyframes uil-pacman-css-1 {
   0% {
     -ms-transform: rotate(0deg);
@@ -33,21 +30,18 @@ uiload {
     -webkit-transform: rotate(0deg);
     -o-transform: rotate(0deg);
     transform: rotate(0deg); }
-
   50% {
     -ms-transform: rotate(-30deg);
     -moz-transform: rotate(-30deg);
     -webkit-transform: rotate(-30deg);
     -o-transform: rotate(-30deg);
     transform: rotate(-30deg); }
-
   100% {
     -ms-transform: rotate(0deg);
     -moz-transform: rotate(0deg);
     -webkit-transform: rotate(0deg);
     -o-transform: rotate(0deg);
     transform: rotate(0deg); } }
-
 @-ms-keyframes uil-pacman-css-1 {
   0% {
     -ms-transform: rotate(0deg);
@@ -55,21 +49,18 @@ uiload {
     -webkit-transform: rotate(0deg);
     -o-transform: rotate(0deg);
     transform: rotate(0deg); }
-
   50% {
     -ms-transform: rotate(-30deg);
     -moz-transform: rotate(-30deg);
     -webkit-transform: rotate(-30deg);
     -o-transform: rotate(-30deg);
     transform: rotate(-30deg); }
-
   100% {
     -ms-transform: rotate(0deg);
     -moz-transform: rotate(0deg);
     -webkit-transform: rotate(0deg);
     -o-transform: rotate(0deg);
     transform: rotate(0deg); } }
-
 @keyframes uil-pacman-css-1 {
   0% {
     -ms-transform: rotate(0deg);
@@ -77,21 +68,18 @@ uiload {
     -webkit-transform: rotate(0deg);
     -o-transform: rotate(0deg);
     transform: rotate(0deg); }
-
   50% {
     -ms-transform: rotate(-30deg);
     -moz-transform: rotate(-30deg);
     -webkit-transform: rotate(-30deg);
     -o-transform: rotate(-30deg);
     transform: rotate(-30deg); }
-
   100% {
     -ms-transform: rotate(0deg);
     -moz-transform: rotate(0deg);
     -webkit-transform: rotate(0deg);
     -o-transform: rotate(0deg);
     transform: rotate(0deg); } }
-
 @-webkit-keyframes uil-pacman-css-2 {
   0% {
     -ms-transform: rotate(0deg);
@@ -99,21 +87,18 @@ uiload {
     -webkit-transform: rotate(0deg);
     -o-transform: rotate(0deg);
     transform: rotate(0deg); }
-
   50% {
     -ms-transform: rotate(30deg);
     -moz-transform: rotate(30deg);
     -webkit-transform: rotate(30deg);
     -o-transform: rotate(30deg);
     transform: rotate(30deg); }
-
   100% {
     -ms-transform: rotate(0deg);
     -moz-transform: rotate(0deg);
     -webkit-transform: rotate(0deg);
     -o-transform: rotate(0deg);
     transform: rotate(0deg); } }
-
 @-moz-keyframes uil-pacman-css-2 {
   0% {
     -ms-transform: rotate(0deg);
@@ -121,21 +106,18 @@ uiload {
     -webkit-transform: rotate(0deg);
     -o-transform: rotate(0deg);
     transform: rotate(0deg); }
-
   50% {
     -ms-transform: rotate(30deg);
     -moz-transform: rotate(30deg);
     -webkit-transform: rotate(30deg);
     -o-transform: rotate(30deg);
     transform: rotate(30deg); }
-
   100% {
     -ms-transform: rotate(0deg);
     -moz-transform: rotate(0deg);
     -webkit-transform: rotate(0deg);
     -o-transform: rotate(0deg);
     transform: rotate(0deg); } }
-
 @-ms-keyframes uil-pacman-css-2 {
   0% {
     -ms-transform: rotate(0deg);
@@ -143,21 +125,18 @@ uiload {
     -webkit-transform: rotate(0deg);
     -o-transform: rotate(0deg);
     transform: rotate(0deg); }
-
   50% {
     -ms-transform: rotate(30deg);
     -moz-transform: rotate(30deg);
     -webkit-transform: rotate(30deg);
     -o-transform: rotate(30deg);
     transform: rotate(30deg); }
-
   100% {
     -ms-transform: rotate(0deg);
     -moz-transform: rotate(0deg);
     -webkit-transform: rotate(0deg);
     -o-transform: rotate(0deg);
     transform: rotate(0deg); } }
-
 @keyframes uil-pacman-css-2 {
   0% {
     -ms-transform: rotate(0deg);
@@ -165,21 +144,18 @@ uiload {
     -webkit-transform: rotate(0deg);
     -o-transform: rotate(0deg);
     transform: rotate(0deg); }
-
   50% {
     -ms-transform: rotate(30deg);
     -moz-transform: rotate(30deg);
     -webkit-transform: rotate(30deg);
     -o-transform: rotate(30deg);
     transform: rotate(30deg); }
-
   100% {
     -ms-transform: rotate(0deg);
     -moz-transform: rotate(0deg);
     -webkit-transform: rotate(0deg);
     -o-transform: rotate(0deg);
     transform: rotate(0deg); } }
-
 .uil-pacman-css {
   background: none;
   position: relative;
@@ -190,7 +166,7 @@ uiload {
     width: 200px;
     height: 200px; }
   .uil-pacman-css > div > div {
-    background: black;
+    background: #000;
     width: 200px;
     height: 100px;
     position: absolute;
@@ -218,4 +194,6 @@ uiload {
     width: 100px;
     height: 200px;
     border-radius: 100px 0 0 100px;
-    background: black; }
+    background: #000; }
+
+/*# sourceMappingURL=pacman.css.map */

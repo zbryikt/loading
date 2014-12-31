@@ -12,7 +12,6 @@ uiload {
     -o-transform: translate(0, 0) scale(2);
     transform: translate(0, 0) scale(2);
     z-index: 1; }
-
   100% {
     -ms-transform: translate(0, 0) scale(0.1);
     -moz-transform: translate(0, 0) scale(0.1);
@@ -20,7 +19,6 @@ uiload {
     -o-transform: translate(0, 0) scale(0.1);
     transform: translate(0, 0) scale(0.1);
     z-index: 100; } }
-
 .uil-circle-css {
   background: none;
   overflow: hidden;
@@ -40,9 +38,9 @@ uiload {
     -o-animation: uil-circle-css duration_2 linear infinite;
     animation: uil-circle-css duration_2 linear infinite; }
     .uil-circle-css > div:nth-of-type(2n) {
-      background: white; }
+      background: #fff; }
     .uil-circle-css > div:nth-of-type(2n+1) {
-      background: black; }
+      background: #000; }
 
 .uil-circle-css > div:nth-of-type(1) {
   -ms-animation-delay: begin1;
@@ -99,3 +97,5 @@ uiload {
   -webkit-animation-delay: begin8;
   -o-animation-delay: begin8;
   animation-delay: begin8; }
+
+/*# sourceMappingURL=circle.css.map */

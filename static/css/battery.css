@@ -7,163 +7,115 @@ uiload {
 @-webkit-keyframes uil-battery-anim4 {
   0% {
     opacity: 0; }
-
   10% {
     opacity: 0; }
-
   30% {
     opacity: 1; } }
-
 @-moz-keyframes uil-battery-anim4 {
   0% {
     opacity: 0; }
-
   10% {
     opacity: 0; }
-
   30% {
     opacity: 1; } }
-
 @-ms-keyframes uil-battery-anim4 {
   0% {
     opacity: 0; }
-
   10% {
     opacity: 0; }
-
   30% {
     opacity: 1; } }
-
 @keyframes uil-battery-anim4 {
   0% {
     opacity: 0; }
-
   10% {
     opacity: 0; }
-
   30% {
     opacity: 1; } }
-
 @-webkit-keyframes uil-battery-anim3 {
   0% {
     opacity: 0; }
-
   30% {
     opacity: 0; }
-
   50% {
     opacity: 1; } }
-
 @-moz-keyframes uil-battery-anim3 {
   0% {
     opacity: 0; }
-
   30% {
     opacity: 0; }
-
   50% {
     opacity: 1; } }
-
 @-ms-keyframes uil-battery-anim3 {
   0% {
     opacity: 0; }
-
   30% {
     opacity: 0; }
-
   50% {
     opacity: 1; } }
-
 @keyframes uil-battery-anim3 {
   0% {
     opacity: 0; }
-
   30% {
     opacity: 0; }
-
   50% {
     opacity: 1; } }
-
 @-webkit-keyframes uil-battery-anim2 {
   0% {
     opacity: 0; }
-
   50% {
     opacity: 0; }
-
   70% {
     opacity: 1; } }
-
 @-moz-keyframes uil-battery-anim2 {
   0% {
     opacity: 0; }
-
   50% {
     opacity: 0; }
-
   70% {
     opacity: 1; } }
-
 @-ms-keyframes uil-battery-anim2 {
   0% {
     opacity: 0; }
-
   50% {
     opacity: 0; }
-
   70% {
     opacity: 1; } }
-
 @keyframes uil-battery-anim2 {
   0% {
     opacity: 0; }
-
   50% {
     opacity: 0; }
-
   70% {
     opacity: 1; } }
-
 @-webkit-keyframes uil-battery-anim1 {
   0% {
     opacity: 0; }
-
   70% {
     opacity: 0; }
-
   90% {
     opacity: 1; } }
-
 @-moz-keyframes uil-battery-anim1 {
   0% {
     opacity: 0; }
-
   70% {
     opacity: 0; }
-
   90% {
     opacity: 1; } }
-
 @-ms-keyframes uil-battery-anim1 {
   0% {
     opacity: 0; }
-
   70% {
     opacity: 0; }
-
   90% {
     opacity: 1; } }
-
 @keyframes uil-battery-anim1 {
   0% {
     opacity: 0; }
-
   70% {
     opacity: 0; }
-
   90% {
     opacity: 1; } }
-
 .uil-battery-css {
   background: none;
   position: relative;
@@ -221,3 +173,5 @@ uiload {
     -webkit-animation: uil-battery-anim4 1s linear infinite;
     -o-animation: uil-battery-anim4 1s linear infinite;
     animation: uil-battery-anim4 1s linear infinite; }
+
+/*# sourceMappingURL=battery.css.map */

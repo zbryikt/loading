@@ -13,115 +13,79 @@ uiload {
 @-webkit-keyframes uil-poi-anim0 {
   0% {
     top: 145px; }
-
   12% {
     top: 102px; }
-
   25% {
     top: 70px; }
-
   37% {
     top: 51px; }
-
   50% {
     top: 45px; }
-
   62% {
     top: 50px; }
-
   75% {
     top: 70px; }
-
   87% {
     top: 99px; }
-
   100% {
     top: 145px; } }
-
 @-moz-keyframes uil-poi-anim0 {
   0% {
     top: 145px; }
-
   12% {
     top: 102px; }
-
   25% {
     top: 70px; }
-
   37% {
     top: 51px; }
-
   50% {
     top: 45px; }
-
   62% {
     top: 50px; }
-
   75% {
     top: 70px; }
-
   87% {
     top: 99px; }
-
   100% {
     top: 145px; } }
-
 @-ms-keyframes uil-poi-anim0 {
   0% {
     top: 145px; }
-
   12% {
     top: 102px; }
-
   25% {
     top: 70px; }
-
   37% {
     top: 51px; }
-
   50% {
     top: 45px; }
-
   62% {
     top: 50px; }
-
   75% {
     top: 70px; }
-
   87% {
     top: 99px; }
-
   100% {
     top: 145px; } }
-
 @keyframes uil-poi-anim0 {
   0% {
     top: 145px; }
-
   12% {
     top: 102px; }
-
   25% {
     top: 70px; }
-
   37% {
     top: 51px; }
-
   50% {
     top: 45px; }
-
   62% {
     top: 50px; }
-
   75% {
     top: 70px; }
-
   87% {
     top: 99px; }
-
   100% {
     top: 145px; } }
-
 @-webkit-keyframes uil-poi-anim1 {
   0% {
     -ms-transform: translate(0, 0) rotate(0deg) translate(0, 0);
@@ -129,14 +93,12 @@ uiload {
     -webkit-transform: translate(0, 0) rotate(0deg) translate(0, 0);
     -o-transform: translate(0, 0) rotate(0deg) translate(0, 0);
     transform: translate(0, 0) rotate(0deg) translate(0, 0); }
-
   100% {
     -ms-transform: translate(0, 0) rotate(360deg) translate(0, 0);
     -moz-transform: translate(0, 0) rotate(360deg) translate(0, 0);
     -webkit-transform: translate(0, 0) rotate(360deg) translate(0, 0);
     -o-transform: translate(0, 0) rotate(360deg) translate(0, 0);
     transform: translate(0, 0) rotate(360deg) translate(0, 0); } }
-
 @-moz-keyframes uil-poi-anim1 {
   0% {
     -ms-transform: translate(0, 0) rotate(0deg) translate(0, 0);
@@ -144,14 +106,12 @@ uiload {
     -webkit-transform: translate(0, 0) rotate(0deg) translate(0, 0);
     -o-transform: translate(0, 0) rotate(0deg) translate(0, 0);
     transform: translate(0, 0) rotate(0deg) translate(0, 0); }
-
   100% {
     -ms-transform: translate(0, 0) rotate(360deg) translate(0, 0);
     -moz-transform: translate(0, 0) rotate(360deg) translate(0, 0);
     -webkit-transform: translate(0, 0) rotate(360deg) translate(0, 0);
     -o-transform: translate(0, 0) rotate(360deg) translate(0, 0);
     transform: translate(0, 0) rotate(360deg) translate(0, 0); } }
-
 @-ms-keyframes uil-poi-anim1 {
   0% {
     -ms-transform: translate(0, 0) rotate(0deg) translate(0, 0);
@@ -159,14 +119,12 @@ uiload {
     -webkit-transform: translate(0, 0) rotate(0deg) translate(0, 0);
     -o-transform: translate(0, 0) rotate(0deg) translate(0, 0);
     transform: translate(0, 0) rotate(0deg) translate(0, 0); }
-
   100% {
     -ms-transform: translate(0, 0) rotate(360deg) translate(0, 0);
     -moz-transform: translate(0, 0) rotate(360deg) translate(0, 0);
     -webkit-transform: translate(0, 0) rotate(360deg) translate(0, 0);
     -o-transform: translate(0, 0) rotate(360deg) translate(0, 0);
     transform: translate(0, 0) rotate(360deg) translate(0, 0); } }
-
 @keyframes uil-poi-anim1 {
   0% {
     -ms-transform: translate(0, 0) rotate(0deg) translate(0, 0);
@@ -174,14 +132,12 @@ uiload {
     -webkit-transform: translate(0, 0) rotate(0deg) translate(0, 0);
     -o-transform: translate(0, 0) rotate(0deg) translate(0, 0);
     transform: translate(0, 0) rotate(0deg) translate(0, 0); }
-
   100% {
     -ms-transform: translate(0, 0) rotate(360deg) translate(0, 0);
     -moz-transform: translate(0, 0) rotate(360deg) translate(0, 0);
     -webkit-transform: translate(0, 0) rotate(360deg) translate(0, 0);
     -o-transform: translate(0, 0) rotate(360deg) translate(0, 0);
     transform: translate(0, 0) rotate(360deg) translate(0, 0); } }
-
 .uil-poi-css > div {
   position: absolute;
   top: 100px;
@@ -192,7 +148,7 @@ uiload {
   margin-left: -45px;
   border-radius: 45px;
   background: none;
-  border: 30px solid black;
+  border: 30px solid #000;
   -ms-animation: uil-poi-anim-type 1s linear infinite;
   -moz-animation: uil-poi-anim-type 1s linear infinite;
   -webkit-animation: uil-poi-anim-type 1s linear infinite;
@@ -204,7 +160,7 @@ uiload {
     height: 0;
     border-left: 30px solid transparent;
     border-right: 30px solid transparent;
-    border-top: 30px solid black;
+    border-top: 30px solid #000;
     position: absolute;
     top: 43px;
     left: -15px;
@@ -213,3 +169,5 @@ uiload {
     -webkit-transform: scaleX(0.66);
     -o-transform: scaleX(0.66);
     transform: scaleX(0.66); }
+
+/*# sourceMappingURL=poi.css.map */

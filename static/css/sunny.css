@@ -118,14 +118,12 @@ uiload {
     -webkit-transform: translate(88px, 90px) rotate(0deg);
     -o-transform: translate(88px, 90px) rotate(0deg);
     transform: translate(88px, 90px) rotate(0deg); }
-
   100% {
     -ms-transform: translate(88px, 90px) rotate(60deg);
     -moz-transform: translate(88px, 90px) rotate(60deg);
     -webkit-transform: translate(88px, 90px) rotate(60deg);
     -o-transform: translate(88px, 90px) rotate(60deg);
     transform: translate(88px, 90px) rotate(60deg); } }
-
 @-moz-keyframes uil-sunny-rotate {
   0% {
     -ms-transform: translate(88px, 90px) rotate(0deg);
@@ -133,14 +131,12 @@ uiload {
     -webkit-transform: translate(88px, 90px) rotate(0deg);
     -o-transform: translate(88px, 90px) rotate(0deg);
     transform: translate(88px, 90px) rotate(0deg); }
-
   100% {
     -ms-transform: translate(88px, 90px) rotate(60deg);
     -moz-transform: translate(88px, 90px) rotate(60deg);
     -webkit-transform: translate(88px, 90px) rotate(60deg);
     -o-transform: translate(88px, 90px) rotate(60deg);
     transform: translate(88px, 90px) rotate(60deg); } }
-
 @-ms-keyframes uil-sunny-rotate {
   0% {
     -ms-transform: translate(88px, 90px) rotate(0deg);
@@ -148,14 +144,12 @@ uiload {
     -webkit-transform: translate(88px, 90px) rotate(0deg);
     -o-transform: translate(88px, 90px) rotate(0deg);
     transform: translate(88px, 90px) rotate(0deg); }
-
   100% {
     -ms-transform: translate(88px, 90px) rotate(60deg);
     -moz-transform: translate(88px, 90px) rotate(60deg);
     -webkit-transform: translate(88px, 90px) rotate(60deg);
     -o-transform: translate(88px, 90px) rotate(60deg);
     transform: translate(88px, 90px) rotate(60deg); } }
-
 @keyframes uil-sunny-rotate {
   0% {
     -ms-transform: translate(88px, 90px) rotate(0deg);
@@ -163,14 +157,12 @@ uiload {
     -webkit-transform: translate(88px, 90px) rotate(0deg);
     -o-transform: translate(88px, 90px) rotate(0deg);
     transform: translate(88px, 90px) rotate(0deg); }
-
   100% {
     -ms-transform: translate(88px, 90px) rotate(60deg);
     -moz-transform: translate(88px, 90px) rotate(60deg);
     -webkit-transform: translate(88px, 90px) rotate(60deg);
     -o-transform: translate(88px, 90px) rotate(60deg);
     transform: translate(88px, 90px) rotate(60deg); } }
-
 .uil-sunny-light {
   width: 25px;
   height: 20px;
@@ -179,3 +171,5 @@ uiload {
   -webkit-animation: uil-sunny-rotate 1s linear infinite;
   -o-animation: uil-sunny-rotate 1s linear infinite;
   animation: uil-sunny-rotate 1s linear infinite; }
+
+/*# sourceMappingURL=sunny.css.map */
