@@ -82,6 +82,7 @@ angular.module \uiloading
         a.$observe 'height' (v) ~> if v => @render s,e,a,c,height: v
         a.$observe 'radius' (v) ~> if v => @render s,e,a,c,radius: v
         a.$observe 'offset' (v) ~> if v => @render s,e,a,c,offset: v
+        a.$observe 'background' (v) -> if v => e.find \rect.bk .css \fill, v
 
       start: (s, e, a, c) ->
       stop: (s, e, a, c) ->

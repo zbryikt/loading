@@ -145,11 +145,16 @@ define([], function(){
             });
           }
         });
-        return a.$observe('offset', function(v){
+        a.$observe('offset', function(v){
           if (v) {
             return this$.render(s, e, a, c, {
               offset: v
             });
+          }
+        });
+        return a.$observe('background', function(v){
+          if (v) {
+            return e.find('rect.bk').css('fill', v);
           }
         });
       },
