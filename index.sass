@@ -20,6 +20,9 @@ html, body
     margin: 50px auto
     img
       margin-left: -57px
+      @media (max-width: 640px)
+        width: 90%
+        margin: auto
   .title
     color: #fff
     font-size: 40px
@@ -53,6 +56,8 @@ html, body
   z-index: 11
   &.dim
     background: rgba(0,0,0,0.5)
+  @media (max-width: 640px)
+    height: auto
 
 nav.navbar-default
   background: none
@@ -69,6 +74,8 @@ nav.navbar-default
     &:hover
       color: #fff
       text-shadow: 0 0 5px rgba(255,255,128,0.7)
+  @media (max-width: 640px)
+    margin: 0
 
 #gallery
   width: 100%
@@ -205,7 +212,8 @@ nav.navbar-default
   margin: 10px 0
   background: rgba(0,0,0,0.2)
   .ib
-    width: 1024px
+    max-width: 1024px
+    width: 100%
     margin: 0 auto
   &:before
     content: " "
@@ -217,6 +225,8 @@ nav.navbar-default
     position: absolute
     top: -20px
     margin-left: 400px
+    @media (max-width: 640px)
+      display: none
   .item
     display: inline-block
     margin: 7px
@@ -265,6 +275,7 @@ a.hash-anchor
   visibility: hidden
 
 #icontent
+  width: 94%
   max-width: 1024px
   margin: 0 auto
   padding: 30px
@@ -313,12 +324,20 @@ a.hash-anchor
   height: 50px
 
 #comment
+  width: 94%
   max-width: 1024px
   margin: 20px auto 20px
   .ib
+    width: 100%
     padding: 20px
     border-radius: 10px
     background: rgba(255,255,255,0.8)
+    .fb-comments
+      width: 100%
+      span
+        width: 100%!important
+        iframe
+          width: 100%!important
 
 .anim
   transition: opacity 0.5s linear, visibility 0s linear 0s, z-index 0.5s linear
@@ -338,3 +357,12 @@ a.hash-anchor
   transition: opacity 0.8s
 .delay.visible
   opacity: 1.0
+
+@media (max-width: 480px)
+  #footer a span
+    display: none
+  
+@media (min-width: 480px)
+  #footer a i.glyphicon
+    display: none
+  
